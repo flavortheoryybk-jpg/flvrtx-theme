@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <a href="https://roots.io/sage/"><img alt="Sage" src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="100"></a>
 </p>
@@ -40,3 +41,6 @@ Keep track of development and community news.
 - Follow [@rootswp on Twitter](https://twitter.com/rootswp)
 - Follow the [Roots Blog](https://roots.io/blog/)
 - Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
+=======
+# flvrtx-theme
+>>>>>>> d2fd5e156e5aadb75a03ae9f3a9f89d2c0803c09

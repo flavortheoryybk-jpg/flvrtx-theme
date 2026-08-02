@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 /node_modules
 /vendor
 /public/*
 !/public/.gitkeep
 .env
 npm-debug.log
+=======
+
+>>>>>>> d2fd5e156e5aadb75a03ae9f3a9f89d2c0803c09

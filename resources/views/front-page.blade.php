@@ -56,5 +56,54 @@
 
     </x-container>
 </section>
+<section class="py-20">
+    <x-container>
+
+        <div class="mb-12">
+            <h2 class="text-4xl font-bold">Explore FLVRTX</h2>
+            <p class="mt-3 text-text-muted">
+                Discover every part of Flavor Theory.
+            </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+            @php
+                $categories = [
+                    ['Recipes', '🍛'],
+                    ['Wellness', '🥗'],
+                    ['Food Science', '🧪'],
+                    ['Learn', '📚'],
+                    ['Watch', '🎥'],
+                    ['Shop', '🛒'],
+                ];
+            @endphp
+
+            @foreach($categories as [$title, $icon])
+
+                <a href="#"
+                   class="group rounded-2xl border border-border bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                    <div class="text-4xl">
+                        {{ $icon }}
+                    </div>
+
+                    <h3 class="mt-6 text-2xl font-semibold">
+                        {{ $title }}
+                    </h3>
+
+                    <p class="mt-3 text-text-muted">
+                        Explore {{ strtolower($title) }} content.
+                    </p>
+
+                </a>
+
+            @endforeach
+
+        </div>
+
+    </x-container>
+</section>
 
 @endsection
+
