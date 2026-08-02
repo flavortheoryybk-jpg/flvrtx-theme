@@ -104,6 +104,72 @@
 
     </x-container>
 </section>
+<section class="py-24 bg-white">
+    <x-container>
 
+        <div class="flex items-end justify-between mb-12">
+
+            <div>
+                <p class="text-primary font-semibold uppercase tracking-wider">
+                    Latest
+                </p>
+
+                <h2 class="mt-2 text-4xl font-bold">
+                    Latest Recipes
+                </h2>
+
+                <p class="mt-3 text-text-muted">
+                    Fresh recipes from the FLVRTX kitchen.
+                </p>
+            </div>
+
+            <a href="#"
+               class="hidden md:inline-flex text-primary font-semibold hover:underline">
+                View All →
+            </a>
+
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+            @for ($i = 1; $i <= 3; $i++)
+
+                <article class="overflow-hidden rounded-3xl border border-border bg-background transition hover:-translate-y-1 hover:shadow-xl">
+
+                    <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+
+                        Recipe Image
+
+                    </div>
+
+                    <div class="p-6">
+
+                        <span class="text-sm text-primary font-medium">
+                            Andhra Recipe
+                        </span>
+
+                        <h3 class="mt-3 text-2xl font-bold">
+                            Recipe Title
+                        </h3>
+
+                        <p class="mt-3 text-text-muted">
+                            Short recipe description goes here.
+                        </p>
+
+                        <a href="#"
+                           class="mt-6 inline-flex font-semibold text-primary">
+                            Read Recipe →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            @endfor
+
+        </div>
+
+    </x-container>
+</section>
 @endsection
 
