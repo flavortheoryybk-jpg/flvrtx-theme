@@ -70,30 +70,54 @@
 
             @php
                 $categories = [
-                    ['Recipes', '🍛'],
-                    ['Wellness', '🥗'],
-                    ['Food Science', '🧪'],
-                    ['Learn', '📚'],
-                    ['Watch', '🎥'],
-                    ['Shop', '🛒'],
-                ];
+    [
+        'title' => 'Recipes',
+        'icon' => '🍛',
+        'url' => home_url('/recipes'),
+    ],
+    [
+        'title' => 'Wellness',
+        'icon' => '🥗',
+        'url' => home_url('/wellness'),
+    ],
+    [
+        'title' => 'Learn',
+        'icon' => '📚',
+        'url' => home_url('/learn'),
+    ],
+    [
+        'title' => 'Watch',
+        'icon' => '🎥',
+        'url' => home_url('/watch'),
+    ],
+    [
+        'title' => 'Shop',
+        'icon' => '🛒',
+        'url' => home_url('/shop'),
+    ],
+    [
+        'title' => 'About',
+        'icon' => '👨',
+        'url' => home_url('/about'),
+    ],
+];
             @endphp
 
-            @foreach($categories as [$title, $icon])
+            @foreach($categories as $category)
 
-                <a href="#"
-                   class="group rounded-2xl border border-border bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <a href="{{ $category['url'] }}"
+   class="group rounded-2xl border border-border bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
                     <div class="text-4xl">
-                        {{ $icon }}
+                        {{ $category['icon'] }}
                     </div>
 
                     <h3 class="mt-6 text-2xl font-semibold">
-                        {{ $title }}
+                        {{ $category['title'] }}
                     </h3>
 
                     <p class="mt-3 text-text-muted">
-                        Explore {{ strtolower($title) }} content.
+                        Explore {{ strtolower($category['title']) }} content.
                     </p>
 
                 </a>
@@ -132,40 +156,25 @@
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            @for ($i = 1; $i <= 3; $i++)
+            @php
+$recipes = new WP_Query([
+    'post_type' => 'post',
+    'posts_per_page' => 3,
+]);
+@endphp
 
-                <article class="overflow-hidden rounded-3xl border border-border bg-background transition hover:-translate-y-1 hover:shadow-xl">
+@if($recipes->have_posts())
 
-                    <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+    @while($recipes->have_posts())
+        @php($recipes->the_post())
 
-                        Recipe Image
+        @include('partials.recipe-card')
 
-                    </div>
+    @endwhile
 
-                    <div class="p-6">
+    @php(wp_reset_postdata())
 
-                        <span class="text-sm text-primary font-medium">
-                            Andhra Recipe
-                        </span>
-
-                        <h3 class="mt-3 text-2xl font-bold">
-                            Recipe Title
-                        </h3>
-
-                        <p class="mt-3 text-text-muted">
-                            Short recipe description goes here.
-                        </p>
-
-                        <a href="#"
-                           class="mt-6 inline-flex font-semibold text-primary">
-                            Read Recipe →
-                        </a>
-
-                    </div>
-
-                </article>
-
-            @endfor
+@endif
 
         </div>
 
