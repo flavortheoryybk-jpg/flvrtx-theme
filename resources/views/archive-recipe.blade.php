@@ -30,71 +30,110 @@
 
     <x-container>
 
-        <div class="mb-10 flex items-center justify-between">
+        <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 
-            <p class="text-text-muted">
+            <p class="text-lg text-text-muted">
+                {{ $GLOBALS['wp_query']->found_posts }} Recipes
+            </p>
 
-                {{ $wp_query->found_posts }} Recipes
+            <form
+                action="{{ home_url('/recipes') }}"
+                method="GET"
+                class="w-full lg:w-96">
 
-                <form
-                    action="{{ home_url('/recipes') }}"
-                    method="GET"
-                    class="mt-8">
+                <div class="relative">
 
                     <input
                         type="search"
                         name="s"
-                        placeholder="Search recipes..."
                         value="{{ get_search_query() }}"
-                        class="w-full rounded-2xl border border-border bg-white px-6 py-4 text-lg outline-none transition focus:border-primary">
+                        placeholder="Search recipes..."
+                        class="w-full rounded-2xl border border-border bg-white px-6 py-4 outline-none transition-all focus:border-primary">
 
-                </form>
+                    <input
+                        type="hidden"
+                        name="post_type"
+                        value="recipe">
 
-            </p>
+                </div>
+
+            </form>
 
         </div>
 
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {{-- Categories --}}
 
-            @if(have_posts())
+        <div class="mb-14 flex flex-wrap gap-3">
+
+            <a href="{{ home_url('/recipes') }}"
+               class="rounded-full bg-primary px-5 py-2 text-white">
+                All
+            </a>
+
+            @foreach(get_terms([
+                'taxonomy'=>'category',
+                'hide_empty'=>true
+            ]) as $category)
+
+                <a
+                    href="{{ get_term_link($category) }}"
+                    class="rounded-full border border-border bg-white px-5 py-2 transition hover:border-primary hover:text-primary">
+
+                    {{ $category->name }}
+
+                </a>
+
+            @endforeach
+
+        </div>
+
+        @if(have_posts())
+
+            <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
                 @while(have_posts())
 
-                @php(the_post())
+                    @php(the_post())
 
-                @include('recipe.card')
+                    @include('recipe.card')
 
                 @endwhile
 
-              @else
-              
-                  <div class="rounded-3xl border border-border bg-background p-16 text-center">
-              
-                      <h2 class="text-3xl font-bold">
-                          No recipes found
-                      </h2>
-              
-                      <p class="mt-4 text-text-muted">
-                          Try another search.
-                      </p>
-              
-                  </div>
+            </div>
 
-              @if ($wp_query->max_num_pages > 1)
+        @else
 
-              <div class="mt-16">
-              
-                  {!! paginate_links([
-                      'prev_text' => '← Previous',
-                      'next_text' => 'Next →',
-                  ]) !!}
-              
-              </div>
-              
-              @endif
+            <div class="rounded-3xl border border-border bg-white py-24 text-center">
 
+                <h2 class="text-3xl font-bold">
 
-        </div>
+                    No recipes found
+
+                </h2>
+
+                <p class="mt-4 text-text-muted">
+
+                    Try another search.
+
+                </p>
+
+            </div>
+
+        @endif
+
+        @if($GLOBALS['wp_query']->max_num_pages > 1)
+
+            <div class="mt-20 flex justify-center">
+
+                {!! paginate_links([
+                    'mid_size'=>2,
+                    'prev_text'=>'← Previous',
+                    'next_text'=>'Next →'
+                ]) !!}
+
+            </div>
+
+        @endif
 
     </x-container>
 
