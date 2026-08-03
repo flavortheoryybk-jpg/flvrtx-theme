@@ -36,7 +36,7 @@
 
                     @php(the_post())
 
-                    @include('partials.recipe-card')
+                    @include('recipe.card')
 
                 @endwhile
 

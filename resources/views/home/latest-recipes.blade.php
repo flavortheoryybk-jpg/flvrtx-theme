@@ -39,7 +39,7 @@ $recipes = new WP_Query([
     @while($recipes->have_posts())
         @php($recipes->the_post())
 
-        @include('partials.recipe-card')
+        @include('recipe.card')
 
     @endwhile
 
