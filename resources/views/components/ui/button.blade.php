@@ -1,30 +1,46 @@
 @props([
-    'href' => '#',
+    'href' => null,
     'variant' => 'primary',
     'size' => 'md',
 ])
 
 @php
+
 $base = 'inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-300';
 
 $variants = [
-    'primary' => 'bg-primary text-white hover:bg-primary/90',
-    'secondary' => 'bg-white border border-border text-text hover:bg-gray-50',
-    'outline' => 'border border-primary text-primary hover:bg-primary hover:text-white',
+    'primary' => 'bg-primary text-white hover:opacity-90 hover:-translate-y-1 hover:shadow-lg',
+    'secondary' => 'border border-border bg-white text-text hover:border-primary hover:text-primary',
+    'ghost' => 'text-primary hover:bg-primary/5',
 ];
 
 $sizes = [
     'sm' => 'px-4 py-2 text-sm',
-    'md' => 'px-6 py-3 text-base',
+    'md' => 'px-6 py-3',
     'lg' => 'px-8 py-4 text-lg',
 ];
+
+$class = "{$base} {$variants[$variant]} {$sizes[$size]}";
+
 @endphp
+
+@if($href)
 
 <a
     href="{{ $href }}"
-    {{ $attributes->merge([
-        'class' => "{$base} {$variants[$variant]} {$sizes[$size]}"
-    ]) }}
->
+    {{ $attributes->merge(['class'=>$class]) }}>
+
     {{ $slot }}
+
 </a>
+
+@else
+
+<button
+    {{ $attributes->merge(['class'=>$class]) }}>
+
+    {{ $slot }}
+
+</button>
+
+@endif

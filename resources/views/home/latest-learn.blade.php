@@ -14,21 +14,10 @@ $learn = new WP_Query([
 
     <x-container>
 
-        <div class="mb-12">
-
-            <span class="text-sm font-semibold uppercase tracking-widest text-primary">
-                Learn
-            </span>
-
-            <h2 class="mt-3 text-4xl font-bold">
-                Food Science & Learning
-            </h2>
-
-            <p class="mt-3 text-lg text-text-muted">
-                Understand why food behaves the way it does.
-            </p>
-
-        </div>
+        <x-ui.section-heading
+            eyebrow="Learn"
+            title="Food Science & Learning"
+            description="Understand why food behaves the way it does." />
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
@@ -39,6 +28,18 @@ $learn = new WP_Query([
                 @include('learn.card')
 
             @endwhile
+
+        </div>
+
+        <div class="mt-12 text-center">
+
+            <x-ui.button
+                href="{{ get_post_type_archive_link('learn') }}"
+                variant="secondary">
+
+                Explore Articles
+
+            </x-ui.button>
 
         </div>
 

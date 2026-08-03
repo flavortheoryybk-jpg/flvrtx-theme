@@ -1,13 +1,16 @@
-<a href="{{ get_permalink() }}"
-   class="group block overflow-hidden rounded-3xl border border-border bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+<x-ui.card href="{{ get_permalink() }}">
 
     @if(has_post_thumbnail())
 
         <div class="overflow-hidden">
 
-            {!! get_the_post_thumbnail(get_the_ID(), 'medium_large', [
-                'class' => 'aspect-video w-full object-cover transition duration-500 group-hover:scale-105'
-            ]) !!}
+            {!! get_the_post_thumbnail(
+                get_the_ID(),
+                'medium_large',
+                [
+                    'class' => 'aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105'
+                ]
+            ) !!}
 
         </div>
 
@@ -15,11 +18,43 @@
 
     <div class="p-7">
 
-        <span class="text-xs font-semibold uppercase tracking-widest text-primary">
-            Recipe
-        </span>
+        <div class="flex items-center justify-between">
 
-        <h3 class="mt-3 text-2xl font-bold leading-snug transition group-hover:text-primary">
+            @php
+            $category = get_the_terms(get_the_ID(), 'category');
+            @endphp
+            
+            @if($category)
+
+              <a href="{{ get_term_link($category[0]) }}">
+          
+                  <x-ui.badge>
+          
+                      {{ $category[0]->name }}
+          
+                  </x-ui.badge>
+          
+              </a>
+          
+          @else
+          
+              <x-ui.badge>
+          
+                  Recipe
+          
+              </x-ui.badge>
+          
+          @endif
+
+            <span class="text-sm text-text-muted">
+
+                {{ get_field('prep_time') }} min
+
+            </span>
+
+        </div>
+
+        <h3 class="mt-5 text-2xl font-bold leading-tight transition group-hover:text-primary">
 
             {{ get_the_title() }}
 
@@ -31,14 +66,22 @@
 
         </p>
 
-        <span class="mt-8 inline-flex items-center gap-2 font-semibold text-primary">
+        <div class="mt-6 flex items-center justify-between">
 
-            Read Recipe
+            <span class="text-sm text-text-muted">
 
-            →
+                👨‍🍳 {{ get_field('difficulty') }}
 
-        </span>
+            </span>
+
+            <span class="font-semibold text-primary">
+
+                Read Recipe →
+
+            </span>
+
+        </div>
 
     </div>
 
-</a>
+</x-ui.card>

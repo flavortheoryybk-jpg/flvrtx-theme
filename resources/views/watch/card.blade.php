@@ -18,11 +18,41 @@
 
     <div class="p-7">
 
-        <x-ui.badge>
+        <div class="flex items-center justify-between">
 
-            Learn
+            @php
+            $category = get_the_terms(get_the_ID(), 'category');
+            @endphp
+            
+            @if($category)
 
-        </x-ui.badge>
+              <a href="{{ get_term_link($category[0]) }}">
+          
+                  <x-ui.badge>
+          
+                      {{ $category[0]->name }}
+          
+                  </x-ui.badge>
+          
+              </a>
+          
+          @else
+          
+              <x-ui.badge>
+          
+                  Watch
+          
+              </x-ui.badge>
+          
+          @endif
+
+            <span class="text-sm text-text-muted">
+
+                {{ get_field('duration') }}
+
+            </span>
+
+        </div>
 
         <h3 class="mt-5 text-2xl font-bold leading-tight transition group-hover:text-primary">
 
@@ -40,13 +70,13 @@
 
             <span class="text-sm text-text-muted">
 
-                5 min read
+                🎬 Watch
 
             </span>
 
             <span class="font-semibold text-primary">
 
-                Read Article →
+                Watch Video →
 
             </span>
 

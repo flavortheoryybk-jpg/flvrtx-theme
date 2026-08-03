@@ -10,8 +10,7 @@
                 <x-logo />
 
                 <p class="mt-6 leading-7 text-text-muted">
-                    Recipes, food science, wellness and cooking experiments
-                    that help you understand why food works.
+                    FLVRTX is a premium food education platform exploring recipes, food science, wellness, and cooking techniques to help you understand why food works.
                 </p>
 
             </div>
@@ -101,21 +100,21 @@
                 <ul class="mt-6 space-y-3">
 
                     <li>
-                        <a href="YOUR_YOUTUBE_URL"
+                        <a href="https://www.youtube.com/@FLVRTX"
                            class="transition-colors duration-300 hover:text-primary"
                            target="_blank">
                             YouTube
                         </a>
                     </li>
                     <li>
-                        <a href="YOUR_INSTAGRAM_URL"
+                        <a href="https://www.instagram.com/flavortheory_flvrtx/?hl=en"
                            class="transition-colors duration-300 hover:text-primary"
                            target="_blank">
                             Instagram
                         </a>
                       </li>
                     <li>
-                        <a href="YOUR_Pinterest_URL"
+                        <a href="https://in.pinterest.com/flavortheory/"
                            class="transition-colors duration-300 hover:text-primary"
                            target="_blank">
                             Pinterest
