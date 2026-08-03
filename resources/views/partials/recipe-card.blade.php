@@ -21,12 +21,10 @@
 
     <div class="p-6">
 
-        <span
-            class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-
-            {{ get_the_post_type_object(get_post_type())->labels->singular_name }}
-
-        </span>
+          <span
+    class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+    {{ ucfirst(get_post_type()) }}
+          </span>
 
         <h3 class="mt-4 text-2xl font-bold leading-tight">
 
