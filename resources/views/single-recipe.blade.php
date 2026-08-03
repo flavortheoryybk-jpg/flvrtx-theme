@@ -15,7 +15,12 @@
         @include('recipe.ingredients')
 
         @include('recipe.instructions')
+
         @include('recipe.flavor-theory')
+
+        @include('recipe.video')
+
+        @include('recipe.related')
 
     @endwhile
 
