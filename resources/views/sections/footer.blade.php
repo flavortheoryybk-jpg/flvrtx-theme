@@ -1,3 +1,140 @@
-<footer class="content-info">
-  @php(dynamic_sidebar('sidebar-footer'))
+<footer class="border-t border-border bg-background">
+
+    <x-container>
+
+        <div class="grid gap-16 py-20 lg:grid-cols-4">
+
+            {{-- Brand --}}
+            <div>
+
+                <x-logo />
+
+                <p class="mt-6 leading-7 text-text-muted">
+                    Recipes, food science, wellness and cooking experiments
+                    that help you understand why food works.
+                </p>
+
+            </div>
+
+            {{-- Explore --}}
+            <div>
+
+                <h3 class="font-bold">
+                    Explore
+                </h3>
+
+                <ul class="mt-6 space-y-3">
+
+                        <li>
+                            <a href="{{ home_url('/recipes') }}"
+                               class="transition-colors duration-300 hover:text-primary">
+                                Recipes
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ home_url('/learn') }}"
+                               class="transition-colors duration-300 hover:text-primary">
+                                Learn
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ home_url('/wellness') }}"
+                               class="transition-colors duration-300 hover:text-primary">
+                                Wellness
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ home_url('/watch') }}"
+                               class="transition-colors duration-300 hover:text-primary">
+                                Watch
+                            </a>
+                        </li>
+
+                </ul>
+
+            </div>
+
+            {{-- Company --}}
+            <div>
+
+                <h3 class="font-bold">
+                    Company
+                </h3>
+
+                <ul class="mt-6 space-y-3">
+
+                    <a
+                        href="{{ home_url('/About') }}"
+                        class="transition-colors duration-300 hover:text-primary">
+                        About
+                    </a>
+                    <a
+                        href="{{ home_url('/Contact') }}"
+                        class="transition-colors duration-300 hover:text-primary">
+                        Contact
+                    </a>
+                    <a
+                        href="{{ home_url('/Privacy') }}"
+                        class="transition-colors duration-300 hover:text-primary">
+                        Privacy
+                    </a>
+
+                </ul>
+
+            </div>
+
+            {{-- Social --}}
+            <div>
+
+                <h3 class="font-bold">
+                    Follow
+                </h3>
+
+                <ul class="mt-6 space-y-3">
+
+                    <li>
+                        <a href="YOUR_YOUTUBE_URL"
+                           class="transition-colors duration-300 hover:text-primary"
+                           target="_blank">
+                            YouTube
+                        </a>
+                    </li>
+                    <li>
+                        <a href="YOUR_INSTAGRAM_URL"
+                           class="transition-colors duration-300 hover:text-primary"
+                           target="_blank">
+                            Instagram
+                        </a>
+                      </li>
+                    <li>
+                        <a href="YOUR_Pinterest_URL"
+                           class="transition-colors duration-300 hover:text-primary"
+                           target="_blank">
+                            Pinterest
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="flex flex-col items-center justify-between gap-4 border-t border-border py-8 text-sm text-text-muted md:flex-row">
+
+            <p>
+                © {{ date('Y') }} FLVRTX. All rights reserved.
+            </p>
+
+            <p>
+                Built with ❤️ using Sage 11 & Tailwind CSS
+            </p>
+
+        </div>
+
+    </x-container>
+
 </footer>
