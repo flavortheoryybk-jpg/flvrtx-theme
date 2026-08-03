@@ -66,21 +66,26 @@
 
                 <ul class="mt-6 space-y-3">
 
-                    <a
-                        href="{{ home_url('/About') }}"
-                        class="transition-colors duration-300 hover:text-primary">
-                        About
-                    </a>
-                    <a
-                        href="{{ home_url('/Contact') }}"
-                        class="transition-colors duration-300 hover:text-primary">
-                        Contact
-                    </a>
-                    <a
-                        href="{{ home_url('/Privacy') }}"
-                        class="transition-colors duration-300 hover:text-primary">
-                        Privacy
-                    </a>
+                    <li>
+                        <a href="{{ home_url('/about') }}"
+                           class="transition-colors duration-300 hover:text-primary">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ home_url('/contact') }}"
+                           class="transition-colors duration-300 hover:text-primary">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ home_url('/privacy-policy') }}"
+                           class="transition-colors duration-300 hover:text-primary">
+                            Privacy Policy
+                        </a>
+                    </li>
 
                 </ul>
 
@@ -130,7 +135,7 @@
             </p>
 
             <p>
-                Built with ❤️ using Sage 11 & Tailwind CSS
+                Understanding food, one recipe at a time.
             </p>
 
         </div>
