@@ -65,3 +65,4 @@ h6 {
   font-family: var(--font-heading);
   color: var(--color-text);
 }
+@import './print.css';

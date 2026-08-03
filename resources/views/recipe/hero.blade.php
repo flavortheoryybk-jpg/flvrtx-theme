@@ -97,7 +97,7 @@
 <div class="mt-10 flex flex-wrap gap-4">
 
     <button
-        onclick="window.print()"
+        onclick="window.print(); return false;"
         class="rounded-xl bg-primary px-7 py-3 font-semibold text-white transition hover:opacity-90">
 
         Print Recipe
