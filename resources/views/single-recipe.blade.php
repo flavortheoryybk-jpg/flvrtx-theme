@@ -12,6 +12,10 @@
 
         @include('recipe.hero')
 
+        @include('recipe.cook-mode.button')
+        
+        @include('recipe.cook-mode.modal')
+
         @include('recipe.quick-info')
 
         @include('recipe.content')

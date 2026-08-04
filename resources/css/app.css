@@ -4,65 +4,7 @@
 @source "../**/*.blade.php";
 @source "../**/*.js";
 
-/* ==========================
-   FLVRTX Design Tokens
-========================== */
-
-@theme {
-  /* Brand Colors */
-  --color-primary: #2f6b4f;
-  --color-primary-dark: #244f3b;
-  --color-secondary: #f8f5ef;
-  --color-accent: #d4a017;
-
-  /* Neutral Colors */
-  --color-background: #fcfbf8;
-  --color-surface: #ffffff;
-  --color-text: #1f2937;
-  --color-text-muted: #6b7280;
-  --color-border: #e5e7eb;
-
-  /* Success / Warning / Error */
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #dc2626;
-
-  /* Fonts */
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  /* Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-
-  /* Container */
-  --container-content: 768px;
-  --container-wide: 1280px;
-}
-
-/* ==========================
-   Global Styles
-========================== */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font-body);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  color: var(--color-text);
-}
-@import './print.css';
+@import './base/tokens.css';
+@import './base/typography.css';
+@import './layout/utilities.css';
+@import './pages/print.css';

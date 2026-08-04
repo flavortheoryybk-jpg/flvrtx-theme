@@ -1,0 +1,11 @@
+.prose img {
+  border-radius: 24px;
+}
+
+.container-padding {
+  @apply px-6 lg:px-8;
+}
+
+.shadow-soft {
+  box-shadow: ...;
+}
