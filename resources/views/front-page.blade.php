@@ -4,6 +4,8 @@
 
 @include('home.hero')
 
+@include('home.why-flvrtx')
+
 @include('home.featured-recipe')
 
 @include('home.categories')

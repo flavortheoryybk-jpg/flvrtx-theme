@@ -60,31 +60,17 @@
             </div>
 
             {{-- Right Content --}}
-            <div class="flex justify-center">
-
-                @if(has_post_thumbnail())
-
-                    {!! get_the_post_thumbnail(
-                        get_the_ID(),
-                        'large',
-                        [
-                            'class' => 'aspect-square w-full max-w-md rounded-3xl object-cover shadow-2xl'
-                        ]
-                    ) !!}
-
-                @else
-
-                    <div class="flex aspect-square w-full max-w-md items-center justify-center rounded-3xl border border-border bg-gradient-to-br from-primary/10 to-accent/10">
-
-                        <span class="text-text-muted">
-                            FLVRTX
-                        </span>
-
-                    </div>
-
-                @endif
-
-            </div>
+                <div class="flex justify-center lg:justify-end">
+                
+                    <img
+                      src="{{ Vite::asset('resources/images/Hero_Image_Flvrtx.png') }}"
+                      alt="FLVRTX Premium Food Collection"
+                      class="w-full max-w-xl rounded-[32px] object-cover shadow-2xl transition duration-500 hover:scale-[1.02]"
+                      loading="eager"
+                      decoding="async">
+                
+                </div>
+            
 
         </div>
 

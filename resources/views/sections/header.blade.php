@@ -30,13 +30,15 @@
             </nav>
 
             {{-- Desktop Search --}}
-            <div class="hidden items-center gap-3 lg:flex">
+            <div class="hidden lg:flex">
 
                 <a
                     href="{{ home_url('/?s=') }}"
-                    class="rounded-xl border border-border px-5 py-2.5 font-medium transition hover:border-primary hover:bg-primary hover:text-white">
+                    class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-2.5 font-medium transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
 
-                    🔍 Search
+                    <i data-lucide="search" class="h-5 w-5"></i>
+
+                    <span>Search</span>
 
                 </a>
 
@@ -44,10 +46,13 @@
 
             {{-- Mobile Hamburger --}}
             <button
-                @click="mobileMenu = true"
-                class="flex h-10 w-10 items-center justify-center rounded-xl border border-border transition hover:bg-primary hover:text-white lg:hidden">
+                @click="
+                    mobileMenu = true;
+                    $nextTick(() => window.createIcons())
+                "
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white lg:hidden">
 
-                ☰
+                <i data-lucide="menu" class="h-6 w-6"></i>
 
             </button>
 
@@ -65,7 +70,7 @@
 
     </div>
 
-    {{-- Mobile Menu --}}
+    {{-- Mobile Drawer --}}
     <aside
         x-show="mobileMenu"
         x-transition:enter="transition ease-out duration-300"
@@ -75,23 +80,28 @@
         x-transition:leave-start="translate-x-0"
         x-transition:leave-end="translate-x-full"
         @click.outside="mobileMenu = false"
-        class="fixed right-0 top-0 z-50 flex h-screen w-80 flex-col bg-white shadow-2xl"
+        class="fixed right-0 top-0 z-50 flex h-screen w-80 max-w-[90vw] flex-col bg-white shadow-2xl"
         style="display:none">
 
+        {{-- Drawer Header --}}
         <div class="flex items-center justify-between border-b border-border p-6">
 
             <x-logo />
 
             <button
-                @click="mobileMenu = false"
-                class="text-3xl leading-none">
+                @click="
+                    mobileMenu = false;
+                    $nextTick(() => window.createIcons())
+                "
+                class="rounded-lg p-2 transition hover:bg-gray-100">
 
-                ×
+                <i data-lucide="x" class="h-6 w-6"></i>
 
             </button>
 
         </div>
 
+        {{-- Navigation --}}
         <nav class="flex-1 p-6">
 
             @if (has_nav_menu('primary_navigation'))
@@ -107,20 +117,21 @@
 
             <a
                 href="{{ home_url('/?s=') }}"
-                class="mt-8 inline-flex rounded-xl border border-border px-5 py-3 font-medium">
+                class="mt-8 inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 font-medium transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
 
-                🔍 Search
+                <i data-lucide="search" class="h-5 w-5"></i>
+
+                <span>Search</span>
 
             </a>
 
         </nav>
 
+        {{-- Footer --}}
         <div class="border-t border-border p-6">
 
             <p class="text-sm text-text-muted">
-
                 © {{ date('Y') }} FLVRTX
-
             </p>
 
         </div>

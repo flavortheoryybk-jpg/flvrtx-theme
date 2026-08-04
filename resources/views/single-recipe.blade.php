@@ -12,11 +12,9 @@
 
         @include('recipe.hero')
 
-        @include('recipe.ingredients')
+        @include('recipe.quick-info')
 
-        @include('recipe.instructions')
-
-        @include('recipe.flavor-theory')
+        @include('recipe.content')
 
         @include('recipe.video')
 

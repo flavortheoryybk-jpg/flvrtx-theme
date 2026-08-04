@@ -1,5 +1,5 @@
 <section {{ $attributes->merge([
-    'class' => 'py-24'
+    'class' => 'py-20 lg:py-24'
 ]) }}>
 
     <x-container>

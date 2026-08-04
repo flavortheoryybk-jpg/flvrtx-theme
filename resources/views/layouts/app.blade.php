@@ -6,6 +6,11 @@
 
     @php(do_action('get_header'))
     @php(wp_head())
+    @if(isset($recipeSchema))
+    <script type="application/ld+json">
+    {!! $recipeSchema !!}
+    </script>
+    @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
