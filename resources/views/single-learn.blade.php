@@ -18,6 +18,8 @@
 
         @include('learn.related-recipe')
 
+        @include('learn.related-articles')
+
     @endwhile
 
 @endif

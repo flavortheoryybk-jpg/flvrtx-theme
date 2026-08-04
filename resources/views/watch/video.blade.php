@@ -1,34 +1,17 @@
-<section class="py-20 bg-background">
+@if(get_field('youtube_url'))
 
-    <x-container>
+<x-ui.section>
 
-        <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-5xl">
 
-            @if(get_field('youtube_url'))
+        <div class="aspect-video overflow-hidden rounded-[32px] shadow-2xl">
 
-                <div class="aspect-video overflow-hidden rounded-3xl shadow-xl">
-
-                    <iframe
-                        class="h-full w-full"
-                        src="{{ str_replace('watch?v=', 'embed/', get_field('youtube_url')) }}"
-                        title="{{ get_the_title() }}"
-                        frameborder="0"
-                        allowfullscreen>
-
-                    </iframe>
-
-                </div>
-
-            @endif
-
-            <div class="prose prose-lg mt-12 max-w-none">
-
-                {!! the_content() !!}
-
-            </div>
+            {!! wp_oembed_get(get_field('youtube_url')) !!}
 
         </div>
 
-    </x-container>
+    </div>
 
-</section>
+</x-ui.section>
+
+@endif

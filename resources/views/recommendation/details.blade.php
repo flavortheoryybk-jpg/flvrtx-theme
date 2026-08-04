@@ -6,7 +6,7 @@
 
             <div class="prose prose-lg max-w-none">
 
-                {!! the_content() !!}
+                {!! apply_filters('the_content', get_the_content()) !!}
 
             </div>
 
@@ -28,48 +28,109 @@
 
             @endif
 
-            <div class="mt-12 flex flex-wrap gap-4">
-
-                @if(get_field('amazon_link'))
-
-                    <a href="{{ get_field('amazon_link') }}"
-                       target="_blank"
-                       class="rounded-xl bg-primary px-6 py-3 font-semibold text-white">
-
-                        Buy on Amazon
-
-                    </a>
-
-                @endif
-
-                @if(get_field('flipkart_link'))
-
-                    <a href="{{ get_field('flipkart_link') }}"
-                       target="_blank"
-                       class="rounded-xl border border-border px-6 py-3 font-semibold">
-
-                        Buy on Flipkart
-
-                    </a>
-
-                @endif
-
-                @if(get_field('meesho_link'))
-
-                    <a href="{{ get_field('meesho_link') }}"
-                       target="_blank"
-                       class="rounded-xl border border-border px-6 py-3 font-semibold">
-
-                        Buy on Meesho
-
-                    </a>
-
-                @endif
-
-            </div>
-
         </div>
 
     </x-container>
 
 </section>
+
+<x-ui.section>
+
+    <div class="grid gap-8 lg:grid-cols-3">
+
+        {{-- Pros --}}
+        <x-ui.card>
+
+            <h2 class="text-2xl font-bold text-green-700">
+
+                👍 Pros
+
+            </h2>
+
+            <ul class="mt-6 space-y-4">
+
+                @foreach(explode("\n", trim(get_field('pros'))) as $item)
+
+                    @if(trim($item))
+
+                        <li class="flex gap-3">
+
+                            <i data-lucide="check-circle" class="mt-1 h-5 w-5 text-green-600"></i>
+
+                            <span>{{ trim($item) }}</span>
+
+                        </li>
+
+                    @endif
+
+                @endforeach
+
+            </ul>
+
+        </x-ui.card>
+
+        {{-- Cons --}}
+        <x-ui.card>
+
+            <h2 class="text-2xl font-bold text-red-700">
+
+                👎 Cons
+
+            </h2>
+
+            <ul class="mt-6 space-y-4">
+
+                @foreach(explode("\n", trim(get_field('cons'))) as $item)
+
+                    @if(trim($item))
+
+                        <li class="flex gap-3">
+
+                            <i data-lucide="x-circle" class="mt-1 h-5 w-5 text-red-600"></i>
+
+                            <span>{{ trim($item) }}</span>
+
+                        </li>
+
+                    @endif
+
+                @endforeach
+
+            </ul>
+
+        </x-ui.card>
+
+        {{-- Best For --}}
+        <x-ui.card>
+
+            <h2 class="text-2xl font-bold text-primary">
+
+                🎯 Best For
+
+            </h2>
+
+            <ul class="mt-6 space-y-4">
+
+                @foreach(explode("\n", trim(get_field('best_for'))) as $item)
+
+                    @if(trim($item))
+
+                        <li class="flex gap-3">
+
+                            <i data-lucide="chef-hat" class="mt-1 h-5 w-5 text-primary"></i>
+
+                            <span>{{ trim($item) }}</span>
+
+                        </li>
+
+                    @endif
+
+                @endforeach
+
+            </ul>
+
+        </x-ui.card>
+
+    </div>
+
+</x-ui.section>

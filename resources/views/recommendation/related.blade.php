@@ -46,3 +46,30 @@
     </x-container>
 
 </section>
+
+@if(get_field('related_recipes'))
+
+<x-ui.section>
+
+    <x-ui.section-header
+        badge="Cook With It"
+        title="Recipes Using This Product"
+        description="See this recommendation in action with recipes from FLVRTX." />
+
+    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+        @foreach(get_field('related_recipes') as $post)
+
+            @php(setup_postdata($post))
+
+            @include('recipe.card')
+
+        @endforeach
+
+        @php(wp_reset_postdata())
+
+    </div>
+
+</x-ui.section>
+
+@endif

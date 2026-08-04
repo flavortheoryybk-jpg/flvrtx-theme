@@ -12,6 +12,8 @@
 
         @include('recommendation.details')
 
+        @include('recommendation.buy-buttons')
+
         @include('recommendation.related')
 
     @endwhile

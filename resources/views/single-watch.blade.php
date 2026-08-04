@@ -2,9 +2,9 @@
 
 @section('content')
 
-@if (have_posts())
+@if(have_posts())
 
-    @while (have_posts())
+    @while(have_posts())
 
         @php(the_post())
 
@@ -12,7 +12,7 @@
 
         @include('watch.video')
 
-        @include('watch.related')
+        @include('watch.content')
 
     @endwhile
 

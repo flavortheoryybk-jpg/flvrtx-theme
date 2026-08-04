@@ -40,7 +40,7 @@
 
             <span class="text-sm text-text-muted">
 
-                5 min read
+                {{ get_field('reading_time') ?: '5' }} min read
 
             </span>
 
