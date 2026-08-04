@@ -4,6 +4,13 @@ $featured = new WP_Query([
     'post_type'      => 'recipe',
     'posts_per_page' => 1,
     'post_status'    => 'publish',
+    'meta_query'     => [
+        [
+            'key'     => 'featured_recipe',
+            'value'   => 1,
+            'compare' => '=',
+        ],
+    ],
 ]);
 
 @endphp

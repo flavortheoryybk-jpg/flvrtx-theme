@@ -8,15 +8,17 @@
             <div>
 
                 <x-ui.badge>
-                    Science • Recipes • Wellness
+                    <x-ui.badge>
+                        Premium Food Education Platform
+                    </x-ui.badge>
                 </x-ui.badge>
 
                 <h1 class="mt-6 text-5xl font-bold leading-tight text-text lg:text-7xl">
-                    Cook Better by Understanding Food.
+                    Understand Food. Cook With Confidence.
                 </h1>
 
                 <p class="mt-6 max-w-xl text-lg leading-8 text-text-muted">
-                    Recipes, food science, wellness, and cooking experiments that explain not only how to cook—but why every technique works.
+                    Explore recipes, food science, cooking techniques, and trusted recommendations that help you understand why every dish works.
                 </p>
 
                 <div class="mt-10 flex flex-wrap gap-5">
@@ -30,7 +32,7 @@
                         variant="secondary"
                         target="_blank">
 
-                        Watch Videos
+                        Start Learning
 
                     </x-ui.button>
 
@@ -39,12 +41,12 @@
                 <div class="mt-16 grid grid-cols-3 gap-8 border-t border-border pt-10">
 
                     <div>
-                        <p class="text-4xl font-bold text-primary">100+</p>
+                        <p class="text-4xl font-bold text-primary">{{ wp_count_posts('recipe')->publish }}</p>
                         <p class="mt-2 text-text-muted">Recipes</p>
                     </div>
 
                     <div>
-                        <p class="text-4xl font-bold text-primary">25+</p>
+                        <p class="text-4xl font-bold text-primary">{{ wp_count_posts('learn')->publish }}</p>
                         <p class="mt-2 text-text-muted">Food Science Articles</p>
                     </div>
 

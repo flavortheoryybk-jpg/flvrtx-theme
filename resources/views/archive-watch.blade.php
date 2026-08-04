@@ -9,15 +9,15 @@
         <div class="mx-auto max-w-3xl text-center">
 
             <span class="text-sm font-semibold uppercase tracking-widest text-primary">
-                Watch
+                Recommendation
             </span>
 
             <h1 class="mt-4 text-6xl font-bold">
-                Watch & Learn
+                Recommendations
             </h1>
 
             <p class="mt-6 text-xl leading-8 text-text-muted">
-                Watch premium cooking videos, techniques and food education from FLVRTX.
+                Products, ingredients and tools I personally use and recommend.
             </p>
 
         </div>
@@ -95,7 +95,7 @@
 
                     @php(the_post())
 
-                    @include('watch.card')
+                    @include('recommendation.card')
 
                 @endwhile
 
