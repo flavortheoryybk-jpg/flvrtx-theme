@@ -14,6 +14,10 @@
 
         @include('learn.did-you-know')
 
+        @include('learn.key-takeaways')
+
+        @include('learn.related-recipe')
+
     @endwhile
 
 @endif
