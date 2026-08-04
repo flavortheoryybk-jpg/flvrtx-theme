@@ -16,6 +16,8 @@
 
         @include('components.author-card')
 
+        @include('components.share')
+
         @include('watch.related')
 
     @endwhile

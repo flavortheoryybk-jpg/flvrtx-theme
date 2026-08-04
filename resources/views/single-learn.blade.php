@@ -20,6 +20,8 @@
 
         @include('components.author-card')
 
+        @include('components.share')
+
         @include('learn.related-articles')
 
     @endwhile

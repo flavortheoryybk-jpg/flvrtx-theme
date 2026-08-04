@@ -8,9 +8,16 @@
 
                         @if (has_post_thumbnail())
 
-                            {!! get_the_post_thumbnail(get_the_ID(), 'large', [
-                                'class' => 'aspect-video w-full rounded-[32px] object-cover shadow-xl',
-                            ]) !!}
+                            {!! get_the_post_thumbnail(
+                                get_the_ID(),
+                                'large',
+                                [
+                                    'class' => 'w-full rounded-3xl object-cover',
+                                    'loading' => 'eager',
+                                    'fetchpriority' => 'high',
+                                    'decoding' => 'async',
+                                ]
+                            ) !!}
 
                         @endif
 

@@ -16,6 +16,7 @@
 </head>
 
 <body @php(body_class('bg-background text-text antialiased'))>
+    @include('components.reading-progress')
 
     @php(wp_body_open())
 
@@ -37,6 +38,7 @@
     </div>
 
     @php(do_action('get_footer'))
+    @include('components.back-to-top')
     @php(wp_footer())
 
 </body>
