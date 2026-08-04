@@ -14,6 +14,8 @@
 
 @include('home.latest-learn')
 
+@include('home.latest-watch')
+
 @include('home.latest-recommendations')
 
 @endsection

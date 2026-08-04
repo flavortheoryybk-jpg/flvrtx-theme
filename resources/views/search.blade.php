@@ -2,71 +2,37 @@
 
 @section('content')
 
-<section class="py-24 bg-background">
+<section class="bg-background py-24">
 
     <x-container>
 
-        <x-ui.section-heading
-            eyebrow="Search"
-            title="Search Results"
-            description="Search recipes, food science articles and wellness content." />
+        <div class="mx-auto max-w-3xl text-center">
 
-        <form
-            action="{{ home_url('/') }}"
-            method="get"
-            class="mt-10 max-w-xl">
+            <x-ui.badge>
 
-            <x-ui.input
-                type="search"
-                name="s"
-                value="{{ get_search_query() }}"
-                placeholder="Search FLVRTX..." />
+                Search
 
-        </form>
+            </x-ui.badge>
 
-        @if(have_posts())
+            <h1 class="mt-6 text-5xl font-bold">
 
-            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                Search Results
 
-                @while(have_posts())
+            </h1>
 
-                    @php(the_post())
+            <p class="mt-6 text-xl text-text-muted">
 
-                    @if(get_post_type() === 'recipe')
+                Showing results for
 
-                        @include('recipe.card')
+                <span class="font-semibold text-text">
 
-                    @elseif(get_post_type() === 'learn')
+                    "{{ get_search_query() }}"
 
-                        @include('learn.card')
+                </span>
 
-                    @else
+            </p>
 
-                        @include('partials.content-search')
-
-                    @endif
-
-                @endwhile
-
-            </div>
-
-            <div class="mt-16">
-
-                {!! get_the_posts_navigation() !!}
-
-            </div>
-
-        @else
-
-            <div class="mt-16">
-
-                <x-ui.empty-state
-                    title="No results found"
-                    description="Try searching with another keyword." />
-
-            </div>
-
-        @endif
+        </div>
 
     </x-container>
 
