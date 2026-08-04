@@ -2,6 +2,10 @@
 
 @section('content')
 
+@include('learn.hero')
+
+@endsection
+
 @if(have_posts())
 
     @while(have_posts())
