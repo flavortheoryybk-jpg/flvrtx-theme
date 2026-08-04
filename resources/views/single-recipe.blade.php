@@ -18,6 +18,8 @@
 
         @include('recipe.video')
 
+        @include('components.author-card')
+
         @include('recipe.related')
 
     @endwhile

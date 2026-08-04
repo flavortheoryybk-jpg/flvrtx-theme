@@ -18,6 +18,8 @@
 
         @include('learn.related-recipe')
 
+        @include('components.author-card')
+
         @include('learn.related-articles')
 
     @endwhile

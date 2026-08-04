@@ -14,6 +14,8 @@
 
         @include('recommendation.buy-buttons')
 
+        @include('components.author-card')
+
         @include('recommendation.related')
 
     @endwhile

@@ -14,6 +14,10 @@
 
         @include('watch.content')
 
+        @include('components.author-card')
+
+        @include('watch.related')
+
     @endwhile
 
 @endif
