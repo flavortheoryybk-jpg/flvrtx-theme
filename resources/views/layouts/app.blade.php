@@ -16,7 +16,7 @@
 </head>
 
 <body @php(body_class('bg-background text-text antialiased'))>
-    @include('components.reading-progress')
+    @include('components.global.reading-progress')
 
     @php(wp_body_open())
 
@@ -34,11 +34,12 @@
         </main>
 
         @include('sections.footer')
+        @include('components.global.back-to-top')
+        @include('components.global.search-modal')
 
     </div>
 
     @php(do_action('get_footer'))
-    @include('components.back-to-top')
     @php(wp_footer())
 
 </body>

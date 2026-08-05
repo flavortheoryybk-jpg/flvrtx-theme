@@ -14,9 +14,9 @@
 
         @include('watch.content')
 
-        @include('components.author-card')
+        @include('components.global.author-card')
 
-        @include('components.share')
+        @include('components.global.share')
 
         @include('watch.related')
 

@@ -22,9 +22,9 @@
 
         @include('recipe.video')
 
-        @include('components.author-card')
+        @include('components.global.author-card')
 
-        @include('components.share')
+        @include('components.global.share')
 
         @include('recipe.related')
 

@@ -9,7 +9,7 @@
         <div class="flex h-20 items-center justify-between">
 
             {{-- Logo --}}
-            <a href="{{ home_url('/') }}">
+            <a href="{{ home_url('/') }}">   
                 <x-logo />
             </a>
 
@@ -32,15 +32,16 @@
             {{-- Desktop Search --}}
             <div class="hidden lg:flex">
 
-                <a
-                    href="{{ home_url('/?s=') }}"
+                <button
+                    type="button"
+                    @click="$dispatch('open-search')"
                     class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-2.5 font-medium transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
-
+                
                     <i data-lucide="search" class="h-5 w-5"></i>
-
+                
                     <span>Search</span>
-
-                </a>
+                
+                </button>
 
             </div>
 
@@ -84,22 +85,25 @@
         style="display:none">
 
         {{-- Drawer Header --}}
-        <div class="flex items-center justify-between border-b border-border p-6">
+            <div class="flex items-center justify-between border-b border-border p-6">
 
-            <x-logo />
+                <a href="{{ home_url('/') }}">
+                    <x-logo />
+                </a>
 
-            <button
-                @click="
-                    mobileMenu = false;
-                    $nextTick(() => window.createIcons())
-                "
-                class="rounded-lg p-2 transition hover:bg-gray-100">
+                <button
+                    @click="
+                        mobileMenu = false;
+                        $nextTick(() => window.createIcons())
+                    "
+                    class="rounded-lg p-2 transition hover:bg-gray-100"
+                    aria-label="Close menu">
 
-                <i data-lucide="x" class="h-6 w-6"></i>
+                    <i data-lucide="x" class="h-6 w-6"></i>
 
-            </button>
+                </button>
 
-        </div>
+            </div>
 
         {{-- Navigation --}}
         <nav class="flex-1 p-6">
@@ -115,15 +119,19 @@
 
             @endif
 
-            <a
-                href="{{ home_url('/?s=') }}"
+            <button
+                type="button"
+                @click="
+                    mobileMenu = false;
+                    $dispatch('open-search')
+                "
                 class="mt-8 inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 font-medium transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
 
                 <i data-lucide="search" class="h-5 w-5"></i>
 
                 <span>Search</span>
 
-            </a>
+            </button>
 
         </nav>
 
