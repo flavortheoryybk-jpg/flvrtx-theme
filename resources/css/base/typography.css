@@ -1,16 +1,25 @@
-/* ==========================
-   Global Styles
-========================== */
+/* ==========================================================
+   FLVRTX Typography
+========================================================== */
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
 }
+
+/* ------------------------------
+   Headings
+------------------------------ */
 
 h1,
 h2,
@@ -20,4 +29,88 @@ h5,
 h6 {
   font-family: var(--font-heading);
   color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 5vw, 4.75rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
+
+/* ------------------------------
+   Paragraphs
+------------------------------ */
+
+p {
+  line-height: 1.8;
+}
+
+/* ------------------------------
+   Links
+------------------------------ */
+
+a {
+  transition: color 0.3s ease;
+}
+
+/* ------------------------------
+   Lists
+------------------------------ */
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------------------
+   Images
+------------------------------ */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------------------
+   Selection
+------------------------------ */
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* ------------------------------
+   Focus
+------------------------------ */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }

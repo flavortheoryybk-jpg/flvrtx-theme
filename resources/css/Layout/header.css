@@ -1,0 +1,7 @@
+header {
+  @apply transition-all duration-300;
+}
+
+header.header-scrolled {
+  @apply bg-white/95 shadow-lg backdrop-blur-xl;
+}

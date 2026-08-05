@@ -1,39 +1,53 @@
-@if(get_field('storage_tips'))
+@if (get_field('storage_tips'))
 
-<section class="py-20">
+<section class="bg-white py-20 lg:py-24" id="storage">
 
     <x-container>
 
-        <div class="mx-auto max-w-5xl">
+        <div class="mx-auto max-w-4xl">
 
-            <x-ui.section-header
-              badge="Storage"
-              title="Storage & Reheating"
-              description="Keep your recipe fresh and flavorful for later." />
+            <x-ui.section-heading
+                eyebrow="Storage"
+                title="Storage & Reheating"
+                description="Store leftovers properly to preserve freshness, flavor, and texture." />
 
-            <div class="mt-10 rounded-3xl border border-border bg-white p-8">
+            @php
+                $storageTips = collect(
+                    preg_split('/\r\n|\r|\n/', get_field('storage_tips') ?? '')
+                )->filter();
+            @endphp
 
-                <ul class="space-y-5">
+            <div class="mt-12 overflow-hidden rounded-[32px] border border-border bg-white shadow-[0_20px_40px_rgba(0,0,0,0.06)]">
 
-                    @foreach(explode("\n", trim(get_field('storage_tips'))) as $tip)
+                <ul class="divide-y divide-border">
 
-                        @if(trim($tip))
+                    @foreach ($storageTips as $tip)
 
-                            <li class="flex items-start gap-4">
+                        <li class="flex items-start gap-5 p-6 transition-colors duration-300 hover:bg-primary/5">
 
-                                <div class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
 
-                                    <i data-lucide="refrigerator" class="h-4 w-4 text-primary"></i>
+                                <i data-lucide="refrigerator" class="h-5 w-5 text-primary"></i>
 
-                                </div>
+                            </div>
 
-                                <span class="text-lg leading-8">
+                            <div>
+
+                                <h3 class="font-semibold text-text">
+
+                                    Storage Tip
+
+                                </h3>
+
+                                <p class="mt-2 leading-8 text-text-muted">
+
                                     {{ trim($tip) }}
-                                </span>
 
-                            </li>
+                                </p>
 
-                        @endif
+                            </div>
+
+                        </li>
 
                     @endforeach
 

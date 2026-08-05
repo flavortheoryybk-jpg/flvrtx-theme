@@ -1,37 +1,81 @@
 @php
 
-$related = new WP_Query([
-    'post_type'      => 'learn',
-    'posts_per_page' => 3,
-    'post__not_in'   => [get_the_ID()],
-    'orderby'        => 'date',
+$categories = wp_get_post_terms(get_the_ID(), 'category', [
+    'fields' => 'ids',
 ]);
+
+$related = new WP_Query([
+    'post_type'           => 'learn',
+    'posts_per_page'      => 3,
+    'post__not_in'        => [get_the_ID()],
+    'ignore_sticky_posts' => true,
+    'post_status'         => 'publish',
+    'tax_query'           => [
+        [
+            'taxonomy' => 'category',
+            'field'    => 'term_id',
+            'terms'    => $categories,
+        ],
+    ],
+]);
+
+// Fallback
+if (!$related->have_posts()) {
+
+    $related = new WP_Query([
+        'post_type'           => 'learn',
+        'posts_per_page'      => 3,
+        'post__not_in'        => [get_the_ID()],
+        'ignore_sticky_posts' => true,
+        'post_status'         => 'publish',
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+    ]);
+
+}
 
 @endphp
 
-@if($related->have_posts())
+@if ($related->have_posts())
 
-<x-ui.section>
+<section class="bg-background py-24 lg:py-32" id="related-articles">
 
-    <x-ui.section-header
-        badge="Keep Learning"
-        title="Related Articles"
-        description="Continue exploring food science and cooking knowledge." />
+    <x-container>
 
-    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <x-ui.section-heading
+            eyebrow="Keep Learning"
+            title="Related Articles"
+            description="Continue exploring food science, cooking techniques, and practical kitchen knowledge." />
 
-        @while($related->have_posts())
+        <div class="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-            @php($related->the_post())
+            @while ($related->have_posts())
 
-            @include('learn.card')
+                @php($related->the_post())
 
-        @endwhile
+                @include('learn.card')
 
-    </div>
+            @endwhile
 
-    @php(wp_reset_postdata())
+            @php(wp_reset_postdata())
 
-</x-ui.section>
+        </div>
+
+        <div class="mt-16 text-center">
+
+            <x-ui.button
+                href="{{ get_post_type_archive_link('learn') }}"
+                variant="secondary"
+                size="lg">
+
+                Browse All Articles →
+
+            </x-ui.button>
+
+        </div>
+
+    </x-container>
+
+</section>
 
 @endif

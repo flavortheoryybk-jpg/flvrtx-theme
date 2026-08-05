@@ -6,7 +6,21 @@
 
 @php
 
-$base = 'inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-300';
+$base = '
+inline-flex
+items-center
+justify-center
+rounded-xl
+font-semibold
+transition-all
+duration-300
+focus:outline-none
+focus:ring-2
+focus:ring-primary
+focus:ring-offset-2
+disabled:opacity-50
+disabled:pointer-events-none
+';
 
 $variants = [
     'primary' => 'bg-primary text-white hover:opacity-90 hover:-translate-y-1 hover:shadow-lg',
@@ -20,27 +34,33 @@ $sizes = [
     'lg' => 'px-8 py-4 text-lg',
 ];
 
-$class = "{$base} {$variants[$variant]} {$sizes[$size]}";
+$class = sprintf(
+    '%s %s %s',
+    trim($base),
+    $variants[$variant] ?? $variants['primary'],
+    $sizes[$size] ?? $sizes['md']
+);
 
 @endphp
 
-@if($href)
+@if ($href)
 
-<a
-    href="{{ $href }}"
-    {{ $attributes->merge(['class'=>$class]) }}>
+    <a
+        href="{{ $href }}"
+        {{ $attributes->merge(['class' => $class]) }}>
 
-    {{ $slot }}
+        {{ $slot }}
 
-</a>
+    </a>
 
 @else
 
-<button
-    {{ $attributes->merge(['class'=>$class]) }}>
+    <button
+        type="{{ $attributes->get('type', 'button') }}"
+        {{ $attributes->merge(['class' => $class]) }}>
 
-    {{ $slot }}
+        {{ $slot }}
 
-</button>
+    </button>
 
 @endif

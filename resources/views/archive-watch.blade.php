@@ -2,23 +2,40 @@
 
 @section('content')
 
-<section class="bg-background py-24">
+<section class="bg-background py-24 lg:py-32">
 
     <x-container>
 
-        <div class="mx-auto max-w-3xl text-center">
+        <div class="mx-auto max-w-4xl text-center">
 
-            <span class="text-sm font-semibold uppercase tracking-widest text-primary">
-                Recommendation
-            </span>
+            <x-ui.badge>
 
-            <h1 class="mt-4 text-6xl font-bold">
-                Recommendations
+                Watch
+
+            </x-ui.badge>
+
+            <h1 class="mt-8 text-5xl font-bold tracking-tight lg:text-6xl">
+
+                Watch & Learn
+
             </h1>
 
-            <p class="mt-6 text-xl leading-8 text-text-muted">
-                Products, ingredients and tools I personally use and recommend.
+            <p class="mx-auto mt-8 max-w-3xl text-xl leading-8 text-text-muted">
+
+                Watch premium cooking videos, step-by-step recipes, kitchen techniques, and food science explained visually.
+
             </p>
+
+            <div class="mt-10 flex justify-center">
+
+                <x-ui.badge class="bg-white">
+
+                    {{ number_format($GLOBALS['wp_query']->found_posts) }}
+                    {{ Str::plural('Video', $GLOBALS['wp_query']->found_posts) }}
+
+                </x-ui.badge>
+
+            </div>
 
         </div>
 
@@ -26,64 +43,48 @@
 
 </section>
 
-<section class="pb-24">
+<section class="pb-24 lg:pb-32">
 
     <x-container>
 
-        <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-
-            <p class="text-lg text-text-muted">
-                {{ $GLOBALS['wp_query']->found_posts }} Learn
-            </p>
+        {{-- Search --}}
+        <div class="mx-auto mb-14 max-w-3xl">
 
             <form
-                action="{{ home_url('/Learn') }}"
+                action="{{ home_url('/watch') }}"
                 method="GET"
-                class="w-full lg:w-96">
+                class="flex flex-col gap-4 rounded-[28px] border border-border bg-white p-4 shadow-[0_20px_40px_rgba(0,0,0,0.06)] sm:flex-row">
 
-                <div class="relative">
+                <div class="relative flex-1">
+
+                    <i
+                        data-lucide="search"
+                        class="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-text-muted">
+                    </i>
 
                     <input
                         type="search"
                         name="s"
                         value="{{ get_search_query() }}"
-                        placeholder="Search Learn..."
-                        class="w-full rounded-2xl border border-border bg-white px-6 py-4 outline-none transition-all focus:border-primary">
+                        placeholder="Search videos..."
+                        class="w-full border-0 bg-transparent py-4 pl-12 pr-4 outline-none">
 
                     <input
                         type="hidden"
                         name="post_type"
-                        value="Learn">
+                        value="watch">
 
                 </div>
 
+                <x-ui.button
+                    type="submit"
+                    size="lg">
+
+                    Search
+
+                </x-ui.button>
+
             </form>
-
-        </div>
-
-        {{-- Categories --}}
-
-        <div class="mb-14 flex flex-wrap gap-3">
-
-            <a href="{{ home_url('/Learn') }}"
-               class="rounded-full bg-primary px-5 py-2 text-white">
-                All
-            </a>
-
-            @foreach(get_terms([
-                'taxonomy'=>'category',
-                'hide_empty'=>true
-            ]) as $category)
-
-                <a
-                    href="{{ get_term_link($category) }}"
-                    class="rounded-full border border-border bg-white px-5 py-2 transition hover:border-primary hover:text-primary">
-
-                    {{ $category->name }}
-
-                </a>
-
-            @endforeach
 
         </div>
 
@@ -95,43 +96,27 @@
 
                     @php(the_post())
 
-                    @include('recommendation.card')
+                    @include('watch.card')
 
                 @endwhile
 
             </div>
 
+            @if($GLOBALS['wp_query']->max_num_pages > 1)
+
+                <div class="mt-20">
+
+                    @include('search.pagination')
+
+                </div>
+
+            @endif
+
         @else
 
-            <div class="rounded-3xl border border-border bg-white py-24 text-center">
-
-                <h2 class="text-3xl font-bold">
-
-                    No recipes found
-
-                </h2>
-
-                <p class="mt-4 text-text-muted">
-
-                    Try another search.
-
-                </p>
-
-            </div>
-
-        @endif
-
-        @if($GLOBALS['wp_query']->max_num_pages > 1)
-
-            <div class="mt-20 flex justify-center">
-
-                {!! paginate_links([
-                    'mid_size'=>2,
-                    'prev_text'=>'← Previous',
-                    'next_text'=>'Next →'
-                ]) !!}
-
-            </div>
+            <x-ui.empty-state
+                title="No videos found"
+                description="New cooking videos and tutorials are coming soon." />
 
         @endif
 

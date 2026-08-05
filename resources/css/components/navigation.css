@@ -1,0 +1,73 @@
+/* ==========================================
+   Primary Navigation
+========================================== */
+
+.nav-menu {
+  @apply flex items-center gap-12;
+}
+
+.nav-menu > li {
+  @apply relative;
+}
+
+.nav-menu a {
+  @apply relative block py-2 text-[17px] font-semibold tracking-tight text-text transition-all duration-300;
+}
+
+.nav-menu a:hover {
+  @apply text-primary;
+}
+
+/* Active Link */
+
+.nav-menu .current-menu-item > a,
+.nav-menu .current_page_item > a,
+.nav-menu .current-menu-ancestor > a {
+  @apply text-primary;
+}
+
+.nav-menu .current-menu-item > a::after,
+.nav-menu .current_page_item > a::after,
+.nav-menu .current-menu-ancestor > a::after {
+  content: '';
+
+  @apply absolute left-0 right-0 -bottom-[18px] mx-auto h-[3px] w-full rounded-full bg-primary;
+}
+
+/* Keyboard Accessibility */
+
+.nav-menu a:focus-visible {
+  @apply rounded-md outline-none ring-2 ring-primary ring-offset-4;
+}
+
+/* ==========================================
+   Mobile Navigation
+========================================== */
+
+.nav-menu.mobile {
+  @apply flex flex-col items-start gap-1;
+}
+
+.nav-menu.mobile li {
+  @apply w-full;
+}
+
+.nav-menu.mobile a {
+  @apply block w-full rounded-xl px-4 py-3 text-lg font-semibold transition-all duration-300;
+}
+
+.nav-menu.mobile a:hover {
+  @apply bg-primary/5 text-primary;
+}
+
+.nav-menu.mobile .current-menu-item > a,
+.nav-menu.mobile .current_page_item > a,
+.nav-menu.mobile .current-menu-ancestor > a {
+  @apply bg-primary/10 text-primary;
+}
+
+.nav-menu.mobile .current-menu-item > a::after,
+.nav-menu.mobile .current_page_item > a::after,
+.nav-menu.mobile .current-menu-ancestor > a::after {
+  @apply hidden;
+}

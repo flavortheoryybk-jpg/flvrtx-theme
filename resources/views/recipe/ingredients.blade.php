@@ -1,38 +1,47 @@
-<section class="py-20 bg-white">
+<section class="bg-white py-20 lg:py-24" id="ingredients">
 
     <x-container>
 
-        <h2 class="text-3xl font-bold">
-            Ingredients
-        </h2>
+        <div class="max-w-4xl">
 
-        @php
-            $ingredients = collect(
-                preg_split('/\r\n|\r|\n/', get_field('ingredients') ?? '')
-            )->filter();
-        @endphp
+            <x-ui.section-heading
+                eyebrow="Ingredients"
+                title="Everything You'll Need"
+                description="Use fresh, high-quality ingredients for the best flavor and texture." />
 
-        <div class="mt-10 rounded-3xl border border-border bg-white p-8 shadow-sm">
+            @php
+                $ingredients = collect(
+                    preg_split('/\r\n|\r|\n/', get_field('ingredients') ?? '')
+                )->filter();
+            @endphp
 
-          <ul class="space-y-5">
+            <div class="mt-12 overflow-hidden rounded-[32px] border border-border bg-white shadow-[0_20px_40px_rgba(0,0,0,0.06)]">
 
-              @foreach($ingredients as $ingredient)
+                <ul class="divide-y divide-border">
 
-                  <li class="flex items-center gap-4">
+                    @foreach ($ingredients as $ingredient)
 
-                      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">
-                          ✓
-                      </div>
+                        <li class="flex items-center gap-5 p-6 transition-colors duration-300 hover:bg-primary/5">
 
-                      <span class="text-lg font-medium">
-                          {{ $ingredient }}
-                      </span>
+                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-lg font-bold text-primary">
 
-                  </li>
+                                ✓
 
-              @endforeach
+                            </div>
 
-          </ul>
+                            <span class="text-lg font-medium leading-7 text-text">
+
+                                {{ $ingredient }}
+
+                            </span>
+
+                        </li>
+
+                    @endforeach
+
+                </ul>
+
+            </div>
 
         </div>
 

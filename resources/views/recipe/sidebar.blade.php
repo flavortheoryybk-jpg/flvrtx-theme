@@ -1,75 +1,106 @@
 @include('recipe.table-of-contents')
+
 <aside class="space-y-8 lg:sticky lg:top-28">
 
     {{-- Share --}}
-    <div class="rounded-3xl border border-border bg-white p-6">
+    <div class="rounded-[32px] border border-border bg-white p-8 shadow-sm">
 
         <h3 class="text-xl font-bold">
+
             Share this Recipe
+
         </h3>
+
+        <p class="mt-2 text-text-muted">
+
+            Help others discover this recipe.
+
+        </p>
 
         <div class="mt-6 flex gap-3">
 
-            <a href="#" class="flex h-12 w-12 items-center justify-center rounded-xl border border-border hover:bg-primary hover:text-white">
+            <button
+                type="button"
+                class="flex h-12 w-12 items-center justify-center rounded-xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
+
                 <i data-lucide="facebook"></i>
-            </a>
 
-            <a href="#" class="flex h-12 w-12 items-center justify-center rounded-xl border border-border hover:bg-primary hover:text-white">
+            </button>
+
+            <button
+                type="button"
+                class="flex h-12 w-12 items-center justify-center rounded-xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
+
                 <i data-lucide="instagram"></i>
-            </a>
 
-            <a href="#" class="flex h-12 w-12 items-center justify-center rounded-xl border border-border hover:bg-primary hover:text-white">
+            </button>
+
+            <button
+                type="button"
+                class="flex h-12 w-12 items-center justify-center rounded-xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
+
                 <i data-lucide="link"></i>
-            </a>
+
+            </button>
 
         </div>
 
     </div>
 
     {{-- YouTube CTA --}}
-    <div class="rounded-3xl bg-primary p-8 text-white">
+    @if(get_field('youtube_url'))
+
+    <div class="rounded-[32px] bg-primary p-8 text-white shadow-lg">
 
         <h3 class="text-2xl font-bold">
-            Watch it on YouTube
+
+            Watch on YouTube
+
         </h3>
 
-        <p class="mt-4 opacity-90">
-            Prefer watching instead of reading?
+        <p class="mt-4 text-white/80">
+
+            Prefer watching? Follow the complete recipe step by step.
+
         </p>
 
-        <a
+        <x-ui.button
             href="{{ get_field('youtube_url') }}"
             target="_blank"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-primary">
+            rel="noopener noreferrer"
+            class="mt-6 bg-white !text-primary hover:opacity-90">
 
-            <i data-lucide="play"></i>
+            ▶ Watch Now
 
-            Watch Now
-
-        </a>
+        </x-ui.button>
 
     </div>
 
-    {{-- Newsletter --}}
-    <div class="rounded-3xl border border-border bg-background p-8">
+    @endif
 
-        <h3 class="text-xl font-bold">
-            Never Miss a Recipe
+    {{-- Newsletter --}}
+    <div class="rounded-[32px] border border-border bg-background p-8">
+
+        <h3 class="text-2xl font-bold">
+
+            Join FLVRTX
+
         </h3>
 
-        <p class="mt-4 text-text-muted">
-            New recipes, cooking science and recommendations every week.
+        <p class="mt-4 leading-7 text-text-muted">
+
+            Get recipes, food science articles, cooking tips and trusted recommendations delivered regularly.
+
         </p>
 
-        <a
+        <x-ui.button
             href="{{ home_url('/subscribe') }}"
-            class="mt-6 inline-flex items-center gap-2 font-semibold text-primary">
+            variant="primary"
+            class="mt-6 w-full justify-center">
 
-            Subscribe
+            Subscribe Free
 
-            <i data-lucide="arrow-right"></i>
-
-        </a>
+        </x-ui.button>
 
     </div>
 

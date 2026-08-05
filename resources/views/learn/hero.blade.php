@@ -1,35 +1,57 @@
-<section class="bg-background py-24">
+<section class="bg-background py-24 lg:py-32">
 
     <x-container>
 
-        <div class="mx-auto max-w-4xl text-center">
+        <div class="mx-auto max-w-5xl text-center">
 
             <x-ui.badge>
+
                 FLVRTX Learn
+
             </x-ui.badge>
 
-            <h1 class="mt-6 text-5xl font-bold leading-tight lg:text-6xl">
+            <h1 class="mt-8 text-5xl font-bold leading-[1.05] tracking-tight lg:text-6xl">
+
                 {{ get_the_title() }}
+
             </h1>
 
-            @if(get_field('summary'))
+            @if (get_field('summary'))
 
-                <p class="mx-auto mt-6 max-w-3xl text-xl leading-9 text-text-muted">
+                <p class="mx-auto mt-8 max-w-3xl text-xl leading-9 text-text-muted">
+
                     {{ get_field('summary') }}
+
                 </p>
 
             @endif
 
-            <div class="mt-10 flex flex-wrap justify-center gap-8 text-sm text-text-muted">
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
 
-                @if(get_field('reading_time'))
-                    <span>📖 {{ get_field('reading_time') }} min read</span>
+                @if (get_field('reading_time'))
+
+                    <x-ui.badge class="bg-white">
+
+                        📖 {{ get_field('reading_time') }} min read
+
+                    </x-ui.badge>
+
                 @endif
 
-                <span>{{ get_the_date('F j, Y') }}</span>
+                <x-ui.badge class="bg-white">
 
-                @if(get_field('difficulty'))
-                    <span>{{ get_field('difficulty') }}</span>
+                    📅 {{ get_the_date('F j, Y') }}
+
+                </x-ui.badge>
+
+                @if (get_field('difficulty'))
+
+                    <x-ui.badge class="bg-white">
+
+                        🎓 {{ get_field('difficulty') }}
+
+                    </x-ui.badge>
+
                 @endif
 
             </div>

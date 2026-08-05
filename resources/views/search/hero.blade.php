@@ -1,36 +1,47 @@
-<section class="bg-background py-20 lg:py-24">
+<section class="bg-background py-20 lg:py-28">
 
     <x-container>
 
-        <div class="mx-auto max-w-3xl text-center">
+        <div class="mx-auto max-w-4xl text-center">
 
             <x-ui.badge>
+
                 Search
+
             </x-ui.badge>
 
-            <h1 class="mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
+            <h1 class="mt-8 text-5xl font-bold tracking-tight lg:text-6xl">
+
                 Search Results
+
             </h1>
 
-            <p class="mt-6 text-lg text-text-muted">
+            @if(get_search_query())
 
-                Showing results for
+                <p class="mx-auto mt-8 max-w-2xl text-xl leading-8 text-text-muted">
 
-                <span class="font-semibold text-text">
+                    Showing results for
 
-                    "{{ get_search_query() }}"
+                    <span class="font-semibold text-text">
 
-                </span>
+                        "{{ get_search_query() }}"
 
-            </p>
+                    </span>
 
-            <p class="mt-4 text-sm text-text-muted">
+                </p>
 
-                {{ $wp_query->found_posts ?? 0 }}
-                {{ Str::plural('result', $wp_query->found_posts ?? 0) }}
-                found
+            @endif
 
-            </p>
+            <div class="mt-10 flex justify-center">
+
+                <x-ui.badge class="bg-white">
+
+                    {{ number_format($wp_query->found_posts ?? 0) }}
+                    {{ Str::plural('Result', $wp_query->found_posts ?? 0) }}
+
+                </x-ui.badge>
+
+            </div>
 
         </div>
 

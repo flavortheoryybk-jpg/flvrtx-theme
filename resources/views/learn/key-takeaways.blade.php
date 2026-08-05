@@ -1,48 +1,64 @@
-@if(get_field('key_takeaways'))
+@if (get_field('key_takeaways'))
 
-<x-ui.section>
+<section class="bg-white py-20 lg:py-24" id="key-takeaways">
 
-    <div class="mx-auto max-w-5xl">
+    <x-container>
 
-        <x-ui.section-header
-            badge="Key Takeaways"
-            title="What You Should Remember"
-            description="The most important lessons from this article." />
+        <div class="mx-auto max-w-5xl">
 
-        <div class="grid gap-6 md:grid-cols-2">
+            <x-ui.section-heading
+                eyebrow="Key Takeaways"
+                title="What You Should Remember"
+                description="The most important lessons and practical insights from this article." />
 
-            @foreach(explode("\n", trim(get_field('key_takeaways'))) as $item)
+            @php
+                $takeaways = collect(
+                    preg_split('/\r\n|\r|\n/', get_field('key_takeaways') ?? '')
+                )->filter();
+            @endphp
 
-                @if(trim($item))
+            <div class="mt-12 grid gap-6 md:grid-cols-2">
 
-                    <x-ui.card>
+                @foreach ($takeaways as $item)
 
-                        <div class="flex items-start gap-4">
+                    <x-ui.card class="h-full">
 
-                            <div class="mt-1 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+                        <div class="flex items-start gap-5">
 
-                                <i data-lucide="check"></i>
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-sm">
+
+                                <i data-lucide="check" class="h-5 w-5"></i>
 
                             </div>
 
-                            <p class="text-lg leading-8">
+                            <div>
 
-                                {{ trim($item) }}
+                                <h3 class="font-semibold text-text">
 
-                            </p>
+                                    Key Insight
+
+                                </h3>
+
+                                <p class="mt-2 leading-8 text-text-muted">
+
+                                    {{ trim($item) }}
+
+                                </p>
+
+                            </div>
 
                         </div>
 
                     </x-ui.card>
 
-                @endif
+                @endforeach
 
-            @endforeach
+            </div>
 
         </div>
 
-    </div>
+    </x-container>
 
-</x-ui.section>
+</section>
 
 @endif

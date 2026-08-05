@@ -1,40 +1,49 @@
-<section class="py-20 bg-background">
+<section class="bg-background py-20 lg:py-24" id="instructions">
 
     <x-container>
 
-        <h2 class="text-3xl font-bold">
-            Instructions
-        </h2>
+        <div class="max-w-4xl">
 
-        @php
-            $steps = collect(
-                preg_split('/\r\n|\r|\n/', get_field('instructions') ?? '')
-            )->filter();
-        @endphp
+            <x-ui.section-heading
+                eyebrow="Instructions"
+                title="Step-by-Step Cooking Guide"
+                description="Follow each step carefully for the best results." />
 
-        <div class="mt-10 space-y-6">
+            @php
+                $steps = collect(
+                    preg_split('/\r\n|\r|\n/', get_field('instructions') ?? '')
+                )->filter();
+            @endphp
 
-            @foreach($steps as $index => $step)
+            <div class="mt-12 space-y-8">
 
-              <div class="flex gap-5">
+                @foreach ($steps as $index => $step)
 
-                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white shadow-sm">
+                    <div class="group flex gap-6">
 
-                    {{ $index + 1 }}
+                        {{-- Step Number --}}
+                        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-white shadow-lg transition-transform duration-300 group-hover:scale-105">
 
-                </div>
+                            {{ $index + 1 }}
 
-                <div class="flex-1 rounded-3xl border border-border bg-white p-6 shadow-sm">
+                        </div>
 
-                    <p class="leading-8 text-lg">
-                        {{ $step }}
-                    </p>
+                        {{-- Step Content --}}
+                        <div class="flex-1 rounded-[28px] border border-border bg-white p-8 shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)]">
 
-                </div>
+                            <p class="text-lg leading-8 text-text">
 
-              </div>
+                                {{ $step }}
 
-              @endforeach
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                @endforeach
+
+            </div>
 
         </div>
 

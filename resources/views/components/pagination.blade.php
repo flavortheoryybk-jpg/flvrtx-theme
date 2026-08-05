@@ -6,9 +6,14 @@
 
     <nav
         class="mt-16 flex justify-center"
-        aria-label="Pagination">
+        aria-label="{{ __('Pagination Navigation', 'flvrtx') }}">
 
-        {!! $paginator !!}
+        <div
+            class="pagination-wrapper">
+
+            {!! $paginator !!}
+
+        </div>
 
     </nav>
 

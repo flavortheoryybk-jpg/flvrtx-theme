@@ -2,9 +2,21 @@
     'eyebrow',
     'title',
     'description' => null,
+    'align' => 'left',
 ])
 
-<div class="mb-12">
+@php
+
+$alignments = [
+    'left' => '',
+    'center' => 'text-center mx-auto',
+];
+
+$class = $alignments[$align] ?? $alignments['left'];
+
+@endphp
+
+<div class="{{ $class }} mb-12">
 
     <x-ui.badge>
 
@@ -12,7 +24,7 @@
 
     </x-ui.badge>
 
-    <h2 class="mt-5 text-4xl font-bold">
+    <h2 class="mt-5 text-4xl font-bold leading-tight lg:text-5xl">
 
         {{ $title }}
 

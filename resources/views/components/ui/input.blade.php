@@ -2,8 +2,31 @@
     'type' => 'text',
 ])
 
+@php
+
+$base = '
+w-full
+rounded-2xl
+border
+border-border
+bg-white
+px-5
+py-3
+transition-all
+duration-300
+placeholder:text-text-muted
+focus:outline-none
+focus:ring-2
+focus:ring-primary
+focus:ring-offset-2
+disabled:cursor-not-allowed
+disabled:opacity-50
+';
+
+@endphp
+
 <input
     type="{{ $type }}"
     {{ $attributes->merge([
-        'class'=>'w-full rounded-2xl border border-border bg-white px-5 py-3 outline-none transition-all focus:border-primary'
+        'class' => trim($base),
     ]) }}>

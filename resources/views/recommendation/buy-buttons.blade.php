@@ -1,62 +1,87 @@
-@if(
+@if (
     get_field('amazon_link') ||
     get_field('flipkart_link') ||
     get_field('meesho_link')
 )
 
-<x-ui.section>
+<section class="bg-background py-20 lg:py-24">
 
-    <x-ui.section-header
-        badge="Buy Now"
-        title="Where to Buy"
-        description="Purchase this product from trusted retailers." />
+    <x-container>
 
-    <div class="flex flex-wrap gap-4">
+        <div class="mx-auto max-w-5xl">
 
-        @if(get_field('amazon_link'))
+            <x-ui.section-heading
+                eyebrow="Buy Now"
+                title="Where to Buy"
+                description="Purchase this product from trusted retailers. Some links may be affiliate links that help support FLVRTX at no additional cost to you." />
 
-            <a
-                href="{{ get_field('amazon_link') }}"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                class="rounded-xl bg-primary px-6 py-3 font-semibold text-white">
+            <div class="mt-12 rounded-[32px] border border-border bg-white p-8 shadow-[0_20px_40px_rgba(0,0,0,0.06)]">
 
-                Buy on Amazon
+                <div class="flex flex-wrap gap-4">
 
-            </a>
+                    @if(get_field('amazon_link'))
 
-        @endif
+                        <x-ui.button
+                            href="{{ get_field('amazon_link') }}"
+                            target="_blank"
+                            rel="nofollow sponsored noopener noreferrer"
+                            size="lg">
 
-        @if(get_field('flipkart_link'))
+                            🛒 Buy on Amazon
 
-            <a
-                href="{{ get_field('flipkart_link') }}"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                class="rounded-xl border border-border px-6 py-3 font-semibold">
-            
-                Buy on Flipkart
-            
-            </a>
+                        </x-ui.button>
 
-        @endif
+                    @endif
 
-        @if(get_field('meesho_link'))
+                    @if(get_field('flipkart_link'))
 
-            <a
-                href="{{ get_field('meesho_link') }}"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                class="rounded-xl border border-border px-6 py-3 font-semibold">
-            
-                Buy on Meesho
-            
-            </a>
+                        <x-ui.button
+                            href="{{ get_field('flipkart_link') }}"
+                            variant="secondary"
+                            target="_blank"
+                            rel="nofollow sponsored noopener noreferrer"
+                            size="lg">
 
-        @endif
+                            🛍 Buy on Flipkart
 
-    </div>
+                        </x-ui.button>
 
-</x-ui.section>
+                    @endif
+
+                    @if(get_field('meesho_link'))
+
+                        <x-ui.button
+                            href="{{ get_field('meesho_link') }}"
+                            variant="secondary"
+                            target="_blank"
+                            rel="nofollow sponsored noopener noreferrer"
+                            size="lg">
+
+                            🛒 Buy on Meesho
+
+                        </x-ui.button>
+
+                    @endif
+
+                </div>
+
+                <div class="mt-8 rounded-2xl border border-primary/15 bg-primary/5 p-5">
+
+                    <p class="text-sm leading-7 text-text-muted">
+
+                        <strong class="text-text">Affiliate Disclosure:</strong>
+                        Some links on this page may be affiliate links. If you purchase through them, FLVRTX may earn a small commission at no extra cost to you. We only recommend products we genuinely trust and would use ourselves.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </x-container>
+
+</section>
 
 @endif

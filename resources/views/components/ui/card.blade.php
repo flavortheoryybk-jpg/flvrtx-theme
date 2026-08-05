@@ -2,27 +2,54 @@
     'href' => null,
 ])
 
-@if($href)
+@php
 
-<a
-    href="{{ $href }}"
-    {{ $attributes->merge([
-        'class' => 'group block overflow-hidden rounded-3xl border border-border bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl'
-    ]) }}>
+$base = '
+overflow-hidden
+rounded-3xl
+border
+border-border
+bg-white
+transition-all
+duration-300
+';
 
-    {{ $slot }}
+$linkClasses = '
+group
+block
+hover:-translate-y-2
+hover:shadow-xl
+focus:outline-none
+focus:ring-2
+focus:ring-primary
+focus:ring-offset-2
+';
 
-</a>
+$class = trim($base . ' ' . ($href ? $linkClasses : ''));
+
+@endphp
+
+@if ($href)
+
+    <a
+        href="{{ $href }}"
+        {{ $attributes->merge([
+            'class' => $class,
+        ]) }}>
+
+        {{ $slot }}
+
+    </a>
 
 @else
 
-<div
-    {{ $attributes->merge([
-        'class' => 'overflow-hidden rounded-3xl border border-border bg-white'
-    ]) }}>
+    <div
+        {{ $attributes->merge([
+            'class' => $class,
+        ]) }}>
 
-    {{ $slot }}
+        {{ $slot }}
 
-</div>
+    </div>
 
 @endif

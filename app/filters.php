@@ -26,6 +26,8 @@ add_action('pre_get_posts', function ($query) {
         $query->set('post_type', [
             'recipe',
             'learn',
+            'watch',
+            'recommendation',
         ]);
 
     }

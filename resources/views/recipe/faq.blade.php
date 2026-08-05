@@ -1,49 +1,59 @@
-@if(have_rows('faq'))
+@if (have_rows('faq'))
 
-<section class="bg-background py-20">
+<section class="bg-background py-20 lg:py-24" id="faq">
 
     <x-container>
 
-        <div class="mx-auto max-w-5xl">
+        <div class="mx-auto max-w-4xl">
 
-            <x-ui.section-header
-              badge="FAQ"
-              title="Frequently Asked Questions"
-              description="Everything you need to know before cooking this recipe." />
+            <x-ui.section-heading
+                eyebrow="FAQ"
+                title="Frequently Asked Questions"
+                description="Answers to the most common questions about this recipe." />
 
-            <div class="mt-10 space-y-5">
+            <div class="mt-12 space-y-5">
 
-                @while(have_rows('faq'))
+                @while (have_rows('faq'))
 
                     @php(the_row())
 
                     <div
                         x-data="{ open: false }"
-                        class="overflow-hidden rounded-3xl border border-border bg-white">
+                        class="overflow-hidden rounded-[28px] border border-border bg-white shadow-sm transition-all duration-300 hover:shadow-md">
 
                         <button
                             @click="open = !open"
-                            class="flex w-full items-center justify-between p-6 text-left">
+                            class="flex w-full items-center justify-between p-7 text-left">
 
-                            <span class="text-lg font-semibold">
+                            <span class="pr-6 text-lg font-semibold leading-7 text-text">
+
                                 {{ get_sub_field('question') }}
+
                             </span>
 
-                            <i
-                                data-lucide="chevron-down"
-                                class="h-5 w-5 transition-transform"
-                                :class="{ 'rotate-180': open }">
-                            </i>
+                            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+
+                                <i
+                                    data-lucide="chevron-down"
+                                    class="h-5 w-5 text-primary transition-transform duration-300"
+                                    :class="{ 'rotate-180': open }">
+                                </i>
+
+                            </div>
 
                         </button>
 
                         <div
                             x-show="open"
                             x-collapse
-                            class="border-t border-border px-6 py-5 text-text-muted"
-                            style="display:none;">
+                            style="display:none"
+                            class="border-t border-border">
 
-                            {{ get_sub_field('answer') }}
+                            <div class="p-7 leading-8 text-text-muted">
+
+                                {{ get_sub_field('answer') }}
+
+                            </div>
 
                         </div>
 

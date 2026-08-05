@@ -1,11 +1,25 @@
-<section {{ $attributes->merge([
-    'class' => 'py-20 lg:py-24'
-]) }}>
+@props([
+    'as' => 'section',
+    'container' => true,
+])
 
-    <x-container>
+<{{ $as }}
+    {{ $attributes->merge([
+        'class' => 'py-20 lg:py-24',
+    ]) }}>
+
+    @if ($container)
+
+        <x-container>
+
+            {{ $slot }}
+
+        </x-container>
+
+    @else
 
         {{ $slot }}
 
-    </x-container>
+    @endif
 
-</section>
+</{{ $as }}>

@@ -4,56 +4,102 @@
 
 <x-ui.section>
 
-    <div class="mx-auto max-w-3xl text-center">
+    <div class="mx-auto max-w-4xl text-center">
 
-        <div class="text-8xl font-black text-primary">
+        <x-ui.badge>
 
-            404
+            Error 404
 
-        </div>
+        </x-ui.badge>
 
-        <h1 class="mt-8 text-5xl font-bold">
+        <h1 class="mt-8 text-6xl font-black tracking-tight text-primary">
 
             Page Not Found
 
         </h1>
 
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-text-muted">
+        <p class="mx-auto mt-8 max-w-2xl text-xl leading-8 text-text-muted">
 
-            The page you're looking for doesn't exist or may have been moved.
-            Explore our latest recipes, food science articles, videos, or recommendations.
+            Sorry, the page you're looking for doesn't exist or may have been moved.
+            Explore recipes, food science, videos, and trusted recommendations instead.
 
         </p>
 
-        <div class="mt-12 flex flex-wrap justify-center gap-4">
+        {{-- Search --}}
+        <div class="mx-auto mt-12 max-w-2xl">
 
-            <a href="{{ home_url('/recipes') }}"
-               class="rounded-xl bg-primary px-6 py-3 font-semibold text-white">
+            <form
+                action="{{ home_url('/') }}"
+                method="get"
+                class="flex flex-col gap-4 rounded-[28px] border border-border bg-white p-4 shadow-[0_20px_40px_rgba(0,0,0,0.06)] sm:flex-row">
 
-                Explore Recipes
+                <div class="relative flex-1">
 
-            </a>
+                    <i
+                        data-lucide="search"
+                        class="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-text-muted">
+                    </i>
 
-            <a href="{{ home_url('/learn') }}"
-               class="rounded-xl border border-border px-6 py-3 font-semibold">
+                    <input
+                        type="search"
+                        name="s"
+                        placeholder="Search FLVRTX..."
+                        class="w-full border-0 bg-transparent py-4 pl-12 pr-4 outline-none">
 
-                Learn Food Science
+                </div>
 
-            </a>
+                <x-ui.button
+                    type="submit"
+                    size="lg">
 
-            <a href="{{ home_url('/watch') }}"
-               class="rounded-xl border border-border px-6 py-3 font-semibold">
+                    Search
 
-                Watch Videos
+                </x-ui.button>
 
-            </a>
+            </form>
 
-            <a href="{{ home_url('/') }}"
-               class="rounded-xl border border-border px-6 py-3 font-semibold">
+        </div>
 
-                Go Home
+        {{-- Quick Links --}}
+        <div class="mt-14 flex flex-wrap justify-center gap-4">
 
-            </a>
+            <x-ui.button href="{{ home_url('/recipes') }}">
+
+                Recipes
+
+            </x-ui.button>
+
+            <x-ui.button
+                href="{{ home_url('/learn') }}"
+                variant="secondary">
+
+                Learn
+
+            </x-ui.button>
+
+            <x-ui.button
+                href="{{ home_url('/watch') }}"
+                variant="secondary">
+
+                Watch
+
+            </x-ui.button>
+
+            <x-ui.button
+                href="{{ home_url('/recommendations') }}"
+                variant="secondary">
+
+                Recommendations
+
+            </x-ui.button>
+
+            <x-ui.button
+                href="{{ home_url('/') }}"
+                variant="secondary">
+
+                Home
+
+            </x-ui.button>
 
         </div>
 

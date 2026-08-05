@@ -1,98 +1,68 @@
-<section class="border-y border-border bg-background py-12">
+<section class="border-y border-border bg-white py-14">
 
     <x-container>
 
-        <div class="grid gap-6 md:grid-cols-3 xl:grid-cols-6">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
 
             {{-- Prep Time --}}
-            <div class="rounded-3xl border border-border bg-white p-6 text-center">
+            <x-ui.meta-item
+                class="text-center"
+                label="Prep Time"
+                value="{{ get_field('prep_time') ?: '--' }} min">
 
                 <i data-lucide="timer" class="mx-auto mb-4 h-7 w-7 text-primary"></i>
 
-                <p class="text-sm uppercase tracking-wider text-text-muted">
-                    Prep Time
-                </p>
-
-                <p class="mt-2 text-2xl font-bold">
-                    {{ get_field('prep_time') }} min
-                </p>
-
-            </div>
+            </x-ui.meta-item>
 
             {{-- Cook Time --}}
-            <div class="rounded-3xl border border-border bg-white p-6 text-center">
+            <x-ui.meta-item
+                class="text-center"
+                label="Cook Time"
+                value="{{ get_field('cook_time') ?: '--' }} min">
 
                 <i data-lucide="flame" class="mx-auto mb-4 h-7 w-7 text-primary"></i>
 
-                <p class="text-sm uppercase tracking-wider text-text-muted">
-                    Cook Time
-                </p>
-
-                <p class="mt-2 text-2xl font-bold">
-                    {{ get_field('cook_time') }} min
-                </p>
-
-            </div>
+            </x-ui.meta-item>
 
             {{-- Total Time --}}
-            <div class="rounded-3xl border border-border bg-white p-6 text-center">
+            <x-ui.meta-item
+                class="text-center"
+                label="Total Time"
+                value="{{ get_field('total_time') ?: '--' }} min">
 
                 <i data-lucide="clock-3" class="mx-auto mb-4 h-7 w-7 text-primary"></i>
 
-                <p class="text-sm uppercase tracking-wider text-text-muted">
-                    Total Time
-                </p>
-
-                <p class="mt-2 text-2xl font-bold">
-                    {{ get_field('total_time') }} min
-                </p>
-
-            </div>
+            </x-ui.meta-item>
 
             {{-- Servings --}}
-            <div class="rounded-3xl border border-border bg-white p-6 text-center">
+            <x-ui.meta-item
+                class="text-center"
+                label="Servings"
+                value="{{ get_field('servings') ?: '--' }}">
 
                 <i data-lucide="users" class="mx-auto mb-4 h-7 w-7 text-primary"></i>
 
-                <p class="text-sm uppercase tracking-wider text-text-muted">
-                    Servings
-                </p>
-
-                <p class="mt-2 text-2xl font-bold">
-                    {{ get_field('servings') }}
-                </p>
-
-            </div>
+            </x-ui.meta-item>
 
             {{-- Difficulty --}}
-            <div class="rounded-3xl border border-border bg-white p-6 text-center">
+            <x-ui.meta-item
+                class="text-center"
+                label="Difficulty"
+                value="{{ get_field('difficulty') ?: '--' }}">
 
                 <i data-lucide="chef-hat" class="mx-auto mb-4 h-7 w-7 text-primary"></i>
 
-                <p class="text-sm uppercase tracking-wider text-text-muted">
-                    Difficulty
-                </p>
-
-                <p class="mt-2 text-2xl font-bold">
-                    {{ get_field('difficulty') }}
-                </p>
-
-            </div>
+            </x-ui.meta-item>
 
             {{-- Calories --}}
-            <div class="rounded-3xl border border-border bg-white p-6 text-center">
+            <x-ui.meta-item
+                class="text-center"
+                label="Calories"
+                value="{{ get_field('calories') ?: '--' }} kcal">
 
                 <i data-lucide="zap" class="mx-auto mb-4 h-7 w-7 text-primary"></i>
 
-                <p class="text-sm uppercase tracking-wider text-text-muted">
-                    Calories
-                </p>
-
-                <p class="mt-2 text-2xl font-bold">
-                    {{ get_field('calories') }} kcal
-                </p>
-
-            </div>
+            </x-ui.meta-item>
 
         </div>
 

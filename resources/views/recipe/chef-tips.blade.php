@@ -1,38 +1,53 @@
-@if(get_field('chef_tips'))
+@if (get_field('chef_tips'))
 
-<section class="bg-background py-20">
+<section class="bg-background py-20 lg:py-24" id="chef-tips">
 
     <x-container>
 
-        <div class="mx-auto max-w-5xl">
-            <x-ui.section-header
-              badge="Chef Tips"
-              title="Tips for the Best Results"
-              description="Small techniques that make a big difference." />
+        <div class="mx-auto max-w-4xl">
 
-            <div class="mt-10 rounded-3xl border border-primary/20 bg-primary/5 p-8">
+            <x-ui.section-heading
+                eyebrow="Chef Tips"
+                title="Tips for the Best Results"
+                description="Small techniques that make a big difference in flavor, texture, and consistency." />
 
-                <ul class="space-y-5">
+            @php
+                $tips = collect(
+                    preg_split('/\r\n|\r|\n/', get_field('chef_tips') ?? '')
+                )->filter();
+            @endphp
 
-                    @foreach(explode("\n", trim(get_field('chef_tips'))) as $tip)
+            <div class="mt-12 overflow-hidden rounded-[32px] border border-primary/15 bg-gradient-to-br from-primary/5 to-white shadow-[0_20px_40px_rgba(0,0,0,0.06)]">
 
-                        @if(trim($tip))
+                <ul class="divide-y divide-primary/10">
 
-                            <li class="flex items-start gap-4">
+                    @foreach ($tips as $tip)
 
-                                <div class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
+                        <li class="flex items-start gap-5 p-6 transition-colors duration-300 hover:bg-primary/5">
 
-                                    <i data-lucide="lightbulb" class="h-4 w-4"></i>
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
 
-                                </div>
+                                <i data-lucide="lightbulb" class="h-5 w-5"></i>
 
-                                <span class="text-lg leading-8">
+                            </div>
+
+                            <div>
+
+                                <h3 class="font-semibold text-text">
+
+                                    FLVRTX Pro Tip
+
+                                </h3>
+
+                                <p class="mt-2 leading-8 text-text-muted">
+
                                     {{ trim($tip) }}
-                                </span>
 
-                            </li>
+                                </p>
 
-                        @endif
+                            </div>
+
+                        </li>
 
                     @endforeach
 

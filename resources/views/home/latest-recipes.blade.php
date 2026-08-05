@@ -8,20 +8,20 @@ $recipes = new WP_Query([
 
 @endphp
 
-@if($recipes->have_posts())
+@if ($recipes->have_posts())
 
-<section class="py-24 bg-white">
+<section class="bg-background py-24 lg:py-32">
 
     <x-container>
 
         <x-ui.section-heading
             eyebrow="Recipes"
             title="Latest Recipes"
-            description="Fresh recipes from the FLVRTX kitchen." />
+            description="Fresh recipes, thoughtfully crafted to help you cook with confidence." />
 
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            @while($recipes->have_posts())
+            @while ($recipes->have_posts())
 
                 @php($recipes->the_post())
 
@@ -29,21 +29,22 @@ $recipes = new WP_Query([
 
             @endwhile
 
+            @php(wp_reset_postdata())
+
         </div>
 
-        <div class="mt-12 text-center">
+        <div class="mt-16 text-center">
 
             <x-ui.button
                 href="{{ get_post_type_archive_link('recipe') }}"
-                variant="secondary">
+                variant="secondary"
+                size="lg">
 
-                Explore Recipes
+                View All Recipes →
 
             </x-ui.button>
 
         </div>
-
-        @php(wp_reset_postdata())
 
     </x-container>
 

@@ -1,25 +1,35 @@
-@if($recipe = get_field('related_recipe'))
+@if (get_field('related_recipe'))
 
-<x-ui.section>
+<section class="bg-background py-20 lg:py-24" id="related-recipe">
 
-    <x-ui.section-header
-        badge="Related Recipe"
-        title="Put Theory Into Practice"
-        description="Now that you understand the science, try the recipe." />
+    <x-container>
 
-    @php
-        $post = is_array($recipe) ? $recipe[0] : $recipe;
-        setup_postdata($post);
-    @endphp
+        <div class="mx-auto max-w-5xl">
 
-    <div class="mx-auto max-w-md">
+            <x-ui.section-heading
+                eyebrow="Related Recipe"
+                title="Put Theory Into Practice"
+                description="Now that you understand the science, bring it to life by cooking the recipe." />
 
-        @include('recipe.card')
+            @php
+                $relatedRecipe = get_field('related_recipe');
+                $recipePost = is_array($relatedRecipe) ? $relatedRecipe[0] : $relatedRecipe;
 
-    </div>
+                setup_postdata($recipePost);
+            @endphp
 
-    @php(wp_reset_postdata())
+            <div class="mx-auto mt-12 max-w-md">
 
-</x-ui.section>
+                @include('recipe.card')
+
+            </div>
+
+            @php(wp_reset_postdata())
+
+        </div>
+
+    </x-container>
+
+</section>
 
 @endif

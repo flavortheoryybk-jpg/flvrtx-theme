@@ -2,27 +2,27 @@
     x-data="{ mobileMenu: false }"
     x-init="$watch('mobileMenu', value => document.body.classList.toggle('overflow-hidden', value))"
     @keydown.escape.window="mobileMenu = false"
-    class="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-lg">
+    class="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-xl">
 
     <x-container>
 
-        <div class="flex h-20 items-center justify-between">
+        <div class="flex h-[88px] items-center justify-between">
 
             {{-- Logo --}}
-            <a href="{{ home_url('/') }}">   
-                <x-logo />
-            </a>
+            <x-logo />
 
             {{-- Desktop Navigation --}}
-            <nav class="hidden lg:block">
+            <nav
+                class="hidden lg:block"
+                aria-label="Primary Navigation">
 
-                @if (has_nav_menu('primary_navigation'))
+                @if(has_nav_menu('primary_navigation'))
 
                     {!! wp_nav_menu([
                         'theme_location' => 'primary_navigation',
-                        'menu_class' => 'flex items-center gap-8 text-sm font-medium',
-                        'container' => false,
-                        'echo' => false,
+                        'menu_class'     => 'nav-menu',
+                        'container'      => false,
+                        'echo'           => false,
                     ]) !!}
 
                 @endif
@@ -32,26 +32,29 @@
             {{-- Desktop Search --}}
             <div class="hidden lg:flex">
 
-                <button
+                <x-ui.button
                     type="button"
-                    @click="$dispatch('open-search')"
-                    class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-2.5 font-medium transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
-                
+                    variant="secondary"
+                    class="gap-3 rounded-2xl px-6"
+                    @click="$dispatch('open-search')">
+
                     <i data-lucide="search" class="h-5 w-5"></i>
-                
-                    <span>Search</span>
-                
-                </button>
+
+                    Search
+
+                </x-ui.button>
 
             </div>
 
-            {{-- Mobile Hamburger --}}
+            {{-- Mobile Menu Button --}}
             <button
+                type="button"
                 @click="
                     mobileMenu = true;
                     $nextTick(() => window.createIcons())
                 "
-                class="flex h-10 w-10 items-center justify-center rounded-xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white lg:hidden">
+                aria-label="Open menu"
+                class="flex h-11 w-11 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white lg:hidden">
 
                 <i data-lucide="menu" class="h-6 w-6"></i>
 
@@ -66,7 +69,7 @@
         x-show="mobileMenu"
         x-transition.opacity
         @click="mobileMenu = false"
-        class="fixed inset-0 z-40 bg-black/50"
+        class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
         style="display:none">
 
     </div>
@@ -85,53 +88,55 @@
         style="display:none">
 
         {{-- Drawer Header --}}
-            <div class="flex items-center justify-between border-b border-border p-6">
+        <div class="flex items-center justify-between border-b border-border p-6">
 
-                <a href="{{ home_url('/') }}">
-                    <x-logo />
-                </a>
-
-                <button
-                    @click="
-                        mobileMenu = false;
-                        $nextTick(() => window.createIcons())
-                    "
-                    class="rounded-lg p-2 transition hover:bg-gray-100"
-                    aria-label="Close menu">
-
-                    <i data-lucide="x" class="h-6 w-6"></i>
-
-                </button>
-
-            </div>
-
-        {{-- Navigation --}}
-        <nav class="flex-1 p-6">
-
-            @if (has_nav_menu('primary_navigation'))
-
-                {!! wp_nav_menu([
-                    'theme_location' => 'primary_navigation',
-                    'menu_class' => 'space-y-6 text-lg font-semibold',
-                    'container' => false,
-                    'echo' => false,
-                ]) !!}
-
-            @endif
+            <x-logo />
 
             <button
                 type="button"
                 @click="
                     mobileMenu = false;
-                    $dispatch('open-search')
+                    $nextTick(() => window.createIcons())
                 "
-                class="mt-8 inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 font-medium transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white">
+                aria-label="Close menu"
+                class="rounded-xl p-2 transition hover:bg-background">
+
+                <i data-lucide="x" class="h-6 w-6"></i>
+
+            </button>
+
+        </div>
+
+        {{-- Navigation --}}
+        <nav
+            class="flex-1 p-6"
+            aria-label="Mobile Navigation">
+
+            @if(has_nav_menu('primary_navigation'))
+
+                {!! wp_nav_menu([
+                    'theme_location' => 'primary_navigation',
+                    'menu_class'     => 'nav-menu mobile',
+                    'container'      => false,
+                    'echo'           => false,
+                ]) !!}
+
+            @endif
+
+            <x-ui.button
+                type="button"
+                variant="secondary"
+                class="mt-8 w-full justify-center"
+                @click="
+                    mobileMenu = false;
+                    $dispatch('open-search')
+                ">
 
                 <i data-lucide="search" class="h-5 w-5"></i>
 
-                <span>Search</span>
+                Search
 
-            </button>
+            </x-ui.button>
 
         </nav>
 
@@ -139,7 +144,9 @@
         <div class="border-t border-border p-6">
 
             <p class="text-sm text-text-muted">
+
                 © {{ date('Y') }} FLVRTX
+
             </p>
 
         </div>

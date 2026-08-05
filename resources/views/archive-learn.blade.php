@@ -3,23 +3,40 @@
 @section('content')
 
 {{-- Hero --}}
-<section class="bg-background py-24">
+<section class="bg-background py-24 lg:py-32">
 
     <x-container>
 
         <div class="mx-auto max-w-4xl text-center">
 
             <x-ui.badge>
+
                 FLVRTX Learn
+
             </x-ui.badge>
 
-            <h1 class="mt-6 text-6xl font-bold">
+            <h1 class="mt-8 text-5xl font-bold tracking-tight lg:text-6xl">
+
                 Learn Food Science
+
             </h1>
 
-            <p class="mt-6 text-xl leading-8 text-text-muted">
-                Understand why ingredients behave the way they do and become a better cook through food science.
+            <p class="mx-auto mt-8 max-w-3xl text-xl leading-8 text-text-muted">
+
+                Discover the science behind cooking, understand ingredients, and become a more confident cook through evidence-based knowledge.
+
             </p>
+
+            <div class="mt-10 flex justify-center">
+
+                <x-ui.badge class="bg-white">
+
+                    {{ number_format($GLOBALS['wp_query']->found_posts) }}
+                    {{ Str::plural('Article', $GLOBALS['wp_query']->found_posts) }}
+
+                </x-ui.badge>
+
+            </div>
 
         </div>
 
@@ -31,10 +48,11 @@
 @php
 
 $featured = new WP_Query([
-    'post_type' => 'learn',
+    'post_type'      => 'learn',
     'posts_per_page' => 1,
-    'meta_key' => 'featured_learn',
-    'meta_value' => 1,
+    'post_status'    => 'publish',
+    'meta_key'       => 'featured_learn',
+    'meta_value'     => 1,
 ]);
 
 @endphp
@@ -64,10 +82,10 @@ $featured = new WP_Query([
 {{-- Latest Articles --}}
 <x-ui.section>
 
-    <x-ui.section-header
-        badge="Latest"
+    <x-ui.section-heading
+        eyebrow="Latest"
         title="Latest Learn Articles"
-        description="Explore cooking techniques, food science and practical kitchen knowledge." />
+        description="Explore cooking techniques, food science, kitchen knowledge, and practical culinary insights." />
 
     @if(have_posts())
 
@@ -85,13 +103,9 @@ $featured = new WP_Query([
 
         @if($GLOBALS['wp_query']->max_num_pages > 1)
 
-            <div class="mt-20 flex justify-center">
+            <div class="mt-20">
 
-                {!! paginate_links([
-                    'mid_size' => 2,
-                    'prev_text' => '← Previous',
-                    'next_text' => 'Next →',
-                ]) !!}
+                @include('search.pagination')
 
             </div>
 
@@ -99,17 +113,9 @@ $featured = new WP_Query([
 
     @else
 
-        <div class="rounded-3xl border border-border bg-white py-20 text-center">
-
-            <h2 class="text-3xl font-bold">
-                No articles found
-            </h2>
-
-            <p class="mt-4 text-text-muted">
-                New food science articles are coming soon.
-            </p>
-
-        </div>
+        <x-ui.empty-state
+            title="No articles found"
+            description="We're publishing new food science articles soon. Check back later." />
 
     @endif
 

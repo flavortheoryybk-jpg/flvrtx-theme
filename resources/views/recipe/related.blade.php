@@ -1,48 +1,81 @@
-<section class="py-24 bg-background">
+@php
+
+$categories = wp_get_post_terms(get_the_ID(), 'category', [
+    'fields' => 'ids',
+]);
+
+$related = new WP_Query([
+    'post_type'           => 'recipe',
+    'posts_per_page'      => 3,
+    'post__not_in'        => [get_the_ID()],
+    'ignore_sticky_posts' => true,
+    'post_status'         => 'publish',
+    'tax_query'           => [
+        [
+            'taxonomy' => 'category',
+            'field'    => 'term_id',
+            'terms'    => $categories,
+        ],
+    ],
+]);
+
+// Fallback if not enough related recipes
+if (!$related->have_posts()) {
+
+    $related = new WP_Query([
+        'post_type'           => 'recipe',
+        'posts_per_page'      => 3,
+        'post__not_in'        => [get_the_ID()],
+        'ignore_sticky_posts' => true,
+        'post_status'         => 'publish',
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+    ]);
+
+}
+
+@endphp
+
+@if ($related->have_posts())
+
+<section class="bg-background py-24 lg:py-32">
 
     <x-container>
 
-        <div class="mb-12">
+        <x-ui.section-heading
+            eyebrow="More Recipes"
+            title="You May Also Like"
+            description="Discover more recipes you might enjoy based on similar flavors and categories." />
 
-            <span class="text-sm font-semibold uppercase tracking-widest text-primary">
-                More Recipes
-            </span>
+        <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            <h2 class="mt-3 text-4xl font-bold">
-                You May Also Like
-            </h2>
+            @while ($related->have_posts())
 
-        </div>
+                @php($related->the_post())
 
-        @php
+                @include('recipe.card')
 
-            $related = new WP_Query([
-                'post_type' => 'recipe',
-                'posts_per_page' => 3,
-                'post__not_in' => [get_the_ID()],
-                'orderby' => 'rand',
-            ]);
-
-        @endphp
-
-        @if($related->have_posts())
-
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-                @while($related->have_posts())
-
-                    @php($related->the_post())
-
-                    @include('recipe.card')
-
-                @endwhile
-
-            </div>
+            @endwhile
 
             @php(wp_reset_postdata())
 
-        @endif
+        </div>
+
+        <div class="mt-16 text-center">
+
+            <x-ui.button
+                href="{{ get_post_type_archive_link('recipe') }}"
+                variant="secondary"
+                size="lg">
+
+                Browse All Recipes →
+
+            </x-ui.button>
+
+        </div>
 
     </x-container>
 
 </section>
+
+@endif
