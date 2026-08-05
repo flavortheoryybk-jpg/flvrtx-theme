@@ -1,50 +1,24 @@
-<section class="bg-white py-20 lg:py-24" id="ingredients">
+@php
+$ingredients = collect(
+    preg_split('/\r\n|\r|\n/', get_field('ingredients') ?? '')
+)->filter();
+@endphp
 
-    <x-container>
+<x-ui.section>
 
-        <div class="max-w-4xl">
+    <div class="mx-auto max-w-5xl">
 
-            <x-ui.section-heading
-                eyebrow="Ingredients"
-                title="Everything You'll Need"
-                description="Use fresh, high-quality ingredients for the best flavor and texture." />
+        <x-ui.section-heading
+            eyebrow="Ingredients"
+            title="Everything You'll Need"
+            description="Prepare all ingredients before you start cooking."
+        />
 
-            @php
-                $ingredients = collect(
-                    preg_split('/\r\n|\r|\n/', get_field('ingredients') ?? '')
-                )->filter();
-            @endphp
+        <x-ui.feature-list
+            :items="$ingredients"
+            icon="check"
+        />
 
-            <div class="mt-12 overflow-hidden rounded-[32px] border border-border bg-white shadow-[0_20px_40px_rgba(0,0,0,0.06)]">
+    </div>
 
-                <ul class="divide-y divide-border">
-
-                    @foreach ($ingredients as $ingredient)
-
-                        <li class="flex items-center gap-5 p-6 transition-colors duration-300 hover:bg-primary/5">
-
-                            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-lg font-bold text-primary">
-
-                                ✓
-
-                            </div>
-
-                            <span class="text-lg font-medium leading-7 text-text">
-
-                                {{ $ingredient }}
-
-                            </span>
-
-                        </li>
-
-                    @endforeach
-
-                </ul>
-
-            </div>
-
-        </div>
-
-    </x-container>
-
-</section>
+</x-ui.section>

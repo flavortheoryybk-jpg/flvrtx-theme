@@ -7,6 +7,14 @@
             {{-- Main Content --}}
             <div class="lg:col-span-8 space-y-20">
 
+                @include('recipe.recipe-intelligence')
+
+                @include('recipe.flavor-dna')
+
+                @include('recipe.texture-profile')
+            
+                @include('recipe.quick-info')
+            
                 @include('recipe.equipment')
 
                 @include('recipe.ingredients')
@@ -15,11 +23,25 @@
 
                 @include('recipe.chef-tips')
 
+                @include('recipe.common-mistakes')
+
+                @include('recipe.serving-suggestions')
+
+                @include('recipe.variations')
+
                 @include('recipe.flavor-theory')
+
+                @include('recipe.nutrition')
 
                 @include('recipe.storage')
 
+                @include('recipe.conclusion')
+
                 @include('recipe.faq')
+
+                @include('recipe.related-learn')
+
+                @include('recipe.related-recommendations')
 
             </div>
 

@@ -1,107 +1,162 @@
-<section class="bg-background py-20 lg:py-28">
+<section class="bg-background py-16 lg:py-24">
 
     <x-container>
 
-        <div class="grid items-center gap-20 lg:grid-cols-2">
+        {{-- Breadcrumb --}}
+        <nav class="mb-8 text-sm text-text-muted" aria-label="Breadcrumb">
 
-            {{-- Image --}}
+            <ol class="flex items-center gap-2">
+
+                <li>
+                    <a href="{{ home_url('/') }}" class="hover:text-primary transition-colors">
+                        Home
+                    </a>
+                </li>
+
+                <li>/</li>
+
+                <li>
+                    <a href="{{ home_url('/recipes') }}" class="hover:text-primary transition-colors">
+                        Recipes
+                    </a>
+                </li>
+
+                <li>/</li>
+
+                <li class="text-text font-medium">
+                    {{ get_the_title() }}
+                </li>
+
+            </ol>
+
+        </nav>
+
+        <div class="grid items-center gap-16 lg:grid-cols-2">
+
+            {{-- Left Content --}}
             <div>
 
-                @if (has_post_thumbnail())
+                <x-ui.pill>
 
-                    {!! get_the_post_thumbnail(
-                        get_the_ID(),
-                        'large',
-                        [
-                            'class' => 'aspect-[4/3] w-full rounded-[36px] object-cover shadow-[0_30px_60px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]',
-                            'loading' => 'eager',
-                            'fetchpriority' => 'high',
-                            'decoding' => 'async',
-                        ]
-                    ) !!}
+                    FLVRTX Verified Recipe
 
-                @endif
+                </x-ui.pill>
 
-            </div>
-
-            {{-- Content --}}
-            <div>
-
-                <x-ui.breadcrumbs
-                    :items="[
-                        ['label' => 'Home', 'url' => home_url('/')],
-                        ['label' => 'Recipes', 'url' => home_url('/recipes')],
-                        ['label' => get_the_title()],
-                    ]" />
-
-                <div class="mt-8">
-
-                    <x-ui.badge>
-
-                        Recipe
-
-                    </x-ui.badge>
-
-                </div>
-
-                <h1 class="mt-8 text-5xl font-bold leading-[1.05] tracking-tight lg:text-6xl">
+                <h1 class="mt-6 text-5xl font-bold tracking-tight leading-tight lg:text-7xl">
 
                     {{ get_the_title() }}
 
                 </h1>
 
-                <p class="mt-8 max-w-xl text-xl leading-9 text-text-muted">
+                @if(get_field('recipe_subtitle'))
 
-                    {{ get_the_excerpt() }}
+                    <p class="mt-5 text-2xl font-medium text-text">
 
-                </p>
+                        {{ get_field('recipe_subtitle') }}
 
-                {{-- Meta --}}
-                <div class="mt-12 grid grid-cols-2 gap-5">
+                    </p>
 
-                    <x-ui.meta-item
-                        label="Prep Time"
-                        value="{{ get_field('prep_time') ?: '--' }} min" />
+                @endif
 
-                    <x-ui.meta-item
-                        label="Cook Time"
-                        value="{{ get_field('cook_time') ?: '--' }} min" />
+                @if(get_the_excerpt())
 
-                    <x-ui.meta-item
-                        label="Servings"
-                        value="{{ get_field('servings') ?: '--' }}" />
+                    <p class="mt-8 max-w-2xl text-xl leading-9 text-text-muted">
 
-                    <x-ui.meta-item
-                        label="Difficulty"
-                        value="{{ get_field('difficulty') ?: '--' }}" />
+                        {{ get_the_excerpt() }}
 
-                </div>
+                    </p>
 
-                {{-- CTA --}}
-                <div class="mt-10 flex flex-wrap gap-4">
+                @endif
 
-                    <x-ui.button
-                        onclick="window.print(); return false;">
+                <div class="mt-10 flex flex-wrap gap-3">
 
-                        Print Recipe
+                    @if(get_field('flvrtx_score'))
 
-                    </x-ui.button>
+                        <x-ui.pill>
 
-                    @if (get_field('youtube_url'))
+                            ★ {{ get_field('flvrtx_score') }}/10 FLVRTX Score
 
-                        <x-ui.button
-                            href="{{ get_field('youtube_url') }}"
-                            variant="secondary"
-                            target="_blank"
-                            rel="noopener noreferrer">
+                        </x-ui.pill>
 
-                            Watch Video
+                    @endif
 
-                        </x-ui.button>
+                    @if(get_field('difficulty'))
+
+                        <x-ui.pill>
+
+                            {{ get_field('difficulty') }}
+
+                        </x-ui.pill>
+
+                    @endif
+
+                    @if(get_field('cuisine'))
+
+                        <x-ui.pill>
+
+                            {{ get_field('cuisine') }}
+
+                        </x-ui.pill>
 
                     @endif
 
                 </div>
+
+                <div class="mt-12 flex flex-wrap gap-4">
+
+                    @if(get_field('youtube_url'))
+
+                        <a
+                            href="{{ get_field('youtube_url') }}"
+                            target="_blank"
+                            class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-4 font-semibold text-white transition hover:opacity-90">
+
+                            <i data-lucide="play-circle" class="h-5 w-5"></i>
+
+                            Watch Video
+
+                        </a>
+
+                    @endif
+
+                    <button
+                        onclick="window.print()"
+                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary hover:text-primary">
+
+                        <i data-lucide="printer" class="h-5 w-5"></i>
+
+                        Print Recipe
+
+                    </button>
+
+                    <button
+                        @click="$dispatch('open-cook-mode')"
+                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary hover:text-primary">
+
+                        <i data-lucide="chef-hat" class="h-5 w-5"></i>
+
+                        Cook Mode
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            {{-- Right Image --}}
+            <div>
+
+                @if(has_post_thumbnail())
+
+                    {!! get_the_post_thumbnail(
+                        get_the_ID(),
+                        'full',
+                        [
+                            'class' => 'aspect-[4/5] w-full rounded-[36px] object-cover shadow-2xl'
+                        ]
+                    ) !!}
+
+                @endif
 
             </div>
 
