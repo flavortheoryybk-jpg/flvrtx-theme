@@ -24,7 +24,7 @@
 
                 </div>
 
-                <h1 class="mt-8 text-5xl font-bold leading-[1.05] tracking-tight lg:text-6xl">
+                <h1 class="mt-8 text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight lg:text-6xl">
 
                     {{ get_the_title() }}
 

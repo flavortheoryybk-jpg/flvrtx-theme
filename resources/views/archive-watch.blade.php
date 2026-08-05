@@ -14,7 +14,7 @@
 
             </x-ui.badge>
 
-            <h1 class="mt-8 text-5xl font-bold tracking-tight lg:text-6xl">
+            <h1 class="mt-8 text-6xl lg:text-7xl font-bold tracking-tight lg:text-6xl">
 
                 Watch & Learn
 

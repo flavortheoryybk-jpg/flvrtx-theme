@@ -3,7 +3,7 @@
     'icon' => 'check',
 ])
 
-<ul class="divide-y divide-border/20 rounded-3xl border border-border/30 bg-white">
+<ul class="divide-y divide-border/20 rounded-[32px] border border-border/30 bg-white">
 
     @foreach($items as $item)
 

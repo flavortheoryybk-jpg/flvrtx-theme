@@ -14,40 +14,36 @@
             title="Nutritional Information"
             description="Approximate nutrition per serving." />
 
-        <div class="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
-
-            <x-ui.card>
-
-                <p class="text-sm text-text-muted">Protein</p>
-
-                <p class="mt-3 text-3xl font-bold">{{ get_field('protein') }} g</p>
-
-            </x-ui.card>
-
-            <x-ui.card>
-
-                <p class="text-sm text-text-muted">Fat</p>
-
-                <p class="mt-3 text-3xl font-bold">{{ get_field('fat') }} g</p>
-
-            </x-ui.card>
-
-            <x-ui.card>
-
-                <p class="text-sm text-text-muted">Carbs</p>
-
-                <p class="mt-3 text-3xl font-bold">{{ get_field('carbohydrates') }} g</p>
-
-            </x-ui.card>
-
-            <x-ui.card>
-
-                <p class="text-sm text-text-muted">Fiber</p>
-
-                <p class="mt-3 text-3xl font-bold">{{ get_field('fiber') }} g</p>
-
-            </x-ui.card>
-
+        <div class="mt-12 space-y-8 rounded-[32px] bg-white p-8 shadow-sm ring-1 ring-border/10">
+        
+            <x-ui.progress-meter
+                label="Protein"
+                :value="get_field('protein')"
+                max="100"
+                icon="beef"
+            />
+        
+            <x-ui.progress-meter
+                label="Fat"
+                :value="get_field('fat')"
+                max="100"
+                icon="droplets"
+            />
+        
+            <x-ui.progress-meter
+                label="Carbohydrates"
+                :value="get_field('carbohydrates')"
+                max="100"
+                icon="wheat"
+            />
+        
+            <x-ui.progress-meter
+                label="Fiber"
+                :value="get_field('fiber')"
+                max="100"
+                icon="leaf"
+            />
+        
         </div>
 
     </div>

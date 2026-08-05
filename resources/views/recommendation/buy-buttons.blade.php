@@ -4,7 +4,7 @@
     get_field('meesho_link')
 )
 
-<section class="bg-background py-20 lg:py-24">
+<section class="bg-background py-24 lg:py-24">
 
     <x-container>
 

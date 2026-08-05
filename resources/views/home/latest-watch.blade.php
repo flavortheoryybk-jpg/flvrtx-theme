@@ -8,20 +8,23 @@ $watch = new WP_Query([
 
 @endphp
 
-@if ($watch->have_posts())
+@if($watch->have_posts())
 
-<section class="bg-white py-24 lg:py-32">
+<x-ui.section class="bg-white">
 
     <x-container>
 
+        {{-- Section Header --}}
         <x-ui.section-heading
             eyebrow="Watch"
             title="Watch & Learn"
-            description="Discover premium cooking videos, techniques, and visual guides that bring every recipe to life." />
+            description="Step-by-step cooking videos, techniques, and visual guides to help you cook with confidence."
+        />
 
-        <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {{-- Video Grid --}}
+        <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-            @while ($watch->have_posts())
+            @while($watch->have_posts())
 
                 @php($watch->the_post())
 
@@ -33,14 +36,19 @@ $watch = new WP_Query([
 
         </div>
 
-        <div class="mt-16 text-center">
+        {{-- CTA --}}
+        <div class="mt-16 flex justify-center">
 
             <x-ui.button
                 href="{{ get_post_type_archive_link('watch') }}"
-                variant="secondary"
-                size="lg">
+                variant="secondary">
 
-                View All Videos →
+                View All Videos
+
+                <i
+                    data-lucide="arrow-right"
+                    class="h-5 w-5">
+                </i>
 
             </x-ui.button>
 
@@ -48,6 +56,6 @@ $watch = new WP_Query([
 
     </x-container>
 
-</section>
+</x-ui.section>
 
 @endif

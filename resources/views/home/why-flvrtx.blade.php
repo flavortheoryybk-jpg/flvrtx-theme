@@ -1,102 +1,132 @@
-<section class="border-y border-border bg-white py-24">
+<x-ui.section class="border-y border-border/20 bg-white">
 
     <x-container>
 
         {{-- Section Header --}}
-        <div class="mx-auto max-w-3xl text-center">
-
-            <x-ui.badge>
-                Why FLVRTX?
-            </x-ui.badge>
-
-            <h2 class="mt-6 text-5xl font-bold leading-tight">
-                More Than Just Recipes.
-            </h2>
-
-            <p class="mt-6 text-lg leading-8 text-text-muted">
-                FLVRTX combines cooking, food science, practical techniques, and honest recommendations
-                to help you become a more confident cook—not just follow recipes.
-            </p>
-
-        </div>
+        <x-ui.section-heading
+            eyebrow="Why FLVRTX?"
+            title="More Than Just Recipes."
+            description="FLVRTX combines recipes, food science, practical techniques, and trusted recommendations to help you become a more confident cook—not just someone who follows instructions."
+        />
 
         {{-- Features --}}
-        <div class="mt-20 grid gap-8 md:grid-cols-3">
+        <div class="mt-16 grid gap-8 md:grid-cols-3">
 
-            {{-- Card 1 --}}
-            <div
-                class="group rounded-3xl border border-border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-2xl">
+            {{-- Food Science --}}
+            <x-ui.card class="group">
 
-                <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-3xl">
-                    🧪
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+
+                    <i
+                        data-lucide="flask-conical"
+                        class="h-8 w-8 text-primary">
+                    </i>
+
                 </div>
 
-                <h3 class="text-2xl font-bold transition-colors duration-300 group-hover:text-primary">
+                <h3 class="mt-8 text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-primary">
+
                     Food Science
+
                 </h3>
 
-                <p class="mt-4 leading-7 text-text-muted">
-                    Discover why ingredients behave the way they do and learn the science behind better cooking.
+                <p class="mt-5 leading-8 text-text-muted">
+
+                    Learn why ingredients behave the way they do and understand the science behind better cooking, not just the steps.
+
                 </p>
 
-            </div>
+            </x-ui.card>
 
-            {{-- Card 2 --}}
-            <div
-                class="group rounded-3xl border border-border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-2xl">
+            {{-- Tested Recipes --}}
+            <x-ui.card class="group">
 
-                <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-3xl">
-                    🍳
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+
+                    <i
+                        data-lucide="chef-hat"
+                        class="h-8 w-8 text-primary">
+                    </i>
+
                 </div>
 
-                <h3 class="text-2xl font-bold transition-colors duration-300 group-hover:text-primary">
+                <h3 class="mt-8 text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-primary">
+
                     Tested Recipes
+
                 </h3>
 
-                <p class="mt-4 leading-7 text-text-muted">
-                    Every recipe is cooked, tested, refined, and photographed before it's published.
+                <p class="mt-5 leading-8 text-text-muted">
+
+                    Every recipe is cooked, tested, refined, and photographed before publishing so you can cook with confidence.
+
                 </p>
 
-            </div>
+            </x-ui.card>
 
-            {{-- Card 3 --}}
-            <div
-                class="group rounded-3xl border border-border bg-background p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary hover:shadow-2xl">
+            {{-- Trusted Recommendations --}}
+            <x-ui.card class="group">
 
-                <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-3xl">
-                    ⭐
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+
+                    <i
+                        data-lucide="badge-check"
+                        class="h-8 w-8 text-primary">
+                    </i>
+
                 </div>
 
-                <h3 class="text-2xl font-bold transition-colors duration-300 group-hover:text-primary">
+                <h3 class="mt-8 text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-primary">
+
                     Trusted Recommendations
+
                 </h3>
 
-                <p class="mt-4 leading-7 text-text-muted">
-                    Kitchen tools, ingredients, and products we personally use and confidently recommend.
+                <p class="mt-5 leading-8 text-text-muted">
+
+                    Discover kitchen tools, ingredients, and products that have been personally used, tested, and genuinely recommended.
+
                 </p>
 
-            </div>
+            </x-ui.card>
 
         </div>
 
         {{-- CTA Banner --}}
-        <div class="mt-24 rounded-[32px] bg-primary px-8 py-16 text-center text-white lg:px-16">
+        <div class="mt-24 overflow-hidden rounded-[40px] bg-primary px-8 py-20 text-center text-white lg:px-20">
 
-            <h2 class="text-4xl font-bold lg:text-5xl">
-                Understand Food. Cook With Confidence.
+            <x-ui.pill class="border border-white/20 bg-white/10 text-white">
+
+                Join the FLVRTX Journey
+
+            </x-ui.pill>
+
+            <h2 class="mt-8 text-4xl font-bold tracking-tight lg:text-6xl">
+
+                Understand Food.<br>
+
+                Cook With Confidence.
+
             </h2>
 
-            <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/90">
-                Recipes, food science, wellness, and trusted recommendations—all designed to help you cook smarter every day.
+            <p class="mx-auto mt-8 max-w-3xl text-lg leading-8 text-white/90">
+
+                Whether you're cooking your first meal or perfecting your signature dish, FLVRTX gives you recipes, food science, practical techniques, and honest recommendations—all in one place.
+
             </p>
 
-            <div class="mt-10">
+            <div class="mt-10 flex justify-center">
 
                 <x-ui.button
                     href="{{ home_url('/recipes') }}"
                     class="bg-white text-primary hover:bg-background">
 
                     Explore Recipes
+
+                    <i
+                        data-lucide="arrow-right"
+                        class="h-5 w-5">
+                    </i>
 
                 </x-ui.button>
 
@@ -106,4 +136,4 @@
 
     </x-container>
 
-</section>
+</x-ui.section>

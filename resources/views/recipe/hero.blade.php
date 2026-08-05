@@ -1,4 +1,4 @@
-<section class="bg-background py-16 lg:py-24">
+<section class="bg-background py-24 lg:py-24">
 
     <x-container>
 
@@ -8,7 +8,7 @@
             <ol class="flex items-center gap-2">
 
                 <li>
-                    <a href="{{ home_url('/') }}" class="hover:text-primary transition-colors">
+                    <a href="{{ home_url('/') }}" class="transition-colors duration-300 hover:text-primary transition-colors">
                         Home
                     </a>
                 </li>
@@ -16,7 +16,7 @@
                 <li>/</li>
 
                 <li>
-                    <a href="{{ home_url('/recipes') }}" class="hover:text-primary transition-colors">
+                    <a href="{{ home_url('/recipes') }}" class="transition-colors duration-300 hover:text-primary transition-colors">
                         Recipes
                     </a>
                 </li>
@@ -42,7 +42,7 @@
 
                 </x-ui.pill>
 
-                <h1 class="mt-6 text-5xl font-bold tracking-tight leading-tight lg:text-7xl">
+                <h1 class="mt-6 text-6xl lg:text-7xl font-bold tracking-tight leading-tight lg:text-7xl">
 
                     {{ get_the_title() }}
 
@@ -121,7 +121,7 @@
 
                     <button
                         onclick="window.print()"
-                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary hover:text-primary">
+                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary transition-colors duration-300 hover:text-primary">
 
                         <i data-lucide="printer" class="h-5 w-5"></i>
 
@@ -131,7 +131,7 @@
 
                     <button
                         @click="$dispatch('open-cook-mode')"
-                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary hover:text-primary">
+                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary transition-colors duration-300 hover:text-primary">
 
                         <i data-lucide="chef-hat" class="h-5 w-5"></i>
 

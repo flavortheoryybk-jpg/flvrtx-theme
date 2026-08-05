@@ -28,7 +28,7 @@
 
                     <a
                         href="{{ $item['url'] }}"
-                        class="transition-colors duration-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                        class="transition-colors duration-300 transition-colors duration-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
 
                         {{ $item['label'] }}
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="py-20 bg-background">
+<section class="py-24 bg-background">
 
     <x-container>
 
@@ -12,7 +12,7 @@
                 FLVRTX
             </p>
 
-            <h1 class="mt-3 text-5xl font-bold">
+            <h1 class="mt-3 text-6xl lg:text-7xl font-bold">
                 Recipes
             </h1>
 

@@ -4,7 +4,7 @@
     'value',
 ])
 
-<div class="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-border/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+<div class="rounded-[32px] bg-white p-7 shadow-sm ring-1 ring-border/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
     <div class="flex items-center justify-between">
 
@@ -13,7 +13,7 @@
             class="h-7 w-7 text-primary">
         </i>
 
-        <span class="text-3xl font-bold">
+        <span class="text-3xl font-bold tracking-tight">
 
             {{ $value }}
 

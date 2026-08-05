@@ -1,6 +1,6 @@
 @if (have_rows('faq'))
 
-<section class="bg-background py-20 lg:py-24" id="faq">
+<section class="bg-background py-24 lg:py-24" id="faq">
 
     <x-container>
 

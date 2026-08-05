@@ -21,7 +21,7 @@
 
             @endif
 
-            <h1 class="mt-6 text-5xl font-bold tracking-tight lg:text-7xl">
+            <h1 class="mt-6 text-6xl lg:text-7xl font-bold tracking-tight lg:text-7xl">
 
                 {{ $title }}
 

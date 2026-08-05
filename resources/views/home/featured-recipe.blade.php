@@ -15,32 +15,38 @@ $featured = new WP_Query([
 
 @endphp
 
-@if ($featured->have_posts())
+@if($featured->have_posts())
 
-    @while ($featured->have_posts())
+    @while($featured->have_posts())
 
         @php($featured->the_post())
 
-<section class="bg-white py-24 lg:py-32">
+<x-ui.section class="bg-background">
 
     <x-container>
 
-        <div class="grid items-center gap-20 lg:grid-cols-2">
+        <div class="grid items-center gap-16 lg:grid-cols-2">
 
             {{-- Image --}}
             <div class="order-2 lg:order-1">
 
-                @if (has_post_thumbnail())
+                @if(has_post_thumbnail())
 
-                    {!! get_the_post_thumbnail(
-                        get_the_ID(),
-                        'large',
-                        [
-                            'class' => 'aspect-[4/3] w-full rounded-[36px] object-cover shadow-[0_30px_60px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]',
-                            'loading' => 'lazy',
-                            'decoding' => 'async',
-                        ]
-                    ) !!}
+                    <a
+                        href="{{ get_permalink() }}"
+                        class="group block overflow-hidden rounded-[40px]">
+
+                        {!! get_the_post_thumbnail(
+                            get_the_ID(),
+                            'large',
+                            [
+                                'class' => 'aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105',
+                                'loading' => 'lazy',
+                                'decoding' => 'async',
+                            ]
+                        ) !!}
+
+                    </a>
 
                 @endif
 
@@ -49,49 +55,64 @@ $featured = new WP_Query([
             {{-- Content --}}
             <div class="order-1 lg:order-2">
 
-                <x-ui.badge>
+                <x-ui.pill>
 
                     Featured Recipe
 
-                </x-ui.badge>
+                </x-ui.pill>
 
-                <h2 class="mt-8 text-4xl font-bold leading-tight tracking-tight lg:text-6xl">
+                <h2 class="mt-8 text-4xl font-bold tracking-tight leading-tight lg:text-6xl">
 
                     {{ get_the_title() }}
 
                 </h2>
 
-                <p class="mt-6 max-w-lg text-lg leading-8 text-text-muted">
+                <p class="mt-6 text-lg leading-8 text-text-muted">
 
                     {{ get_the_excerpt() }}
 
                 </p>
 
-                {{-- Recipe Meta --}}
-                <div class="mt-10 grid grid-cols-3 gap-6">
+                {{-- Recipe Stats --}}
+                <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
 
-                    <x-ui.meta-item
-                        label="Prep Time"
-                        value="{{ get_field('prep_time') ?: '--' }} min" />
+                    <x-ui.stat-card
+                        icon="timer"
+                        label="Prep"
+                        :value="(get_field('prep_time') ?: '--').' min'"
+                    />
 
-                    <x-ui.meta-item
+                    <x-ui.stat-card
+                        icon="flame"
                         label="Difficulty"
-                        value="{{ get_field('difficulty') ?: '--' }}" />
+                        :value="get_field('difficulty') ?: '--'"
+                    />
 
-                    <x-ui.meta-item
-                        label="Servings"
-                        value="{{ get_field('servings') ?: '--' }}" />
+                    <x-ui.stat-card
+                        icon="users"
+                        label="Serves"
+                        :value="get_field('servings') ?: '--'"
+                    />
+
+                    <x-ui.stat-card
+                        icon="utensils-crossed"
+                        label="Cuisine"
+                        :value="get_field('cuisine') ?: '--'"
+                    />
 
                 </div>
 
                 {{-- CTA --}}
                 <div class="mt-10">
 
-                    <x-ui.button
-                        href="{{ get_permalink() }}"
-                        size="lg">
+                    <x-ui.button href="{{ get_permalink() }}">
 
-                        Cook This Recipe →
+                        View Recipe
+
+                        <i
+                            data-lucide="arrow-right"
+                            class="h-5 w-5">
+                        </i>
 
                     </x-ui.button>
 
@@ -103,7 +124,7 @@ $featured = new WP_Query([
 
     </x-container>
 
-</section>
+</x-ui.section>
 
     @endwhile
 

@@ -1,30 +1,22 @@
 @props([
-    'eyebrow',
+    'eyebrow' => null,
     'title',
     'description' => null,
-    'align' => 'left',
 ])
 
-@php
+<div class="mx-auto mb-16 max-w-3xl text-center">
 
-$alignments = [
-    'left' => '',
-    'center' => 'text-center mx-auto',
-];
+    @if($eyebrow)
 
-$class = $alignments[$align] ?? $alignments['left'];
+        <x-ui.pill>
 
-@endphp
+            {{ $eyebrow }}
 
-<div class="{{ $class }} mb-12">
+        </x-ui.pill>
 
-    <x-ui.badge>
+    @endif
 
-        {{ $eyebrow }}
-
-    </x-ui.badge>
-
-    <h2 class="mt-5 text-4xl font-bold leading-tight lg:text-5xl">
+    <h2 class="mt-6 text-4xl font-bold tracking-tight lg:text-6xl lg:text-7xl">
 
         {{ $title }}
 
@@ -32,7 +24,7 @@ $class = $alignments[$align] ?? $alignments['left'];
 
     @if($description)
 
-        <p class="mt-4 max-w-2xl text-lg leading-8 text-text-muted">
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-text-muted">
 
             {{ $description }}
 

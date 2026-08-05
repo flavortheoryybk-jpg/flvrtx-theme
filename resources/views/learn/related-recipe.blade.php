@@ -1,6 +1,6 @@
 @if (get_field('related_recipe'))
 
-<section class="bg-background py-20 lg:py-24" id="related-recipe">
+<section class="bg-background py-24 lg:py-24" id="related-recipe">
 
     <x-container>
 

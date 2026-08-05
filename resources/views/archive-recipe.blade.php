@@ -14,7 +14,7 @@
 
             </x-ui.badge>
 
-            <h1 class="mt-8 text-5xl font-bold tracking-tight lg:text-6xl">
+            <h1 class="mt-8 text-6xl lg:text-7xl font-bold tracking-tight lg:text-6xl">
 
                 Discover Recipes
 
@@ -106,7 +106,7 @@
 
                 <a
                     href="{{ get_term_link($category) }}"
-                    class="rounded-full border border-border bg-white px-6 py-3 font-medium transition-all duration-300 hover:border-primary hover:text-primary">
+                    class="rounded-full border border-border bg-white px-6 py-3 font-medium transition-all duration-300 hover:border-primary transition-colors duration-300 hover:text-primary">
 
                     {{ $category->name }}
 

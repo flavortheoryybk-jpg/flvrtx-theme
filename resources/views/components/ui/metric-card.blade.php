@@ -4,27 +4,36 @@
     'icon' => 'circle',
 ])
 
-<div class="rounded-[30px] border border-border/20 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+<div
+    class="group rounded-[28px] bg-white p-7 ring-1 ring-border/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
     <div class="flex items-center justify-between">
 
-        <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-text-muted">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+
+            <i
+                data-lucide="{{ $icon }}"
+                class="h-6 w-6 text-primary">
+            </i>
+
+        </div>
+
+        <span class="text-xs font-semibold uppercase tracking-[0.25em] text-text-muted">
 
             {{ $title }}
 
-        </h3>
-
-        <i
-            data-lucide="{{ $icon }}"
-            class="h-6 w-6 text-primary">
-        </i>
+        </span>
 
     </div>
 
-    <p class="mt-8 text-3xl font-bold leading-tight">
+    <div class="mt-8">
 
-        {{ $value }}
+        <p class="text-3xl font-bold tracking-tight tracking-tight text-text">
 
-    </p>
+            {{ $value }}
+
+        </p>
+
+    </div>
 
 </div>

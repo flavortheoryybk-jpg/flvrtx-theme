@@ -14,46 +14,41 @@
         <x-ui.section-heading
             eyebrow="FLVRTX Intelligence"
             title="Recipe Intelligence"
-            description="A quick overview to help you decide if this recipe is right for you."
+            description="Everything you should know before stepping into the kitchen."
         />
 
-        <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div class="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
 
             <x-ui.metric-card
+                icon="chef-hat"
                 title="Cooking Skill"
                 :value="get_field('skill_level').'/10'"
-                icon="chef-hat"
             />
 
             <x-ui.metric-card
-                title="Confidence"
-                :value="get_field('cooking_confidence').'%'"
                 icon="badge-check"
-            />
+                title="Confidence"
+                :value="get_field('cooking_confidence').'%'" />
 
             <x-ui.metric-card
-                title="Budget"
-                :value="get_field('budget_level')"
                 icon="wallet"
-            />
+                title="Budget"
+                :value="get_field('budget_level')" />
 
             <x-ui.metric-card
-                title="Meal Type"
-                :value="get_field('meal_type')"
                 icon="utensils-crossed"
-            />
+                title="Meal Type"
+                :value="get_field('meal_type')" />
 
             <x-ui.metric-card
-                title="Best Season"
-                :value="get_field('best_season')"
                 icon="sun"
-            />
+                title="Season"
+                :value="get_field('best_season')" />
 
             <x-ui.metric-card
-                title="Best For"
-                :value="get_field('best_for_recipe')"
                 icon="sparkles"
-            />
+                title="Best For"
+                :value="get_field('best_for_recipe')" />
 
         </div>
 

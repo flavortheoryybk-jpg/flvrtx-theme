@@ -111,14 +111,14 @@
 
             <div class="max-w-4xl text-center">
 
-                <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary text-3xl font-bold text-white">
+                <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary text-3xl font-bold tracking-tight text-white">
 
                     <span x-text="currentStep+1"></span>
 
                 </div>
 
                 <p
-                    class="mt-10 text-3xl font-semibold leading-relaxed lg:text-5xl"
+                    class="mt-10 text-3xl font-semibold leading-relaxed lg:text-6xl lg:text-7xl"
                     x-text="steps[currentStep]">
 
                 </p>

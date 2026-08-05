@@ -8,7 +8,7 @@
                 FLVRTX Watch
             </x-ui.badge>
 
-            <h1 class="mt-6 text-5xl font-bold leading-tight lg:text-6xl">
+            <h1 class="mt-6 text-6xl lg:text-7xl font-bold leading-tight lg:text-6xl">
 
                 {{ get_the_title() }}
 

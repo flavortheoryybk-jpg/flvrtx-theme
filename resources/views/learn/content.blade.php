@@ -39,7 +39,7 @@
                     prose-li:marker:text-primary
                     prose-blockquote:border-primary
                     prose-blockquote:text-text
-                    prose-img:rounded-3xl
+                    prose-img:rounded-[32px]
                     prose-img:shadow-lg
                     prose-a:text-primary
                     prose-a:no-underline

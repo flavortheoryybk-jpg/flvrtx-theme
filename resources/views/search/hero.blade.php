@@ -1,4 +1,4 @@
-<section class="bg-background py-20 lg:py-28">
+<section class="bg-background py-24 lg:py-28">
 
     <x-container>
 
@@ -10,7 +10,7 @@
 
             </x-ui.badge>
 
-            <h1 class="mt-8 text-5xl font-bold tracking-tight lg:text-6xl">
+            <h1 class="mt-8 text-6xl lg:text-7xl font-bold tracking-tight lg:text-6xl">
 
                 Search Results
 

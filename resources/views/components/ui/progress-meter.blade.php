@@ -11,51 +11,68 @@
     $percentage = min(100, max(0, ($value / $max) * 100));
 @endphp
 
-<div>
+<div class="space-y-4">
 
-    <div class="mb-3 flex items-center justify-between">
+    <div class="flex items-center justify-between">
 
         <div class="flex items-center gap-3">
 
-            <i
-                data-lucide="{{ $icon }}"
-                class="h-5 w-5 text-primary">
-            </i>
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
 
-            <span class="font-semibold">
+                <i
+                    data-lucide="{{ $icon }}"
+                    class="h-5 w-5 text-primary">
+                </i>
 
-                {{ $label }}
+            </div>
 
-            </span>
+            <div>
+
+                <h3 class="font-semibold">
+
+                    {{ $label }}
+
+                </h3>
+
+                @if($description)
+
+                    <p class="text-sm text-text-muted">
+
+                        {{ $description }}
+
+                    </p>
+
+                @endif
+
+            </div>
 
         </div>
 
-        <span class="font-bold text-primary">
+        <div class="text-right">
 
-            {{ $value }}/{{ $max }}
+            <p class="text-2xl font-bold">
 
-        </span>
+                {{ $value }}
+
+            </p>
+
+            <p class="text-xs uppercase tracking-widest text-text-muted">
+
+                out of {{ $max }}
+
+            </p>
+
+        </div>
 
     </div>
 
-    <div class="h-3 overflow-hidden rounded-full bg-gray-200">
+    <div class="h-3 overflow-hidden rounded-full bg-border/20">
 
         <div
-            class="{{ $color }} h-full rounded-full transition-all duration-700"
+            class="{{ $color }} h-full rounded-full transition-all duration-700 ease-out"
             style="width: {{ $percentage }}%">
-
         </div>
 
     </div>
-
-    @if($description)
-
-        <p class="mt-3 text-sm text-text-muted">
-
-            {{ $description }}
-
-        </p>
-
-    @endif
 
 </div>

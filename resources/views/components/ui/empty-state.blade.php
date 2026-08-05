@@ -8,16 +8,16 @@
 
 <div
     {{ $attributes->merge([
-        'class' => 'rounded-3xl border border-border bg-white px-8 py-20 text-center',
+        'class' => 'rounded-[32px] border border-border bg-white px-8 py-24 text-center',
     ]) }}>
 
-    <div class="text-5xl">
+    <div class="text-6xl lg:text-7xl">
 
         {{ $icon }}
 
     </div>
 
-    <h2 class="mt-6 text-3xl font-bold">
+    <h2 class="mt-6 text-3xl font-bold tracking-tight">
 
         {{ $title }}
 

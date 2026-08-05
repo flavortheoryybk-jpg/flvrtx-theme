@@ -1,6 +1,6 @@
 @if (get_field('key_takeaways'))
 
-<section class="bg-white py-20 lg:py-24" id="key-takeaways">
+<section class="bg-white py-24 lg:py-24" id="key-takeaways">
 
     <x-container>
 

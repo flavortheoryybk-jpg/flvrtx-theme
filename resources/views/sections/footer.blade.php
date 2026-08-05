@@ -42,15 +42,15 @@
 
                 <ul class="mt-6 space-y-4">
 
-                    <li><a href="{{ home_url('/recipes') }}" class="transition-colors duration-300 hover:text-primary">Recipes</a></li>
+                    <li><a href="{{ home_url('/recipes') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Recipes</a></li>
 
-                    <li><a href="{{ home_url('/learn') }}" class="transition-colors duration-300 hover:text-primary">Learn</a></li>
+                    <li><a href="{{ home_url('/learn') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Learn</a></li>
 
-                    <li><a href="{{ home_url('/watch') }}" class="transition-colors duration-300 hover:text-primary">Watch</a></li>
+                    <li><a href="{{ home_url('/watch') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Watch</a></li>
 
-                    <li><a href="{{ home_url('/wellness') }}" class="transition-colors duration-300 hover:text-primary">Wellness</a></li>
+                    <li><a href="{{ home_url('/wellness') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Wellness</a></li>
 
-                    <li><a href="{{ home_url('/shop') }}" class="transition-colors duration-300 hover:text-primary">Recommendations</a></li>
+                    <li><a href="{{ home_url('/shop') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Recommendations</a></li>
 
                 </ul>
 
@@ -65,13 +65,13 @@
 
                 <ul class="mt-6 space-y-4">
 
-                    <li><a href="{{ home_url('/about') }}" class="transition-colors duration-300 hover:text-primary">About</a></li>
+                    <li><a href="{{ home_url('/about') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">About</a></li>
 
-                    <li><a href="{{ home_url('/contact') }}" class="transition-colors duration-300 hover:text-primary">Contact</a></li>
+                    <li><a href="{{ home_url('/contact') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Contact</a></li>
 
-                    <li><a href="{{ home_url('/privacy-policy') }}" class="transition-colors duration-300 hover:text-primary">Privacy Policy</a></li>
+                    <li><a href="{{ home_url('/privacy-policy') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Privacy Policy</a></li>
 
-                    <li><a href="{{ home_url('/terms-of-service') }}" class="transition-colors duration-300 hover:text-primary">Terms of Service</a></li>
+                    <li><a href="{{ home_url('/terms-of-service') }}" class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">Terms of Service</a></li>
 
                 </ul>
 
@@ -91,7 +91,7 @@
                             href="https://www.youtube.com/@FLVRTX"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="transition-colors duration-300 hover:text-primary">
+                            class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">
 
                             YouTube
 
@@ -103,7 +103,7 @@
                             href="https://www.instagram.com/flavortheory_flvrtx/?hl=en"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="transition-colors duration-300 hover:text-primary">
+                            class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">
 
                             Instagram
 
@@ -115,7 +115,7 @@
                             href="https://in.pinterest.com/flavortheory/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="transition-colors duration-300 hover:text-primary">
+                            class="transition-colors duration-300 transition-colors duration-300 hover:text-primary">
 
                             Pinterest
 

@@ -1,4 +1,4 @@
-<section class="border-y border-border/30 bg-background py-16">
+<section class="border-y border-border/30 bg-background py-24">
 
     <x-container>
 

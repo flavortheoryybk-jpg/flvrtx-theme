@@ -5,7 +5,7 @@
 
 <{{ $as }}
     {{ $attributes->merge([
-        'class' => 'py-20 lg:py-24',
+        'class' => 'py-24 lg:py-24',
     ]) }}>
 
     @if ($container)

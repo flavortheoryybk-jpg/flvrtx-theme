@@ -1,5 +1,11 @@
 <section class="relative overflow-hidden bg-background py-24 lg:py-36">
-
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+    
+        <div class="absolute -left-32 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"></div>
+    
+        <div class="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"></div>
+    
+    </div>
     <x-container>
 
         <div class="grid items-center gap-20 lg:grid-cols-2">
@@ -8,12 +14,12 @@
             <div>
 
                 {{-- Badge --}}
-                <x-ui.badge>
+                <x-ui.pill>
                     Premium Food Education Platform
-                </x-ui.badge>
+                </x-ui.pill>
 
                 {{-- Heading --}}
-                <h1 class="mt-8 text-5xl font-bold leading-[1.05] tracking-tight text-text lg:text-7xl">
+                <h1 class="mt-8 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
 
                     Understand Food.<br>
 
@@ -26,7 +32,7 @@
                 </h1>
 
                 {{-- Description --}}
-                <p class="mt-8 max-w-lg text-lg leading-8 text-text-muted">
+                <p class="mt-8 max-w-xl text-lg leading-8 text-text-muted">
 
                     Explore recipes, food science, cooking techniques, and trusted recommendations that help you understand why every dish works.
 
@@ -54,17 +60,31 @@
                 </div>
 
                 {{-- Trust Line --}}
-                <div class="mt-8 flex flex-wrap items-center gap-3 text-sm font-medium text-text-muted">
+                <div class="mt-10 flex flex-wrap gap-6 text-sm font-medium text-text-muted">
 
-                    <span>🍽 Recipes</span>
+                    <div class="flex items-center gap-2">
 
-                    <span class="text-border">•</span>
+                        <i data-lucide="chef-hat" class="h-4 w-4 text-primary"></i>
 
-                    <span>🧪 Food Science</span>
+                        Recipes
 
-                    <span class="text-border">•</span>
+                    </div>
 
-                    <span>⭐ Trusted Recommendations</span>
+                    <div class="flex items-center gap-2">
+
+                        <i data-lucide="flask-conical" class="h-4 w-4 text-primary"></i>
+
+                        Food Science
+
+                    </div>
+
+                    <div class="flex items-center gap-2">
+
+                        <i data-lucide="badge-check" class="h-4 w-4 text-primary"></i>
+
+                        Trusted Reviews
+
+                    </div>
 
                 </div>
 
@@ -129,7 +149,7 @@
                 <img
                     src="{{ Vite::asset('resources/images/Hero_Image_Flvrtx.png') }}"
                     alt="Premium FLVRTX Food Collection"
-                    class="w-full max-w-2xl rounded-[36px] object-cover shadow-[0_30px_60px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
+                    class="w-full max-w-2xl rounded-[40px] object-cover shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
                     loading="eager"
                     decoding="async">
 

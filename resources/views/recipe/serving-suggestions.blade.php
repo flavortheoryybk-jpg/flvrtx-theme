@@ -15,30 +15,33 @@
             )->filter();
         @endphp
 
-        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
             @foreach($items as $item)
-
-                <div class="rounded-3xl border border-border bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-
-                    <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
-
-                        <i data-lucide="utensils-crossed" class="h-8 w-8 text-primary"></i>
-
+        
+                <div class="rounded-[28px] bg-white p-8 text-center shadow-sm ring-1 ring-border/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        
+                    <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+        
+                        <i
+                            data-lucide="utensils-crossed"
+                            class="h-7 w-7 text-primary">
+                        </i>
+        
                     </div>
-
+        
                     <h3 class="mt-6 text-xl font-semibold">
-
+        
                         {{ $item }}
-
+        
                     </h3>
-
+        
                 </div>
-
+        
             @endforeach
-
+        
         </div>
-
+        
     </div>
 
 </x-ui.section>

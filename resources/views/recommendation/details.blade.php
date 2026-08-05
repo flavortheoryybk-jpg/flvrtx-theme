@@ -1,4 +1,4 @@
-<section class="bg-background py-20 lg:py-24">
+<section class="bg-background py-24 lg:py-24">
 
     <x-container>
 
@@ -15,7 +15,7 @@
                 prose-strong:text-text
                 prose-li:text-text-muted
                 prose-li:marker:text-primary
-                prose-img:rounded-3xl
+                prose-img:rounded-[32px]
                 prose-img:shadow-lg
                 prose-a:text-primary
                 prose-a:no-underline
@@ -39,7 +39,7 @@
 
                         <div>
 
-                            <h2 class="text-3xl font-bold">
+                            <h2 class="text-3xl font-bold tracking-tight">
 
                                 Why We Recommend It
 
@@ -65,7 +65,7 @@
 
 </section>
 
-<section class="bg-white py-20 lg:py-24">
+<section class="bg-white py-24 lg:py-24">
 
     <x-container>
 

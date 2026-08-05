@@ -1,6 +1,6 @@
 @if (get_field('did_you_know'))
 
-<section class="bg-background py-20 lg:py-24" id="did-you-know">
+<section class="bg-background py-24 lg:py-24" id="did-you-know">
 
     <x-container>
 
