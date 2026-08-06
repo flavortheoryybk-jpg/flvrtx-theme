@@ -1,41 +1,49 @@
-@if (get_field('flavor_theory'))
+@if(get_field('flavor_theory'))
 
-<section class="bg-gradient-to-br from-primary/5 via-background to-primary/10 py-24 lg:py-28" id="flavor-theory">
+<x-ui.section
+    id="flavor-theory"
+    class="bg-gradient-to-br from-primary/5 via-background to-primary/10">
 
-    <x-container>
+    <div class="mx-auto max-w-5xl">
 
-        <div class="mx-auto max-w-5xl">
+        <x-ui.section-heading
+            eyebrow="FLVRTX LAB"
+            title="Why This Recipe Works"
+            description="Understanding the science behind a recipe helps you cook with confidence, troubleshoot mistakes, and consistently achieve better results."
+        />
 
-            <x-ui.section-heading
-                eyebrow="🧪 FLVRTX LAB"
-                title="Why This Recipe Works"
-                description="Great cooking starts with understanding. Learn the science and techniques behind this recipe so you can confidently recreate it every time." />
+        <x-ui.card class="mt-16">
 
-            <div class="mt-14 overflow-hidden rounded-[36px] border border-primary/15 bg-white p-10 shadow-[0_24px_48px_rgba(0,0,0,0.08)] lg:p-12">
-
-                <div class="prose prose-lg max-w-none
+            <div
+                class="prose prose-lg max-w-none
                     prose-headings:font-bold
                     prose-headings:tracking-tight
                     prose-headings:text-text
+                    prose-headings:scroll-mt-28
                     prose-p:leading-8
                     prose-p:text-text-muted
+                    prose-p:mb-6
                     prose-strong:text-text
+                    prose-ul:my-6
+                    prose-ol:my-6
+                    prose-li:my-2
                     prose-li:text-text-muted
                     prose-li:marker:text-primary
+                    prose-blockquote:border-primary
+                    prose-blockquote:text-text
+                    prose-code:text-primary
                     prose-a:text-primary
                     prose-a:no-underline
                     hover:prose-a:underline">
 
-                    {!! wp_kses_post(get_field('flavor_theory')) !!}
-
-                </div>
+                {!! wp_kses_post(get_field('flavor_theory')) !!}
 
             </div>
 
-        </div>
+        </x-ui.card>
 
-    </x-container>
+    </div>
 
-</section>
+</x-ui.section>
 
 @endif

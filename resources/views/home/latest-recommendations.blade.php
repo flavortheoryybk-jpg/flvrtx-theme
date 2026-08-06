@@ -8,21 +8,23 @@ $recommendations = new WP_Query([
 
 @endphp
 
-@if ($recommendations->have_posts())
+@if($recommendations->have_posts())
 
-<section class="bg-background py-24 lg:py-32">
+<x-ui.section class="bg-background">
 
     <x-container>
 
+        {{-- Section Header --}}
         <x-ui.section-heading
             eyebrow="Recommendations"
             title="Products We Trust"
-            description="Carefully selected ingredients, cookware, and kitchen tools that we genuinely recommend."
-            align="center" />
+            description="Discover carefully selected ingredients, cookware, and kitchen tools that have been personally tested and genuinely recommended by FLVRTX."
+        />
 
-        <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {{-- Recommendation Grid --}}
+        <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-            @while ($recommendations->have_posts())
+            @while($recommendations->have_posts())
 
                 @php($recommendations->the_post())
 
@@ -34,14 +36,19 @@ $recommendations = new WP_Query([
 
         </div>
 
-        <div class="mt-16 text-center">
+        {{-- CTA --}}
+        <div class="mt-16 flex justify-center">
 
             <x-ui.button
                 href="{{ get_post_type_archive_link('recommendation') }}"
-                variant="secondary"
-                size="lg">
+                variant="secondary">
 
-                View All Recommendations →
+                View All Recommendations
+
+                <i
+                    data-lucide="arrow-right"
+                    class="h-5 w-5">
+                </i>
 
             </x-ui.button>
 
@@ -49,6 +56,6 @@ $recommendations = new WP_Query([
 
     </x-container>
 
-</section>
+</x-ui.section>
 
 @endif

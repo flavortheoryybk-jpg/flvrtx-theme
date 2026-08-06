@@ -8,6 +8,9 @@
 ])
 
 @php
+    $value = is_numeric($value) ? (float) $value : 0;
+    $max = is_numeric($max) && $max > 0 ? (float) $max : 100;
+
     $percentage = min(100, max(0, ($value / $max) * 100));
 @endphp
 

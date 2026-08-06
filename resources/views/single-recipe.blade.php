@@ -16,11 +16,7 @@
         
         @include('recipe.cook-mode.modal')
 
-        @include('recipe.quick-info')
-
         @include('recipe.content')
-
-        @include('recipe.video')
 
         @include('components.global.author-card')
 

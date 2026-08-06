@@ -8,20 +8,23 @@ $learn = new WP_Query([
 
 @endphp
 
-@if ($learn->have_posts())
+@if($learn->have_posts())
 
-<section class="bg-background py-24 lg:py-32">
+<x-ui.section class="bg-white">
 
     <x-container>
 
+        {{-- Section Header --}}
         <x-ui.section-heading
             eyebrow="Learn"
             title="Food Science & Learning"
-            description="Go beyond recipes and understand the techniques, science, and principles that make every dish successful." />
+            description="Go beyond recipes and discover the science, techniques, and practical knowledge that make every dish successful."
+        />
 
-        <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {{-- Articles Grid --}}
+        <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
-            @while ($learn->have_posts())
+            @while($learn->have_posts())
 
                 @php($learn->the_post())
 
@@ -33,14 +36,19 @@ $learn = new WP_Query([
 
         </div>
 
-        <div class="mt-16 text-center">
+        {{-- CTA --}}
+        <div class="mt-16 flex justify-center">
 
             <x-ui.button
                 href="{{ get_post_type_archive_link('learn') }}"
-                variant="secondary"
-                size="lg">
+                variant="secondary">
 
-                View All Articles →
+                View All Articles
+
+                <i
+                    data-lucide="arrow-right"
+                    class="h-5 w-5">
+                </i>
 
             </x-ui.button>
 
@@ -48,6 +56,6 @@ $learn = new WP_Query([
 
     </x-container>
 
-</section>
+</x-ui.section>
 
 @endif

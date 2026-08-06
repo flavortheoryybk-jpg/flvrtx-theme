@@ -2,7 +2,7 @@
 
     <h3 class="text-xl font-bold">
 
-        Share this article
+        Share this Recipe
 
     </h3>
 
@@ -35,21 +35,22 @@
             class="rounded-xl border border-border px-5 py-3 transition hover:border-primary">
 
             X
-                @if(get_post_type() === 'recipe')
-     
-        <a
-            href="https://pinterest.com/pin/create/button/?url={{ urlencode(get_permalink()) }}&media={{ urlencode(get_the_post_thumbnail_url()) }}&description={{ urlencode(get_the_title()) }}"
-            target="_blank"
-            rel="noopener"
-            class="rounded-xl border border-border px-5 py-3 transition hover:border-primary">
-     
-            Pinterest
-
-    </a>
-
-  @endif
 
         </a>
+
+        @if(get_post_type() === 'recipe')
+
+            <a
+                href="https://pinterest.com/pin/create/button/?url={{ urlencode(get_permalink()) }}&media={{ urlencode(get_the_post_thumbnail_url()) }}&description={{ urlencode(get_the_title()) }}"
+                target="_blank"
+                rel="noopener"
+                class="rounded-xl border border-border px-5 py-3 transition hover:border-primary">
+
+                Pinterest
+
+            </a>
+
+        @endif
 
         <button
             onclick="navigator.clipboard.writeText('{{ get_permalink() }}')"

@@ -1,41 +1,64 @@
-@if (get_field('youtube_url'))
+@if(get_field('youtube_url'))
 
-<section class="bg-white py-24 lg:py-32" id="video">
+<x-ui.section
+    id="video"
+    class="bg-white">
 
-    <x-container>
+    <div class="mx-auto max-w-6xl">
 
-        <div class="mx-auto max-w-6xl">
+        {{-- Section Heading --}}
+        <x-ui.section-heading
+            eyebrow="Watch"
+            title="Watch the Recipe"
+            description="Follow the complete recipe step by step with our detailed video guide and cook alongside us."
+        />
 
-            <x-ui.section-heading
-                eyebrow="Watch"
-                title="Watch the Full Recipe"
-                description="Prefer learning visually? Follow the complete recipe step by step with our detailed video guide." />
+        {{-- Video --}}
+        <div class="mt-16 overflow-hidden rounded-[40px] border border-border bg-black shadow-xl">
 
-            <div class="mt-14 overflow-hidden rounded-[36px] border border-border bg-black shadow-[0_24px_48px_rgba(0,0,0,0.12)]">
+            <div class="aspect-video">
 
-                <div class="aspect-video">
-
-                    {!! wp_oembed_get(get_field('youtube_url')) !!}
-
-                </div>
+                {!! wp_oembed_get(get_field('youtube_url')) !!}
 
             </div>
 
-            <div class="mt-8 flex flex-wrap items-center justify-between gap-6 rounded-[28px] border border-border bg-background p-6">
+        </div>
+
+        {{-- CTA Card --}}
+        <x-ui.card class="mt-10">
+
+            <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
 
                 <div>
 
-                    <h3 class="text-xl font-bold">
+                    <div class="flex items-center gap-3">
 
-                        Watch on YouTube
+                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100">
 
-                    </h3>
+                            <i
+                                data-lucide="play"
+                                class="h-6 w-6 text-red-600">
+                            </i>
 
-                    <p class="mt-2 text-text-muted">
+                        </div>
 
-                        Like, comment and subscribe for more premium recipes and food science content.
+                        <div>
 
-                    </p>
+                            <h3 class="text-2xl font-bold">
+
+                                Watch on YouTube
+
+                            </h3>
+
+                            <p class="mt-1 text-text-muted">
+
+                                Enjoy the full recipe, cooking techniques, and future FLVRTX videos.
+
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -44,16 +67,21 @@
                     target="_blank"
                     rel="noopener noreferrer">
 
-                    Open on YouTube →
+                    Watch on YouTube
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        class="h-5 w-5">
+                    </i>
 
                 </x-ui.button>
 
             </div>
 
-        </div>
+        </x-ui.card>
 
-    </x-container>
+    </div>
 
-</section>
+</x-ui.section>
 
 @endif
