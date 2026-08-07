@@ -5,100 +5,85 @@
 @endphp
 
 <div
-    x-data="{
-        open:false,
-        currentStep:0,
-        steps:@js($steps),
-
-        next(){
-            if(this.currentStep < this.steps.length-1){
-                this.currentStep++;
-            }
-        },
-
-        previous(){
-            if(this.currentStep > 0){
-                this.currentStep--;
-            }
-        },
-
-        progress(){
-            return ((this.currentStep+1)/this.steps.length)*100;
-        }
-    }"
-
-    x-on:open-cook-mode.window="open=true"
-
-    x-show="open"
-
-    x-transition
-
+    x-cloak
+    x-show="$store.cookMode.open"
+    x-transition.opacity
+    @keydown.escape.window="$store.cookMode.close()"
+    @keydown.right.window="$store.cookMode.next()"
+    @keydown.left.window="$store.cookMode.previous()"
     class="fixed inset-0 z-[9999] bg-black/90"
-
-    style="display:none"
+    style="display:none;"
 >
 
-    <div class="flex h-full flex-col bg-background">
+    <div class="flex h-screen flex-col bg-background">
 
         {{-- Header --}}
-        <div class="flex items-center justify-between border-b border-border bg-white px-8 py-6">
+        <div class="border-b border-border bg-white">
 
-            <div>
+            <div class="mx-auto flex max-w-6xl items-center justify-between px-8 py-6">
 
-                <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+                <div>
 
-                    Cook Mode
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
 
-                </p>
+                        Cook Mode
 
-                <h2 class="mt-1 text-2xl font-bold">
+                    </p>
 
-                    {{ get_the_title() }}
+                    <h2 class="mt-2 text-3xl font-bold">
 
-                </h2>
+                        {{ get_the_title() }}
+
+                    </h2>
+
+                </div>
+
+                <button
+                    @click="$store.cookMode.close()"
+                    class="rounded-2xl border border-border p-3 transition hover:border-primary">
+
+                    <i data-lucide="x" class="h-6 w-6"></i>
+
+                </button>
 
             </div>
-
-            <button
-                @click="open=false"
-                class="rounded-xl border border-border p-3 transition hover:bg-gray-50">
-
-                <i data-lucide="x" class="h-6 w-6"></i>
-
-            </button>
 
         </div>
 
         {{-- Progress --}}
-        <div class="border-b border-border bg-white px-8 py-4">
+        <div class="border-b border-border bg-white">
 
-            <div class="mb-2 flex items-center justify-between">
+            <div class="mx-auto max-w-6xl px-8 py-6">
 
-                <span class="font-medium">
+                <div class="mb-4 flex items-center justify-between">
 
-                    Step
+                    <span class="font-semibold">
 
-                    <span x-text="currentStep+1"></span>
+                        Step
 
-                    of
+                        <span x-text="$store.cookMode.current+1"></span>
 
-                    <span x-text="steps.length"></span>
+                        of
 
-                </span>
+                        <span x-text="$store.cookMode.steps.length"></span>
 
-                <span class="text-text-muted">
+                    </span>
 
-                    <span x-text="Math.round(progress())"></span>%
+                    <span class="text-text-muted">
 
-                </span>
+                        <span x-text="Math.round($store.cookMode.progress())"></span>%
 
-            </div>
+                    </span>
 
-            <div class="h-2 overflow-hidden rounded-full bg-border">
+                </div>
 
-                <div
-                    class="h-full bg-primary transition-all duration-500"
-                    :style="'width:'+progress()+'%'">
+                <div class="h-2 overflow-hidden rounded-full bg-border">
+
+                    <div
+                        class="h-full bg-primary transition-all duration-500"
+                        :style="'width:'+$store.cookMode.progress()+'%'">
+
+                    </div>
 
                 </div>
 
@@ -109,17 +94,17 @@
         {{-- Step --}}
         <div class="flex flex-1 items-center justify-center px-10">
 
-            <div class="max-w-4xl text-center">
+            <div class="mx-auto max-w-5xl text-center">
 
-                <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary text-3xl font-bold tracking-tight text-white">
+                <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary text-3xl font-bold text-white">
 
-                    <span x-text="currentStep+1"></span>
+                    <span x-text="$store.cookMode.current+1"></span>
 
                 </div>
 
                 <p
-                    class="mt-10 text-3xl font-semibold leading-relaxed lg:text-6xl lg:text-7xl"
-                    x-text="steps[currentStep]">
+                    class="mt-12 text-3xl font-semibold leading-relaxed lg:text-6xl"
+                    x-text="$store.cookMode.steps[$store.cookMode.current]">
 
                 </p>
 
@@ -127,33 +112,45 @@
 
         </div>
 
-        {{-- Controls --}}
-        <div class="flex items-center justify-between border-t border-border bg-white p-8">
+        {{-- Footer --}}
+        <div class="border-t border-border bg-white">
 
-            <x-ui.button
-                variant="secondary"
-                @click="previous()"
-                x-bind:disabled="currentStep===0">
+            <div class="mx-auto flex max-w-6xl items-center justify-between p-8">
 
-                ← Previous
+                <button
+                    @click="$store.cookMode.previous()"
+                    :disabled="$store.cookMode.current===0"
+                    class="rounded-2xl border border-border px-6 py-3 font-semibold disabled:cursor-not-allowed disabled:opacity-40">
 
-            </x-ui.button>
+                    ← Previous
 
-            <x-ui.button
-                @click="next()"
-                x-show="currentStep<steps.length-1">
+                </button>
 
-                Next →
+                <template x-if="$store.cookMode.current < $store.cookMode.steps.length-1">
 
-            </x-ui.button>
+                    <button
+                        @click="$store.cookMode.next()"
+                        class="rounded-2xl bg-primary px-6 py-3 font-semibold text-white">
 
-            <x-ui.button
-                x-show="currentStep===steps.length-1"
-                @click="open=false">
+                        Next →
 
-                Finish 🎉
+                    </button>
 
-            </x-ui.button>
+                </template>
+
+                <template x-if="$store.cookMode.current === $store.cookMode.steps.length-1">
+
+                    <button
+                        @click="$store.cookMode.close()"
+                        class="rounded-2xl bg-green-600 px-6 py-3 font-semibold text-white">
+
+                        Finish 🎉
+
+                    </button>
+
+                </template>
+
+            </div>
 
         </div>
 

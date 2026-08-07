@@ -130,7 +130,7 @@
                     </button>
 
                     <button
-                        @click="$dispatch('open-cook-mode')"
+                        @click="$store.cookMode.start()"
                         class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary transition-colors duration-300 hover:text-primary">
 
                         <i data-lucide="chef-hat" class="h-5 w-5"></i>
@@ -144,20 +144,20 @@
             </div>
 
             {{-- Right Image --}}
-            <div>
-
+            <div class="overflow-hidden rounded-[36px]">
+            
                 @if(has_post_thumbnail())
-
+            
                     {!! get_the_post_thumbnail(
                         get_the_ID(),
                         'full',
                         [
-                            'class' => 'aspect-[4/5] w-full rounded-[36px] object-cover shadow-2xl'
+                            'class' => 'aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-[1.02]'
                         ]
                     ) !!}
-
+            
                 @endif
-
+            
             </div>
 
         </div>

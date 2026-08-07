@@ -11,8 +11,6 @@
         @endphp
 
         @include('recipe.hero')
-
-        @include('recipe.cook-mode.button')
         
         @include('recipe.cook-mode.modal')
 

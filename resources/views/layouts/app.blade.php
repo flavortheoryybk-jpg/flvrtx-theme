@@ -6,16 +6,18 @@
 
     @php(do_action('get_header'))
     @php(wp_head())
+
     @if(isset($recipeSchema))
-    <script type="application/ld+json">
-    {!! $recipeSchema !!}
-    </script>
+        <script type="application/ld+json">
+            {!! $recipeSchema !!}
+        </script>
     @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body @php(body_class('bg-background text-text antialiased'))>
+
     @include('components.global.reading-progress')
 
     @php(wp_body_open())
@@ -30,7 +32,9 @@
         @include('sections.header')
 
         <main id="main" class="flex-1">
+
             @yield('content')
+
         </main>
 
         @include('sections.footer')
