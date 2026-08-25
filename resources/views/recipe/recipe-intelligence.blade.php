@@ -7,7 +7,7 @@
     get_field('best_for_recipe')
 )
 
-<x-ui.section>
+<x-ui.section class="py-8 lg:py-10">
 
     <div class="mx-auto max-w-6xl">
 
@@ -17,7 +17,7 @@
             description="Everything you should know before stepping into the kitchen."
         />
 
-        <div class="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
 
             <x-ui.metric-card
                 icon="chef-hat"

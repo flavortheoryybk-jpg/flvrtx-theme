@@ -40,6 +40,43 @@
 
                 @endif
 
+                @if(get_field('verdict'))
+
+                <div class="mt-8 rounded-[28px] border border-primary/15 bg-primary/5 p-6">
+
+                    <div class="flex items-start gap-4">
+
+                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white">
+
+                            <i
+                                data-lucide="sparkles"
+                                class="h-6 w-6">
+                            </i>
+
+                        </div>
+
+                        <div>
+
+                            <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+
+                                FLVRTX Verdict
+
+                            </p>
+
+                            <p class="mt-2 text-lg font-semibold leading-8 text-text">
+
+                                {{ get_field('verdict') }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            @endif
+
                 {{-- Product Meta --}}
                 <div class="mt-10 flex flex-wrap gap-4">
 
@@ -73,14 +110,18 @@
 
                     @endif
 
-                    @if(get_field('product_category'))
-
+                    @php
+                        $categories = get_the_terms(get_the_ID(), 'recommendation_category');
+                    @endphp
+                    
+                    @if($categories && ! is_wp_error($categories))
+                    
                         <x-ui.badge class="bg-white">
-
-                            {{ get_field('product_category') }}
-
+                    
+                            {{ $categories[0]->name }}
+                    
                         </x-ui.badge>
-
+                    
                     @endif
 
                 </div>

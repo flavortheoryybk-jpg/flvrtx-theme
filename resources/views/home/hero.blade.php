@@ -8,7 +8,7 @@
     </div>
     <x-container>
 
-        <div class="grid items-center gap-20 lg:grid-cols-2">
+        <div class="grid items-center gap-16 lg:grid-cols-[0.85fr_1.15fr]">
 
             {{-- Left Content --}}
             <div>
@@ -147,11 +147,11 @@
             <div class="relative flex justify-center lg:justify-end">
 
                 <img
-                    src="{{ Vite::asset('resources/images/Hero_Image_Flvrtx.png') }}"
-                    alt="Premium FLVRTX Food Collection"
-                    class="w-full max-w-2xl rounded-[40px] object-cover shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
-                    loading="eager"
-                    decoding="async">
+    src="{{ Vite::asset('resources/images/Hero_Image_Flvrtx_Biryani.png') }}"
+    alt="Indian biryani with traditional spices and ingredients"
+    class="w-full rounded-[40px] object-cover shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
+    loading="eager"
+    decoding="async">
 
             </div>
 

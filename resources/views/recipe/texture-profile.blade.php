@@ -6,7 +6,7 @@ get_field('crispiness') ||
 get_field('crunchiness')
 )
 
-<x-ui.section>
+<x-ui.section class="py-8 lg:py-10">
 
 <div class="mx-auto max-w-5xl">
 
@@ -16,7 +16,7 @@ title="Texture Profile"
 description="Know exactly what texture to expect."
 />
 
-  <div class="mt-14 rounded-[32px] bg-white p-8 shadow-sm ring-1 ring-border/10">
+  <div class="mt-10 rounded-[32px] bg-white p-8 shadow-sm ring-1 ring-border/10">
 
     <div class="space-y-10">
 

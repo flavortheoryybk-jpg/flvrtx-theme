@@ -47,6 +47,50 @@
 
     <x-container>
 
+        {{-- Recommendation Categories --}}
+        <div class="mb-8 flex flex-wrap justify-center gap-3">
+        
+            @php
+                $recommendation_categories = get_terms([
+                    'taxonomy'   => 'recommendation_category',
+                    'hide_empty' => true,
+                ]);
+        
+                $current_category = request()->get('recommendation_category');
+            @endphp
+        
+            <a
+                href="{{ home_url('/recommendations/') }}"
+                class="rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-300
+                    {{ empty($current_category)
+                        ? 'border-primary bg-primary text-white'
+                        : 'border-border bg-white hover:border-primary hover:text-primary' }}">
+        
+                All
+        
+            </a>
+        
+            @foreach($recommendation_categories as $category)
+        
+                <a
+                    href="{{ add_query_arg(
+                        'recommendation_category',
+                        $category->slug,
+                        home_url('/recommendations/')
+                    ) }}"
+                    class="rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-300
+                        {{ $current_category === $category->slug
+                            ? 'border-primary bg-primary text-white'
+                            : 'border-border bg-white hover:border-primary hover:text-primary' }}">
+        
+                    {{ $category->name }}
+        
+                </a>
+        
+            @endforeach
+        
+        </div>
+
         {{-- Search --}}
         <div class="mx-auto mb-14 max-w-3xl">
 

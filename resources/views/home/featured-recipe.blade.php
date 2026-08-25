@@ -21,110 +21,108 @@ $featured = new WP_Query([
 
         @php($featured->the_post())
 
-<x-ui.section class="bg-background">
+        <x-ui.section class="bg-background">
 
-    <x-container>
+            <x-container>
 
-        <div class="grid items-center gap-16 lg:grid-cols-2">
+                <div class="grid items-center gap-16 lg:grid-cols-2">
 
-            {{-- Image --}}
-            <div class="order-2 lg:order-1">
+                    {{-- Image --}}
+                    <div class="order-2 lg:order-1">
 
-                @if(has_post_thumbnail())
+                        @if(has_post_thumbnail())
 
-                    <a
-                        href="{{ get_permalink() }}"
-                        class="group block overflow-hidden rounded-[40px]">
+                            <a
+                                href="{{ get_permalink() }}"
+                                class="group block overflow-hidden rounded-[40px]">
 
-                        {!! get_the_post_thumbnail(
-                            get_the_ID(),
-                            'large',
-                            [
-                                'class' => 'aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105',
-                                'loading' => 'lazy',
-                                'decoding' => 'async',
-                            ]
-                        ) !!}
+                                {!! get_the_post_thumbnail(
+                                    get_the_ID(),
+                                    'large',
+                                    [
+                                        'class' => 'aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105',
+                                        'loading' => 'lazy',
+                                        'decoding' => 'async',
+                                    ]
+                                ) !!}
 
-                    </a>
+                            </a>
 
-                @endif
+                        @endif
 
-            </div>
+                    </div>
 
-            {{-- Content --}}
-            <div class="order-1 lg:order-2">
+                    {{-- Content --}}
+                    <div class="order-1 lg:order-2">
 
-                <x-ui.pill>
+                        <x-ui.pill>
+                            Featured Recipe
+                        </x-ui.pill>
 
-                    Featured Recipe
+                        <h2 class="mt-8 text-4xl font-bold tracking-tight leading-tight lg:text-6xl">
 
-                </x-ui.pill>
+                            {{ get_the_title() }}
 
-                <h2 class="mt-8 text-4xl font-bold tracking-tight leading-tight lg:text-6xl">
+                        </h2>
 
-                    {{ get_the_title() }}
+                        <p class="mt-6 text-lg leading-8 text-text-muted">
 
-                </h2>
+                            {{ get_the_excerpt() }}
 
-                <p class="mt-6 text-lg leading-8 text-text-muted">
+                        </p>
 
-                    {{ get_the_excerpt() }}
+                        {{-- Recipe Stats --}}
+                        <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
 
-                </p>
+                            <x-ui.stat-card
+                                icon="timer"
+                                label="Prep"
+                                :value="(get_field('prep_time') ?: '--').' min'"
+                            />
 
-                {{-- Recipe Stats --}}
-                <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
+                            <x-ui.stat-card
+                                icon="flame"
+                                label="Difficulty"
+                                :value="get_field('difficulty') ?: '--'"
+                            />
 
-                    <x-ui.stat-card
-                        icon="timer"
-                        label="Prep"
-                        :value="(get_field('prep_time') ?: '--').' min'"
-                    />
+                            <x-ui.stat-card
+                                icon="users"
+                                label="Serves"
+                                :value="get_field('servings') ?: '--'"
+                            />
 
-                    <x-ui.stat-card
-                        icon="flame"
-                        label="Difficulty"
-                        :value="get_field('difficulty') ?: '--'"
-                    />
+                            <x-ui.stat-card
+                                icon="utensils-crossed"
+                                label="Cuisine"
+                                :value="get_field('cuisine') ?: '--'"
+                            />
 
-                    <x-ui.stat-card
-                        icon="users"
-                        label="Serves"
-                        :value="get_field('servings') ?: '--'"
-                    />
+                        </div>
 
-                    <x-ui.stat-card
-                        icon="utensils-crossed"
-                        label="Cuisine"
-                        :value="get_field('cuisine') ?: '--'"
-                    />
+                        {{-- CTA --}}
+                        <div class="mt-10">
+
+                            <x-ui.button href="{{ get_permalink() }}">
+
+                                View Recipe
+
+                                <i
+                                    data-lucide="arrow-right"
+                                    class="h-5 w-5">
+                                </i>
+
+                            </x-ui.button>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                {{-- CTA --}}
-                <div class="mt-10">
+            </x-container>
 
-                    <x-ui.button href="{{ get_permalink() }}">
-
-                        View Recipe
-
-                        <i
-                            data-lucide="arrow-right"
-                            class="h-5 w-5">
-                        </i>
-
-                    </x-ui.button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </x-container>
-
-</x-ui.section>
+        </x-ui.section>
 
     @endwhile
 

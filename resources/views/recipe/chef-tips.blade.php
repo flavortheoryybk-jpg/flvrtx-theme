@@ -6,7 +6,10 @@ $tips = collect(
 )->filter();
 @endphp
 
-<x-ui.section>
+<x-ui.section
+    id="chef-tips"
+    class="py-8 lg:py-10"
+>
 
     <div class="mx-auto max-w-5xl">
 

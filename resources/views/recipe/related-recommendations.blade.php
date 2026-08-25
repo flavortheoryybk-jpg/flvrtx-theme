@@ -1,6 +1,6 @@
 @if($posts = get_field('related_recommendations'))
 
-<x-ui.section>
+<x-ui.section class="py-8 lg:py-10">
 
     <x-ui.section-heading
         eyebrow="Recommended Products"

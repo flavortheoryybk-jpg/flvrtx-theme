@@ -4,7 +4,7 @@
     'description' => null,
 ])
 
-<div class="mx-auto mb-14 max-w-4xl text-center">
+<div class="mx-auto mb-12 max-w-4xl text-center">
 
     @if($eyebrow)
 

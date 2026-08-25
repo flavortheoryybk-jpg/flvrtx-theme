@@ -6,14 +6,19 @@
 
     <x-container>
 
-        <div class="flex h-[88px] items-center justify-between">
+        <div class="flex h-[88px] items-center gap-6">
 
             {{-- Logo --}}
-            <x-logo />
+            <div class="shrink-0">
+
+                <x-logo />
+
+            </div>
+
 
             {{-- Desktop Navigation --}}
             <nav
-                class="hidden lg:block"
+                class="hidden min-w-0 flex-1 lg:block"
                 aria-label="Primary Navigation">
 
                 @if(has_nav_menu('primary_navigation'))
@@ -30,21 +35,36 @@
             </nav>
 
             {{-- Desktop Search --}}
-            <div class="hidden lg:flex">
+            <div class="hidden shrink-0 lg:flex">
 
                 <x-ui.button
                     type="button"
                     variant="secondary"
-                    class="gap-3 rounded-2xl px-6"
+                    class="shrink-0 gap-3 rounded-2xl px-5 whitespace-nowrap"
                     @click="$dispatch('open-search')">
 
-                    <i data-lucide="search" class="h-5 w-5"></i>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-5 w-5"
+                        aria-hidden="true">
+
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-3.5-3.5"></path>
+
+                    </svg>
 
                     Search
 
                 </x-ui.button>
 
             </div>
+
 
             {{-- Mobile Menu Button --}}
             <button
@@ -54,15 +74,19 @@
                     $nextTick(() => window.createIcons())
                 "
                 aria-label="Open menu"
-                class="flex h-11 w-11 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white lg:hidden">
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white lg:hidden">
 
-                <i data-lucide="menu" class="h-6 w-6"></i>
+                <i
+                    data-lucide="menu"
+                    class="h-6 w-6">
+                </i>
 
             </button>
 
         </div>
 
     </x-container>
+
 
     {{-- Overlay --}}
     <div
@@ -73,6 +97,7 @@
         style="display:none">
 
     </div>
+
 
     {{-- Mobile Drawer --}}
     <aside
@@ -101,11 +126,15 @@
                 aria-label="Close menu"
                 class="rounded-xl p-2 transition hover:bg-background">
 
-                <i data-lucide="x" class="h-6 w-6"></i>
+                <i
+                    data-lucide="x"
+                    class="h-6 w-6">
+                </i>
 
             </button>
 
         </div>
+
 
         {{-- Navigation --}}
         <nav
@@ -123,6 +152,7 @@
 
             @endif
 
+
             <x-ui.button
                 type="button"
                 variant="secondary"
@@ -132,13 +162,17 @@
                     $dispatch('open-search')
                 ">
 
-                <i data-lucide="search" class="h-5 w-5"></i>
+                <i
+                    data-lucide="search"
+                    class="h-5 w-5">
+                </i>
 
                 Search
 
             </x-ui.button>
 
         </nav>
+
 
         {{-- Footer --}}
         <div class="border-t border-border p-6">

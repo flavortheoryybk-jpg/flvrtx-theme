@@ -129,14 +129,21 @@
 
                     </button>
 
+                    @php
+                    $steps = collect(
+                        preg_split("/\R{2,}/", trim(get_field('instructions') ?? ''))
+                    )->filter()->values();
+                    @endphp
+                    
                     <button
-                        @click="$store.cookMode.start()"
-                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary transition-colors duration-300 hover:text-primary">
-
+                        x-data
+                        x-on:click="$store.cookMode.start(@js($steps))"
+                        class="inline-flex items-center gap-2 rounded-xl border border-border px-6 py-4 font-semibold transition hover:border-primary hover:text-primary">
+                    
                         <i data-lucide="chef-hat" class="h-5 w-5"></i>
-
+                    
                         Cook Mode
-
+                    
                     </button>
 
                 </div>

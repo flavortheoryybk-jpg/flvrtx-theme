@@ -17,19 +17,21 @@
                 ]
             ) !!}
 
+            {{-- Recommended Badge --}}
             <div class="absolute left-5 top-5">
 
                 <x-ui.pill>
 
-                    Recommended
+                    FLVRTX Pick
 
                 </x-ui.pill>
 
             </div>
 
+            {{-- Rating --}}
             @if(get_field('rating'))
 
-                <div class="absolute right-5 top-5 rounded-xl bg-white/90 px-3 py-2 text-sm font-bold shadow-lg backdrop-blur">
+                <div class="absolute right-5 top-5 rounded-xl bg-white/95 px-3 py-2 text-sm font-bold shadow-lg backdrop-blur">
 
                     ⭐ {{ get_field('rating') }}/5
 
@@ -41,20 +43,31 @@
 
     @endif
 
+
     {{-- Content --}}
     <div class="flex flex-1 flex-col p-8">
 
-        <div class="flex items-center justify-between">
+        {{-- Category + Price --}}
+        <div class="flex items-center justify-between gap-4">
+
+            @php
+                $categories = get_the_terms(
+                    get_the_ID(),
+                    'recommendation_category'
+                );
+            @endphp
 
             <x-ui.pill>
 
-                {{ get_field('product_category') ?: 'Product' }}
+                {{ $categories && ! is_wp_error($categories)
+                    ? $categories[0]->name
+                    : 'Product' }}
 
             </x-ui.pill>
 
             @if(get_field('price'))
 
-                <span class="text-lg font-bold text-primary">
+                <span class="whitespace-nowrap text-lg font-bold text-primary">
 
                     ₹{{ get_field('price') }}
 
@@ -64,18 +77,46 @@
 
         </div>
 
-        <h3 class="mt-6 text-2xl font-bold tracking-tight leading-tight transition-colors duration-300 group-hover:text-primary">
+
+        {{-- Product Title --}}
+        <h3 class="mt-6 text-2xl font-bold leading-tight tracking-tight transition-colors duration-300 group-hover:text-primary">
 
             {{ get_the_title() }}
 
         </h3>
 
-        <p class="mt-4 line-clamp-3 flex-1 leading-8 text-text-muted">
 
-            {{ get_the_excerpt() }}
+        {{-- Verdict --}}
+        @if(get_field('verdict'))
 
-        </p>
+            <div class="mt-5 rounded-2xl bg-primary/5 p-4">
 
+                <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+
+                    FLVRTX Verdict
+
+                </p>
+
+                <p class="mt-2 line-clamp-3 text-sm leading-7 text-text-muted">
+
+                    {{ get_field('verdict') }}
+
+                </p>
+
+            </div>
+
+        @else
+
+            <p class="mt-4 line-clamp-3 flex-1 leading-8 text-text-muted">
+
+                {{ get_the_excerpt() }}
+
+            </p>
+
+        @endif
+
+
+        {{-- Footer --}}
         <div class="mt-8 flex items-center justify-between border-t border-border/20 pt-6">
 
             <div class="flex items-center gap-2 text-sm text-text-muted">
@@ -87,7 +128,7 @@
 
                 <span>
 
-                    Personally Recommended
+                    FLVRTX Pick
 
                 </span>
 

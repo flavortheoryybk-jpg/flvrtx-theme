@@ -1,29 +1,14 @@
 <a
     href="{{ home_url('/') }}"
-    class="group inline-flex items-center gap-4"
+    class="group inline-flex items-center"
     aria-label="FLVRTX Home">
 
-    <div
-        class="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-2xl font-extrabold text-white shadow-sm transition duration-300 group-hover:scale-105">
-
-        F
-
-    </div>
-
-    <div>
-
-        <p class="text-[2rem] font-extrabold leading-none tracking-tight text-text">
-
-            FLVRTX
-
-        </p>
-
-        <p class="mt-1 text-[11px] uppercase tracking-[0.38em] text-text-muted">
-
-            Flavor Theory
-
-        </p>
-
-    </div>
+    <img
+        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-logo-green.png"
+        alt="FLVRTX"
+        class="h-10-auto object-contain transition duration-300 group-hover:scale-105"
+        width="260"
+        height="80"
+        decoding="async">
 
 </a>

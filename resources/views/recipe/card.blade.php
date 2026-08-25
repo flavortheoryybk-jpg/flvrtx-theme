@@ -47,17 +47,15 @@
 
             @if($category)
 
-                <a
-                    href="{{ get_term_link($category[0]) }}"
-                    class="transition-opacity hover:opacity-80">
+                <span class="transition-opacity hover:opacity-80">
 
                     <x-ui.pill>
-
+                
                         {{ $category[0]->name }}
-
+                
                     </x-ui.pill>
-
-                </a>
+                
+                </span>
 
             @else
 

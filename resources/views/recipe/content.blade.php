@@ -1,11 +1,11 @@
-<section class="py-20 lg:py-24">
+<section class="py-8 lg:py-10">
 
     <x-container>
 
         <div class="grid gap-12 lg:grid-cols-12">
 
             {{-- Main Content --}}
-            <main class="space-y-16 lg:col-span-8">
+            <main class="lg:col-span-8">
 
                 {{-- Quick Overview --}}
                 @include('recipe.quick-info')

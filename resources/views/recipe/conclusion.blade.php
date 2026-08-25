@@ -1,6 +1,9 @@
 @if(get_the_content())
 
-<x-ui.section id="recipe-guide">
+<x-ui.section
+    id="recipe-guide"
+    class="py-8 lg:py-10"
+>
 
     <div class="mx-auto max-w-5xl">
 
@@ -10,7 +13,7 @@
             description="Go beyond the recipe with detailed explanations, practical cooking advice, and additional insights to help you master this dish."
         />
 
-        <x-ui.card class="mt-16">
+        <x-ui.card class="mt-10">
 
             <div
                 class="prose prose-lg max-w-none

@@ -5,7 +5,10 @@
     get_field('fiber')
 )
 
-<x-ui.section>
+<x-ui.section
+    id="nutrition"
+    class="py-8 lg:py-10"
+>
 
     <div class="mx-auto max-w-4xl">
 
@@ -14,7 +17,7 @@
             title="Nutritional Information"
             description="Approximate nutrition per serving." />
 
-        <div class="mt-12 space-y-8 rounded-[32px] bg-white p-8 shadow-sm ring-1 ring-border/10">
+        <div class="mt-10 space-y-8 rounded-[32px] bg-white p-8 shadow-sm ring-1 ring-border/10">
         
             <x-ui.progress-meter
                 label="Protein"

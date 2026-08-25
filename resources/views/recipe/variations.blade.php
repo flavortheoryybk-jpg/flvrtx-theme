@@ -1,6 +1,9 @@
 @if(get_field('variations'))
 
-<x-ui.section>
+<x-ui.section
+    id="variations"
+    class="py-8 lg:py-10"
+>
 
     <div class="mx-auto max-w-5xl">
 
@@ -15,7 +18,7 @@
             )->filter();
         @endphp
 
-        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
 
             @foreach($items as $item)
         

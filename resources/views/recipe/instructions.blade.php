@@ -1,4 +1,4 @@
-<section class="py-24 bg-background" id="instructions">
+<section class="py-8 lg:py-10 bg-background" id="instructions">
 
     <x-container>
 
@@ -12,11 +12,11 @@
 
             @php
                 $steps = collect(
-                    preg_split('/\r\n|\r|\n/', get_field('instructions') ?? '')
+                    preg_split("/\R{2,}/", trim(get_field('instructions') ?? ''))
                 )->filter();
             @endphp
 
-            <div class="relative mt-16">
+            <div class="relative mt-10">
 
                 {{-- Timeline --}}
                 <div class="absolute left-6 top-0 bottom-0 hidden w-px bg-border/30 md:block"></div>
@@ -37,11 +37,11 @@
                             {{-- Step Content --}}
                             <div class="flex-1 rounded-[28px] bg-white p-8 shadow-sm ring-1 ring-border/10 transition-all duration-300 hover:shadow-lg">
 
-                                <p class="text-lg leading-9 text-text">
+                                <div class="prose prose-lg max-w-none text-text">
 
-                                    {{ $step }}
-
-                                </p>
+                                    {!! nl2br(e($step)) !!}
+                                
+                                </div>
 
                             </div>
 

@@ -2,7 +2,7 @@
 
 <x-ui.section
     id="flavor-theory"
-    class="bg-gradient-to-br from-primary/5 via-background to-primary/10">
+    class="bg-gradient-to-br from-primary/5 via-background to-primary/10 py-8 lg:py-10">
 
     <div class="mx-auto max-w-5xl">
 
@@ -12,7 +12,7 @@
             description="Understanding the science behind a recipe helps you cook with confidence, troubleshoot mistakes, and consistently achieve better results."
         />
 
-        <x-ui.card class="mt-16">
+        <x-ui.card class="mt-10">
 
             <div
                 class="prose prose-lg max-w-none

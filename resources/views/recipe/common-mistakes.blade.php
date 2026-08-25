@@ -1,6 +1,9 @@
 @if(get_field('common_mistakes'))
 
-<x-ui.section>
+<x-ui.section
+    id="common-mistakes"
+    class="py-8 lg:py-10"
+>
 
     <div class="mx-auto max-w-5xl">
 
@@ -15,7 +18,7 @@
             )->filter();
         @endphp
 
-        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
 
             @foreach($mistakes as $mistake)
         

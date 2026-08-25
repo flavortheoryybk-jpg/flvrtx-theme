@@ -1,6 +1,6 @@
 @if (have_rows('faq'))
 
-<section class="bg-background py-24 lg:py-24" id="faq">
+<section class="bg-background py-8 lg:py-10" id="faq">
 
     <x-container>
 
@@ -11,7 +11,7 @@
                 title="Frequently Asked Questions"
                 description="Answers to the most common questions about this recipe." />
 
-            <div class="mt-12 space-y-5">
+            <div class="mt-10 space-y-5">
 
                 @while (have_rows('faq'))
 

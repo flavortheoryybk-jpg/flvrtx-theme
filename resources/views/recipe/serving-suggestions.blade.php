@@ -1,6 +1,9 @@
 @if(get_field('serving_suggestions'))
 
-<x-ui.section>
+<x-ui.section
+    id="serving-suggestions"
+    class="py-8 lg:py-10"
+>
 
     <div class="mx-auto max-w-5xl">
 
@@ -15,7 +18,7 @@
             )->filter();
         @endphp
 
-        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
             @foreach($items as $item)
         
