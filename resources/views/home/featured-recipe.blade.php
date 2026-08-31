@@ -72,7 +72,7 @@ $featured = new WP_Query([
                         </p>
 
                         {{-- Recipe Stats --}}
-                        <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
+                        <div class="mt-10 grid grid-cols-2 gap-4">
 
                             <x-ui.stat-card
                                 icon="timer"

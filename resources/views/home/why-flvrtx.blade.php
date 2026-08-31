@@ -116,20 +116,20 @@
             </p>
 
             <div class="mt-10 flex justify-center">
-
-                <x-ui.button
+            
+                <a
                     href="{{ home_url('/recipes') }}"
-                    class="bg-white text-primary hover:bg-background">
-
+                    class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90">
+            
                     Explore Recipes
-
+            
                     <i
                         data-lucide="arrow-right"
                         class="h-5 w-5">
                     </i>
-
-                </x-ui.button>
-
+            
+                </a>
+            
             </div>
 
         </div>

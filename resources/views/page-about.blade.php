@@ -339,24 +339,23 @@
 
                 <div class="mt-8 flex flex-wrap justify-center gap-4">
 
-                    <x-ui.button
-                        href="{{ home_url('/recipes') }}"
-                        class="bg-white text-primary hover:bg-white/90">
+    <a
+        href="{{ home_url('/recipes') }}"
+        class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:bg-white/90">
 
-                        Explore Recipes →
+        Explore Recipes →
 
-                    </x-ui.button>
+    </a>
 
-                    <x-ui.button
-                        href="{{ home_url('/learn') }}"
-                        variant="secondary"
-                        class="border-white/30 bg-transparent text-white hover:bg-white hover:text-primary">
+    <a
+        href="{{ home_url('/learn') }}"
+        class="inline-flex items-center justify-center rounded-2xl border border-white/30 bg-transparent px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-primary">
 
-                        Learn More
+        Learn More
 
-                    </x-ui.button>
+    </a>
 
-                </div>
+</div>
 
             </div>
 
