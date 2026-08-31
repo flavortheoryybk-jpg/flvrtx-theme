@@ -47,29 +47,45 @@
 
 </section>
 
+
 @if(get_field('related_recipes'))
 
-<x-ui.section>
+<section class="bg-white py-24 lg:py-24">
 
-    <x-ui.section-header
-        badge="Cook With It"
-        title="Recipes Using This Product"
-        description="See this recommendation in action with recipes from FLVRTX." />
+    <x-container>
 
-    <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div class="mx-auto max-w-4xl text-center">
 
-        @foreach(get_field('related_recipes') as $post)
+            <span class="text-sm font-semibold uppercase tracking-widest text-primary">
+                Cook With It
+            </span>
 
-            @php(setup_postdata($post))
+            <h2 class="mt-3 text-4xl font-bold tracking-tight text-text">
+                Recipes Using This Product
+            </h2>
 
-            @include('recipe.card')
+            <p class="mx-auto mt-5 max-w-2xl leading-8 text-text-muted">
+                See this recommendation in action with recipes from FLVRTX.
+            </p>
 
-        @endforeach
+        </div>
+
+        <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+            @foreach(get_field('related_recipes') as $post)
+
+                @php(setup_postdata($post))
+
+                @include('recipe.card')
+
+            @endforeach
+
+        </div>
 
         @php(wp_reset_postdata())
 
-    </div>
+    </x-container>
 
-</x-ui.section>
+</section>
 
 @endif

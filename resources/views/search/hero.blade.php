@@ -36,8 +36,8 @@
 
                 <x-ui.badge class="bg-white">
 
-                    {{ number_format($wp_query->found_posts ?? 0) }}
-                    {{ Str::plural('Result', $wp_query->found_posts ?? 0) }}
+                    {{ number_format($GLOBALS['wp_query']->found_posts ?? 0) }}
+                    {{ Str::plural('Result', $GLOBALS['wp_query']->found_posts ?? 0) }}
 
                 </x-ui.badge>
 

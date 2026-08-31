@@ -7,12 +7,43 @@
             {{-- Product Information --}}
             <div>
 
-                <x-ui.breadcrumbs
-                    :items="[
-                        ['label' => 'Home', 'url' => home_url('/')],
-                        ['label' => 'Recommendations', 'url' => get_post_type_archive_link('recommendation')],
-                        ['label' => get_the_title()],
-                    ]" />
+                <nav
+                    aria-label="Breadcrumb"
+                    class="text-sm text-text-muted">
+                
+                    <ol class="flex flex-wrap items-center gap-2">
+                
+                        <li>
+                            <a
+                                href="{{ home_url('/') }}"
+                                class="transition-colors hover:text-primary">
+                                Home
+                            </a>
+                        </li>
+                
+                        <li aria-hidden="true">
+                            /
+                        </li>
+                
+                        <li>
+                            <a
+                                href="{{ get_post_type_archive_link('recommendation') }}"
+                                class="transition-colors hover:text-primary">
+                                Recommendations
+                            </a>
+                        </li>
+                
+                        <li aria-hidden="true">
+                            /
+                        </li>
+                
+                        <li class="text-text">
+                            {{ get_the_title() }}
+                        </li>
+                
+                    </ol>
+                
+                </nav>
 
                 <div class="mt-8">
 
