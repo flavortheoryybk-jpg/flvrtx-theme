@@ -17,16 +17,6 @@
                 ]
             ) !!}
 
-            <div class="absolute left-5 top-5">
-
-                <x-ui.pill>
-
-                    Learn
-
-                </x-ui.pill>
-
-            </div>
-
         </div>
 
     @endif
@@ -35,15 +25,13 @@
     <div class="flex flex-1 flex-col p-8">
 
         {{-- Meta --}}
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-4">
 
             <x-ui.pill>
-
                 Food Science
-
             </x-ui.pill>
 
-            <div class="flex items-center gap-2 text-sm text-text-muted">
+            <div class="flex shrink-0 items-center gap-2 text-sm text-text-muted">
 
                 <i
                     data-lucide="book-open"
@@ -51,9 +39,7 @@
                 </i>
 
                 <span>
-
                     {{ get_field('reading_time') ?: '5' }} min read
-
                 </span>
 
             </div>
@@ -85,9 +71,7 @@
                 </i>
 
                 <span>
-
                     Educational Article
-
                 </span>
 
             </div>

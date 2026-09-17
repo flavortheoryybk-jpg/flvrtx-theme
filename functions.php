@@ -50,7 +50,13 @@ Application::configure()
 |
 */
 
-collect(['setup', 'filters', 'recommendation-importer'])
+collect([
+    'setup',
+    'filters',
+    'recommendation-importer',
+    'auth',
+    'saves',
+])
     ->each(function ($file) {
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(

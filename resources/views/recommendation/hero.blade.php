@@ -156,6 +156,123 @@
                     @endif
 
                 </div>
+                
+                {{-- Save Pick --}}
+                <div class="mt-8">
+
+                    @if(is_user_logged_in())
+
+                        @php
+                            $saved_picks = get_user_meta(
+                                get_current_user_id(),
+                                '_flvrtx_saved_picks',
+                                true
+                            );
+
+                            if (!is_array($saved_picks)) {
+                                $saved_picks = [];
+                            }
+
+                            $is_saved = in_array(get_the_ID(), $saved_picks, true);
+                        @endphp
+
+
+                        @if($is_saved)
+
+                            <form
+                                method="POST"
+                                action="{{ admin_url('admin-post.php') }}">
+
+                                <input
+                                    type="hidden"
+                                    name="action"
+                                    value="flvrtx_unsave_pick">
+
+                                <input
+                                    type="hidden"
+                                    name="pick_id"
+                                    value="{{ get_the_ID() }}">
+
+                                <input
+                                    type="hidden"
+                                    name="flvrtx_unsave_pick_nonce"
+                                    value="{{ wp_create_nonce('flvrtx_unsave_pick') }}">
+
+                                <button
+                                    type="submit"
+                                    class="inline-flex items-center gap-2 rounded-2xl border border-primary bg-primary px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90">
+
+                                    <i
+                                        data-lucide="bookmark-check"
+                                        class="h-5 w-5">
+                                    </i>
+
+                                    Saved
+
+                                </button>
+
+                            </form>
+
+                        @else
+
+                            <form
+                                method="POST"
+                                action="{{ admin_url('admin-post.php') }}">
+
+                                <input
+                                    type="hidden"
+                                    name="action"
+                                    value="flvrtx_save_pick">
+
+                                <input
+                                    type="hidden"
+                                    name="pick_id"
+                                    value="{{ get_the_ID() }}">
+
+                                <input
+                                    type="hidden"
+                                    name="flvrtx_save_pick_nonce"
+                                    value="{{ wp_create_nonce('flvrtx_save_pick') }}">
+
+                                <button
+                                    type="submit"
+                                    class="inline-flex items-center gap-2 rounded-2xl border border-border bg-white px-5 py-3 text-sm font-semibold text-text transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary">
+
+                                    <i
+                                        data-lucide="bookmark"
+                                        class="h-5 w-5">
+                                    </i>
+
+                                    Save Pick
+
+                                </button>
+
+                            </form>
+
+                        @endif
+
+                    @else
+
+                        <a
+                            href="{{ add_query_arg(
+                                'redirect_to',
+                                get_permalink(),
+                                home_url('/login/')
+                            ) }}"
+                            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-white px-5 py-3 text-sm font-semibold text-text transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary">
+
+                            <i
+                                data-lucide="bookmark"
+                                class="h-5 w-5">
+                            </i>
+
+                            Sign in to Save
+
+                        </a>
+
+                    @endif
+
+                </div>
 
                 {{-- Trust --}}
                 <div class="mt-10 rounded-[28px] border border-primary/15 bg-primary/5 p-6">

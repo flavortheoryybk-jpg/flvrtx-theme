@@ -17,20 +17,6 @@
                 ]
             ) !!}
 
-            @if (get_field('difficulty'))
-
-                <div class="absolute left-5 top-5">
-
-                    <x-ui.pill>
-
-                        {{ get_field('difficulty') }}
-
-                    </x-ui.pill>
-
-                </div>
-
-            @endif
-
         </div>
 
     @endif
@@ -38,36 +24,44 @@
     {{-- Content --}}
     <div class="flex flex-1 flex-col p-8">
 
-        {{-- Top Meta --}}
-        <div class="flex items-center justify-between">
+        {{-- Meta --}}
+        <div class="flex items-center justify-between gap-4">
 
-            @php
-                $category = get_the_terms(get_the_ID(), 'category');
-            @endphp
+            <div class="flex min-w-0 items-center gap-2">
 
-            @if($category)
+                @php
+                    $category = get_the_terms(get_the_ID(), 'category');
+                @endphp
 
-                <span class="transition-opacity hover:opacity-80">
+                @if($category)
 
-                    <x-ui.pill>
-                
-                        {{ $category[0]->name }}
-                
-                    </x-ui.pill>
-                
-                </span>
+                    <span class="shrink-0">
+                        <x-ui.pill>
+                            {{ $category[0]->name }}
+                        </x-ui.pill>
+                    </span>
 
-            @else
+                @else
 
-                <x-ui.pill>
+                    <span class="shrink-0">
+                        <x-ui.pill>
+                            Recipe
+                        </x-ui.pill>
+                    </span>
 
-                    Recipe
+                @endif
 
-                </x-ui.pill>
+                @if(get_field('difficulty'))
 
-            @endif
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
+                        {{ get_field('difficulty') }}
+                    </span>
 
-            <span class="text-sm font-medium text-text-muted">
+                @endif
+
+            </div>
+
+            <span class="shrink-0 text-sm font-medium text-text-muted">
 
                 {{ get_field('prep_time') ?: '--' }} mins
 

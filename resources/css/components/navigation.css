@@ -3,7 +3,7 @@
 ========================================== */
 
 .nav-menu {
-  @apply flex items-center gap-12;
+  @apply flex items-center gap-8;
 }
 
 .nav-menu > li {
@@ -20,6 +20,8 @@
 
 /* Active Link */
 
+/* Active Link */
+
 .nav-menu .current-menu-item > a,
 .nav-menu .current_page_item > a,
 .nav-menu .current-menu-ancestor > a {
@@ -31,7 +33,7 @@
 .nav-menu .current-menu-ancestor > a::after {
   content: '';
 
-  @apply absolute left-0 right-0 -bottom-[18px] mx-auto h-[3px] w-full rounded-full bg-primary;
+  @apply absolute left-1/2 -bottom-[8px] h-[2px] w-8 -translate-x-1/2 rounded-full bg-primary/70;
 }
 
 /* Keyboard Accessibility */

@@ -2,11 +2,11 @@
     x-data="{ mobileMenu: false }"
     x-init="$watch('mobileMenu', value => document.body.classList.toggle('overflow-hidden', value))"
     @keydown.escape.window="mobileMenu = false"
-    class="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-xl">
+    class="sticky top-[var(--wp-admin--admin-bar--height,0px)] z-50 border-b border-border bg-white/90 backdrop-blur-xl">
 
     <x-container>
 
-        <div class="flex h-[88px] items-center gap-6">
+        <div class="flex h-[88px] items-center gap-4">
 
             {{-- Logo --}}
             <div class="shrink-0">
@@ -34,36 +34,71 @@
 
             </nav>
 
-            {{-- Desktop Search --}}
-            <div class="hidden shrink-0 lg:flex">
+            {{-- Desktop Actions --}}
+        <div class="hidden shrink-0 items-center gap-3 lg:flex">
 
-                <x-ui.button
-                    type="button"
-                    variant="secondary"
-                    class="shrink-0 gap-3 rounded-2xl px-5 whitespace-nowrap"
-                    @click="$dispatch('open-search')">
+            {{-- Search --}}
+            <x-ui.button
+                type="button"
+                variant="secondary"
+                class="shrink-0 gap-3 rounded-2xl px-5 whitespace-nowrap"
+                @click="$dispatch('open-search')">
 
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="h-5 w-5"
-                        aria-hidden="true">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+                    aria-hidden="true">
 
-                        <circle cx="11" cy="11" r="7"></circle>
-                        <path d="m20 20-3.5-3.5"></path>
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-3.5-3.5"></path>
 
-                    </svg>
+                </svg>
 
-                    Search
+                Search
 
-                </x-ui.button>
+            </x-ui.button>
 
-            </div>
+
+            {{-- Member CTA --}}
+            @if(is_user_logged_in())
+
+                <a
+                    href="{{ home_url('/my-flvrtx') }}"
+                    class="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90">
+
+                    My FLVRTX
+
+                    <i
+                        data-lucide="arrow-right"
+                        class="h-4 w-4">
+                    </i>
+
+                </a>
+
+            @else
+
+                <a
+                    href="{{ home_url('/join') }}"
+                    class="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90">
+
+                    Join FLVRTX
+
+                    <i
+                        data-lucide="arrow-right"
+                        class="h-4 w-4">
+                    </i>
+
+                </a>
+
+            @endif
+
+        </div>
 
 
             {{-- Mobile Menu Button --}}
@@ -170,6 +205,37 @@
                 Search
 
             </x-ui.button>
+            @if(is_user_logged_in())
+
+                <a
+                    href="{{ home_url('/my-flvrtx') }}"
+                    class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary/90">
+
+                    My FLVRTX
+
+                    <i
+                        data-lucide="arrow-right"
+                        class="h-5 w-5">
+                    </i>
+
+                </a>
+
+            @else
+
+                <a
+                    href="{{ home_url('/join') }}"
+                    class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-primary/90">
+
+                    Join FLVRTX
+
+                    <i
+                        data-lucide="arrow-right"
+                        class="h-5 w-5">
+                    </i>
+
+                </a>
+
+            @endif
 
         </nav>
 

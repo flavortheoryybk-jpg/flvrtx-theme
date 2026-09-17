@@ -116,20 +116,39 @@
             </p>
 
             <div class="mt-10 flex justify-center">
-            
-                <a
-                    href="{{ home_url('/recipes') }}"
-                    class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90">
-            
-                    Explore Recipes
-            
-                    <i
-                        data-lucide="arrow-right"
-                        class="h-5 w-5">
-                    </i>
-            
-                </a>
-            
+
+                @if(is_user_logged_in())
+
+                    <a
+                        href="{{ home_url('/my-flvrtx') }}"
+                        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90">
+                
+                        My FLVRTX
+                
+                        <i
+                            data-lucide="arrow-right"
+                            class="h-5 w-5">
+                        </i>
+                
+                    </a>
+                
+                @else
+                
+                    <a
+                        href="{{ home_url('/join') }}"
+                        class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-primary shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90">
+                
+                        Join FLVRTX for free
+                
+                        <i
+                            data-lucide="arrow-right"
+                            class="h-5 w-5">
+                        </i>
+                
+                    </a>
+                
+                @endif
+
             </div>
 
         </div>

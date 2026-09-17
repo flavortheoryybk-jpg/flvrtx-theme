@@ -69,15 +69,6 @@
 
         </div>
 
-        {{-- Badge --}}
-        <div class="absolute left-5 top-5">
-
-            <x-ui.pill>
-                Watch
-            </x-ui.pill>
-
-        </div>
-
         {{-- Duration --}}
         @if(get_field('video_duration'))
 
@@ -94,7 +85,8 @@
     {{-- Content --}}
     <div class="flex flex-1 flex-col p-8">
 
-        <div class="flex items-center justify-between">
+        {{-- Meta --}}
+        <div class="flex items-center justify-between gap-4">
 
             <x-ui.pill>
                 Video
@@ -106,18 +98,21 @@
 
         </div>
 
+        {{-- Title --}}
         <h3 class="mt-6 text-2xl font-bold leading-tight tracking-tight transition-colors duration-300 group-hover:text-primary">
 
             {{ get_the_title() }}
 
         </h3>
 
+        {{-- Excerpt --}}
         <p class="mt-4 line-clamp-3 flex-1 leading-8 text-text-muted">
 
             {{ get_the_excerpt() }}
 
         </p>
 
+        {{-- Footer --}}
         <div class="mt-8 flex items-center justify-between border-t border-border/20 pt-6">
 
             <div class="flex items-center gap-2 text-sm text-text-muted">

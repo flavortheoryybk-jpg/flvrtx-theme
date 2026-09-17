@@ -1,9 +1,9 @@
-<section class="bg-background py-24 lg:py-24">
+<section class="bg-background py-10 lg:py-10">
 
     <x-container>
 
         {{-- Breadcrumb --}}
-        <nav class="mb-8 text-sm text-text-muted" aria-label="Breadcrumb">
+        <nav class="mb-6 text-sm text-text-muted" aria-label="Breadcrumb">
 
             <ol class="flex items-center gap-2">
 
@@ -31,7 +31,7 @@
 
         </nav>
 
-        <div class="grid items-center gap-16 lg:grid-cols-2">
+        <div class="grid items-start gap-16 lg:grid-cols-2">
 
             {{-- Left Content --}}
             <div>
@@ -145,13 +145,15 @@
                         Cook Mode
                     
                     </button>
+                    {{-- Save Recipe --}}
+                    <x-ui.save-recipe :recipeId="get_the_ID()" />
 
                 </div>
 
             </div>
 
             {{-- Right Image --}}
-            <div class="overflow-hidden rounded-[36px]">
+            <div class="overflow-hidden rounded-[36px] lg:mt-20">
             
                 @if(has_post_thumbnail())
             
