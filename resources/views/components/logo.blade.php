@@ -4,11 +4,11 @@
     aria-label="FLVRTX Home">
 
     <img
-        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-logo-green.png"
-        alt="FLVRTX"
-        class="h-10-auto object-contain transition duration-300 group-hover:scale-105"
-        width="260"
-        height="80"
-        decoding="async">
+    src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-logo-green.png' ) }}"
+    alt="FLVRTX"
+    class="h-10-auto object-contain transition duration-300 group-hover:scale-105"
+    width="260"
+    height="80"
+    decoding="async">
 
 </a>

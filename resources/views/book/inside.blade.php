@@ -33,7 +33,7 @@
                 <div class="overflow-hidden">
 
                     <img
-                        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-book-preview-01-page-4.webp"
+                        src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-book-preview-01-page-4.webp' ) }}"
                         alt="Inside Indian Cooking Without Guesswork — Why This Book Exists"
                         class="h-auto w-full transition duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -50,7 +50,7 @@
                 <div class="overflow-hidden">
 
                     <img
-                        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-book-preview-02-page-5.webp"
+                        src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-book-preview-02-page-5.webp' ) }}"
                         alt="Inside Indian Cooking Without Guesswork — Understanding Cooking"
                         class="h-auto w-full transition duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -67,7 +67,7 @@
                 <div class="overflow-hidden">
 
                     <img
-                        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-book-preview-03-page-130.webp"
+                        src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-book-preview-03-page-130.webp' ) }}"
                         alt="Inside Indian Cooking Without Guesswork — Cooking Technique"
                         class="h-auto w-full transition duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -84,7 +84,7 @@
                 <div class="overflow-hidden">
 
                     <img
-                        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-book-preview-04-page-331.webp"
+                        src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-book-preview-04-page-331.webp' ) }}"
                         alt="Inside Indian Cooking Without Guesswork — Indian Cooking Patterns"
                         class="h-auto w-full transition duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -101,7 +101,7 @@
                 <div class="overflow-hidden">
 
                     <img
-                        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-book-preview-05-page-371.webp"
+                        src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-book-preview-05-page-371.webp' ) }}"
                         alt="Inside Indian Cooking Without Guesswork — Indian Cooking Decision Tree"
                         class="h-auto w-full transition duration-500 group-hover:scale-105"
                         loading="lazy"
@@ -118,7 +118,7 @@
                 <div class="overflow-hidden">
 
                     <img
-                        src="http://flvrtx.local/wp-content/uploads/2026/08/flvrtx-book-preview-06-page-509.webp"
+                        src="{{ esc_url( wp_upload_dir()['baseurl'] . '/2026/08/flvrtx-book-preview-06-page-509.webp' ) }}"
                         alt="Inside Indian Cooking Without Guesswork — FLVRTX Sensory Framework"
                         class="h-auto w-full transition duration-500 group-hover:scale-105"
                         loading="lazy"
