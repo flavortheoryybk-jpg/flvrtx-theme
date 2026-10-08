@@ -1,9 +1,8 @@
 /* ==========================================
    Primary Navigation
 ========================================== */
-
 .nav-menu {
-  @apply flex items-center gap-8;
+  @apply flex items-center gap-1 md:gap-3 lg:gap-8;
 }
 
 .nav-menu > li {
@@ -11,14 +10,14 @@
 }
 
 .nav-menu a {
-  @apply relative block py-2 text-[17px] font-semibold tracking-tight text-text transition-all duration-300;
+  @apply relative block py-1 text-[10px] font-semibold tracking-tight text-text transition-all duration-300 md:text-[11px] lg:py-2 lg:text-[17px];
 }
+
+/* Larger desktop */
 
 .nav-menu a:hover {
   @apply text-primary;
 }
-
-/* Active Link */
 
 /* Active Link */
 

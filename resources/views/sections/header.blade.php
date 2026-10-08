@@ -6,7 +6,7 @@
 
     <x-container>
 
-        <div class="flex h-[88px] items-center gap-4">
+        <div class="flex h-[88px] items-center gap-2 md:gap-2 lg:gap-4">
 
             {{-- Logo --}}
             <div class="shrink-0">
@@ -18,7 +18,7 @@
 
             {{-- Desktop Navigation --}}
             <nav
-                class="hidden min-w-0 flex-1 lg:block"
+                class="hidden min-w-0 flex-1 md:block"
                 aria-label="Primary Navigation">
 
                 @if(has_nav_menu('primary_navigation'))
@@ -35,13 +35,13 @@
             </nav>
 
             {{-- Desktop Actions --}}
-        <div class="hidden shrink-0 items-center gap-3 lg:flex">
+        <div class="hidden shrink-0 items-center gap-1 md:flex md:gap-1 lg:gap-3">
 
             {{-- Search --}}
             <x-ui.button
                 type="button"
                 variant="secondary"
-                class="shrink-0 gap-3 rounded-2xl px-5 whitespace-nowrap"
+                class="shrink-0 gap-1 rounded-2xl px-2 py-2 text-[11px] whitespace-nowrap md:gap-1 md:px-2 md:py-2 md:text-[11px] lg:gap-3 lg:px-5 lg:py-3 lg:text-sm"
                 @click="$dispatch('open-search')">
 
                 <svg
@@ -52,7 +52,7 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="h-5 w-5"
+                    class="h-4 w-4 lg:h-5 lg:w-5"
                     aria-hidden="true">
 
                     <circle cx="11" cy="11" r="7"></circle>
@@ -70,7 +70,7 @@
 
                 <a
                     href="{{ home_url('/my-flvrtx') }}"
-                    class="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90">
+                    class="inline-flex shrink-0 items-center justify-center gap-1 rounded-2xl bg-primary px-2 py-2 text-[10px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 md:gap-1 md:px-3 md:py-2 md:text-[11px] lg:gap-2 lg:px-5 lg:py-3 lg:text-sm">
 
                     My FLVRTX
 
@@ -85,7 +85,7 @@
 
                 <a
                     href="{{ home_url('/join') }}"
-                    class="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90">
+                    class="inline-flex shrink-0 items-center justify-center gap-1 rounded-2xl bg-primary px-2 py-2 text-[10px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 md:gap-1 md:px-3 md:py-2 md:text-[11px] lg:gap-2 lg:px-5 lg:py-3 lg:text-sm">
 
                     Join FLVRTX
 
@@ -109,7 +109,7 @@
                     $nextTick(() => window.createIcons())
                 "
                 aria-label="Open menu"
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white lg:hidden">
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white md:hidden">
 
                 <i
                     data-lucide="menu"

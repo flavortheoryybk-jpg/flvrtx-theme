@@ -48,7 +48,7 @@
                     </x-ui.button>
 
                     <x-ui.button
-                        href="https://youtube.com"
+                        href="https://www.youtube.com/@FLVRTX"
                         variant="secondary"
                         target="_blank"
                         rel="noopener noreferrer">
