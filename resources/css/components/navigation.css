@@ -1,16 +1,30 @@
 /* ==========================================
    Primary Navigation
 ========================================== */
+
 .nav-menu {
-  @apply flex items-center gap-1 md:gap-3 lg:gap-8;
+  @apply flex w-full items-center justify-between gap-1 lg:justify-start lg:gap-6;
 }
 
 .nav-menu > li {
   @apply relative;
 }
 
+/* Navigation links */
 .nav-menu a {
   @apply relative block py-1 text-[10px] font-semibold tracking-tight text-text transition-all duration-300 md:text-[11px] lg:py-2 lg:text-[17px];
+}
+
+/* Fine-tune only the 768px–1023px range */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .nav-menu {
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .nav-menu a {
+    font-size: 13px;
+  }
 }
 
 /* Larger desktop */

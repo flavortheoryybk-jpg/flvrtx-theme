@@ -6,7 +6,7 @@
 
     <x-container>
 
-        <div class="flex h-[88px] items-center gap-2 md:gap-2 lg:gap-4">
+        <div class="flex h-[88px] items-center gap-2 md:gap-3 lg:gap-4">
 
             {{-- Logo --}}
             <div class="shrink-0">
@@ -17,15 +17,17 @@
 
 
             {{-- Desktop Navigation --}}
+            
             <nav
                 class="hidden min-w-0 flex-1 md:block"
                 aria-label="Primary Navigation">
+
 
                 @if(has_nav_menu('primary_navigation'))
 
                     {!! wp_nav_menu([
                         'theme_location' => 'primary_navigation',
-                        'menu_class'     => 'nav-menu',
+                        'menu_class' => 'nav-menu md:gap-2 md:text-xs lg:gap-4 lg:text-sm',
                         'container'      => false,
                         'echo'           => false,
                     ]) !!}
@@ -35,7 +37,8 @@
             </nav>
 
             {{-- Desktop Actions --}}
-        <div class="hidden shrink-0 items-center gap-1 md:flex md:gap-1 lg:gap-3">
+            
+            <div class="hidden shrink-0 items-center gap-1 md:flex md:gap-1 lg:gap-3">
 
             {{-- Search --}}
             <x-ui.button
@@ -109,7 +112,8 @@
                     $nextTick(() => window.createIcons())
                 "
                 aria-label="Open menu"
-                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white md:hidden">
+                
+                class="ml-auto flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white md:hidden">
 
                 <i
                     data-lucide="menu"

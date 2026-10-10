@@ -2,10 +2,11 @@
 
     <x-container>
 
-        <div class="grid gap-16 py-24 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div class="grid grid-cols-2 gap-x-8 gap-y-12 py-16 md:grid-cols-4 md:gap-x-6 md:gap-y-12 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-16 lg:py-24">
 
             {{-- Brand --}}
-            <div>
+            
+            <div class="col-span-2 md:col-span-1">
 
                 <x-logo />
 
@@ -128,13 +129,13 @@
 
         </div>
 
-        <div class="flex flex-col items-center justify-between gap-4 border-t border-border py-8 text-sm text-text-muted md:flex-row">
+        <div class="flex flex-col items-start justify-between gap-3 border-t border-border py-6 text-sm text-text-muted sm:flex-row sm:items-center sm:gap-4">
 
             <p>
                 © {{ date('Y') }} FLVRTX. All rights reserved.
             </p>
 
-            <p class="text-center md:text-right">
+            <p class="text-left sm:text-right">
                 Understand Food. Cook With Confidence.
             </p>
 
